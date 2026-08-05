@@ -17,6 +17,7 @@ ELIS is a new insurance venture built on its founders' long-standing advisor exp
 
 - `brand/` — final locked brand voice/messaging (positioning, mission, vision, pillars) and logo assets (SVG).
 - `ia/` — approved website sitemap/IA (structure + diagram), with open items and the Glenn credentialing constraint called out.
+- `PROGRESS.md` — dated build-milestone log. Update it as you hit milestones; when the vault's status docs need updating, point back to this file (or just say what changed) rather than syncing automatically.
 
 ## What's *not* in this folder (by design)
 
