@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+
+/*
+  Tokens from brand/Enterprise Life – Visual Identity Guideline – Draft.pdf.
+  Palette is still draft (see CLAUDE.md); typography (Poppins) is confirmed.
+*/
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --color-enterprise-blue-50: #e6effc;
+  --color-enterprise-blue-100: #b0cee3;
+  --color-enterprise-blue-200: #8ab6d6;
+  --color-enterprise-blue-300: #5495c3;
+  --color-enterprise-blue-400: #3381b8;
+  --color-enterprise-blue-500: #0061a6;
+  --color-enterprise-blue-600: #005897;
+  --color-enterprise-blue-700: #004576;
+  --color-enterprise-blue-800: #00355b;
+  --color-enterprise-blue-900: #002946;
+
+  --color-life-green-50: #f3f8ea;
+  --color-life-green-100: #d9ebbe;
+  --color-life-green-200: #c7e19e;
+  --color-life-green-300: #add372;
+  --color-life-green-400: #9dca57;
+  --color-life-green-500: #85bd2d;
+  --color-life-green-600: #79ac29;
+  --color-life-green-700: #5e8620;
+  --color-life-green-800: #496819;
+  --color-life-green-900: #384f13;
+
+  --color-natural-grey-50: #fefefe;
+  --color-natural-grey-100: #fdfdfd;
+  --color-natural-grey-200: #fbfbfb;
+  --color-natural-grey-300: #fafafa;
+  --color-natural-grey-400: #f9f9f9;
+  --color-natural-grey-500: #f7f7f7;
+  --color-natural-grey-600: #e1e1e1;
+  --color-natural-grey-700: #afafaf;
+  --color-natural-grey-800: #888888;
+  --color-natural-grey-900: #686868;
+}
