@@ -1,0 +1,31 @@
+---
+import { advisors } from '../../data/advisors';
+---
+
+<section class="bg-natural-grey-500">
+	<div class="mx-auto max-w-7xl px-6 py-24">
+		<div data-reveal class="mb-12 max-w-2xl">
+			<p class="mb-3 text-sm font-semibold tracking-wide text-life-green-600 uppercase">Advisors — Team</p>
+			<h2 class="text-3xl font-semibold text-natural-grey-900 md:text-4xl">Decades of experience, one new company.</h2>
+		</div>
+
+		<div data-reveal class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+			{
+				advisors.map((advisor) => (
+					<a
+						href={`/about/${advisor.slug}`}
+						class="group flex flex-col items-center rounded-2xl bg-white p-8 text-center transition-shadow duration-300 hover:shadow-lg"
+					>
+						<img src={advisor.image} alt={advisor.name} class="mb-4 h-28 w-28 rounded-full object-cover" />
+						<p class="text-lg font-semibold text-natural-grey-900">{advisor.name}</p>
+						{advisor.role && <p class="text-sm font-medium text-life-green-600">{advisor.role}</p>}
+						<p class="mt-2 text-sm text-natural-grey-800">{advisor.shortBio}</p>
+						<span class="mt-4 text-sm font-semibold text-enterprise-blue-500 group-hover:text-enterprise-blue-600">
+							View profile →
+						</span>
+					</a>
+				))
+			}
+		</div>
+	</div>
+</section>

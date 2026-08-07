@@ -6,7 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Astro project scaffolded 2026-08-07 at repo root (`src/`, `public/`, `astro.config.mjs`, `package.json`, etc. alongside the pre-existing `brand/`, `ia/`, and doc files). Run `pnpm install` then `pnpm dev` (site at `localhost:4321`, Sanity Studio at `localhost:4321/studio`).
 
-**Home page (`src/pages/index.astro`) has real content and layout** — hero, Who We Help, advisor credibility, Services, Tools teaser, and placeholder Testimonials/Resources sections (no fabricated quotes/articles — those stay placeholder until real Sanity content exists). Every other route (`src/pages/**`) is still a structure-only `PageStub.astro` placeholder pending the same treatment. Shared layout: `Header`/`Footer`/`Button`/`Card` in `src/components/`, first animation wiring in `src/scripts/motion.ts` (Lenis + GSAP ScrollTrigger reveals on `[data-reveal]`, see below).
+**Pages with real content:** Home (`src/pages/index.astro`) and About (`src/pages/about/index.astro` + the three advisor profile pages). Home: hero, Who We Help, advisor credibility, Services, Tools teaser, placeholder Testimonials/Resources (no fabricated quotes/articles — those stay placeholder until real Sanity content exists). About: company overview + mission/vision/values (copy pulled verbatim from the visual identity guideline / brand voice doc, not written fresh), team grid, and per-advisor profile pages each with a real build-time-generated QR code (via the `qrcode` package, pointed at `https://enterpriselife.ca/about/<slug>`) per the IA requirement. Advisor content lives in `src/data/advisors.ts` — Glenn Merkley's bio there is the client-confirmed text verbatim, scoped to commercial insurance.
+
+Every other route (`src/pages/**`) is still a structure-only `PageStub.astro` placeholder pending the same treatment. Shared layout: `Header`/`Footer`/`Button`/`Card` in `src/components/`, first animation wiring in `src/scripts/motion.ts` (Lenis + GSAP ScrollTrigger reveals on `[data-reveal]`, see below).
 
 ## Tech stack (confirmed 2026-08-07, scaffolded 2026-08-07)
 

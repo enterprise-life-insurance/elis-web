@@ -1,0 +1,42 @@
+---
+// Mission/vision from brand/brand-voice-messaging.md (locked 2026-08-03). "What we
+// stand for" list matches both that doc and the visual identity guideline's
+// "Vision, Mission, Values" slide verbatim.
+const pillars = [
+	'Honest and transparent advice',
+	'Solutions tailored to your unique needs',
+	'Ongoing guidance as life changes',
+	'Trusted long-term relationships',
+	'Comprehensive insurance and financial solutions under one roof',
+];
+---
+
+<section class="mx-auto max-w-7xl px-6 py-24">
+	<div data-reveal class="mb-16 grid grid-cols-1 gap-10 md:grid-cols-2">
+		<div>
+			<p class="mb-3 text-sm font-semibold tracking-wide text-life-green-600 uppercase">Mission</p>
+			<p class="text-2xl font-semibold text-natural-grey-900">
+				Our mission is to help clients protect their loved ones, support their employees, and achieve lasting
+				financial security with confidence and clarity.
+			</p>
+		</div>
+		<div>
+			<p class="mb-3 text-sm font-semibold tracking-wide text-life-green-600 uppercase">Vision</p>
+			<p class="text-2xl font-semibold text-natural-grey-900">
+				Our vision is to be the trusted advisor for individuals, families, and business owners by empowering them
+				with knowledge, personalized planning, and strategies that protect what matters most.
+			</p>
+		</div>
+	</div>
+
+	<div data-reveal>
+		<p class="mb-6 text-sm font-semibold tracking-wide text-life-green-600 uppercase">What We Stand For</p>
+		<ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				pillars.map((pillar) => (
+					<li class="rounded-2xl border border-natural-grey-600 p-6 text-natural-grey-900 font-medium">{pillar}</li>
+				))
+			}
+		</ul>
+	</div>
+</section>

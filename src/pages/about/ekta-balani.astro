@@ -1,8 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PageStub from '../../components/PageStub.astro';
+import AdvisorProfile from '../../components/about/AdvisorProfile.astro';
+import { advisors } from '../../data/advisors';
+
+const advisor = advisors.find((a) => a.slug === 'ekta-balani')!;
 ---
 
-<Layout title="Ekta Balani">
-	<PageStub title="Ekta Balani" note="Advisor profile page. Needs its own QR code per ia/website-ia-sitemap.md." />
+<Layout title={advisor.name} description={advisor.shortBio}>
+	<AdvisorProfile advisor={advisor} />
 </Layout>

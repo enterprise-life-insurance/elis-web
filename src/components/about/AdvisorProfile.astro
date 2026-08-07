@@ -1,0 +1,49 @@
+---
+import QRCode from 'qrcode';
+import type { Advisor } from '../../data/advisors';
+
+interface Props {
+	advisor: Advisor;
+}
+
+const { advisor } = Astro.props;
+
+// IA calls for each advisor profile page to have its own QR code (ia/website-ia-sitemap.md).
+// Generated at build time against the confirmed production domain.
+const profileUrl = `https://enterpriselife.ca/about/${advisor.slug}`;
+const qrSvg = await QRCode.toString(profileUrl, {
+	type: 'svg',
+	margin: 1,
+	color: { dark: '#002946', light: '#00000000' },
+});
+---
+
+<main class="mx-auto max-w-4xl px-6 py-20">
+	<a href="/about" class="mb-8 inline-block text-sm font-semibold text-enterprise-blue-500 hover:text-enterprise-blue-600">
+		← Back to About
+	</a>
+
+	<div class="flex flex-col gap-10 md:flex-row md:items-start">
+		<img
+			src={advisor.image}
+			alt={advisor.name}
+			class="h-40 w-40 shrink-0 rounded-2xl object-cover"
+		/>
+
+		<div class="flex-1">
+			<h1 class="text-3xl font-semibold text-natural-grey-900">{advisor.name}</h1>
+			{advisor.role && <p class="mt-1 text-life-green-600 font-semibold">{advisor.role}</p>}
+
+			<div class="mt-6 flex flex-col gap-4 text-natural-grey-800">
+				{advisor.bio.map((paragraph) => <p>{paragraph}</p>)}
+			</div>
+		</div>
+
+		<div class="flex shrink-0 flex-col items-center gap-2 self-start rounded-2xl border border-natural-grey-600 p-4">
+			<div class="h-28 w-28 [&>svg]:h-full [&>svg]:w-full">
+				<Fragment set:html={qrSvg} />
+			</div>
+			<p class="text-xs text-natural-grey-800">Scan for this profile</p>
+		</div>
+	</div>
+</main>

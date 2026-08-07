@@ -1,11 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PageStub from '../../components/PageStub.astro';
+import AdvisorProfile from '../../components/about/AdvisorProfile.astro';
+import { advisors } from '../../data/advisors';
+
+// ⚠️ Not licensed for life insurance sales/servicing — bio in src/data/advisors.ts
+// is the client-confirmed text, scoped to commercial insurance. Do not add life
+// insurance sales/servicing claims here. See CLAUDE.md / ia/website-ia-sitemap.md.
+const advisor = advisors.find((a) => a.slug === 'glenn-merkley')!;
 ---
 
-<Layout title="Glenn Merkley">
-	<PageStub
-		title="Glenn Merkley"
-		note="Advisor profile page. Needs its own QR code. ⚠️ Not licensed for life insurance sales/servicing — bio must stay scoped to commercial insurance for business owners, professionals, and HNW clients. See CLAUDE.md and ia/website-ia-sitemap.md for the confirmed bio text and constraint."
-	/>
+<Layout title={advisor.name} description={advisor.shortBio}>
+	<AdvisorProfile advisor={advisor} />
 </Layout>

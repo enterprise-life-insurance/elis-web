@@ -1,11 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PageStub from '../../components/PageStub.astro';
+import CompanyOverview from '../../components/about/CompanyOverview.astro';
+import MissionVisionValues from '../../components/about/MissionVisionValues.astro';
+import TeamGrid from '../../components/about/TeamGrid.astro';
 ---
 
-<Layout title="About">
-	<PageStub
-		title="About"
-		note="Company overview ('new company, seasoned advisors'), mission/vision/pillars, Advisors — Team directory linking to individual profile pages."
-	/>
+<Layout
+	title="About"
+	description="Enterprise Life is a specialized insurance and investment practice built on advisors with decades of hands-on experience."
+>
+	<CompanyOverview />
+	<MissionVisionValues />
+	<TeamGrid />
 </Layout>
