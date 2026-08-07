@@ -11,15 +11,18 @@ Astro project scaffolded 2026-08-07 at repo root (`src/`, `public/`, `astro.conf
 - **Framework:** Astro 7, static output, TypeScript (strict) throughout
 - **Interactive islands:** React 19 via `@astrojs/react` (for calculators, quiz tools, contact form — not yet built)
 - **Styling:** Tailwind CSS v4 via the `@tailwindcss/vite` plugin (CSS-first config, no `tailwind.config.js`); brand color ramps (`enterprise-blue-*`, `life-green-*`, `natural-grey-*`) and `--font-sans` defined via `@theme` in `src/styles/global.css`; `@fontsource/poppins` self-hosted (400/500/600/700 imported)
-- **CMS:** Sanity — `@sanity/client`, `@sanity/image-url`, `astro-portabletext` installed; Studio itself not yet scaffolded (still deciding embedded vs. standalone, see below)
+- **CMS:** Sanity, embedded at `/studio` in this repo via `@sanity/astro` (confirmed 2026-08-07 — not standalone). Config in `sanity.config.ts`; schema types in `src/sanity/schemaTypes/` (`advisor`, `service`, `segment`, `resource`, `testimonial`, singleton `siteSettings`, plus a reusable `faqItem` object). No real Sanity project exists yet — `astro.config.mjs` falls back to a placeholder `projectId` so the site still builds; see `.env.example` for the real `PUBLIC_SANITY_*` vars to set once a project is created.
 - **Animation:** `gsap`, `lenis`, `motion` installed but not yet wired into any component. Intended split: GSAP + ScrollTrigger and Lenis own page/scroll-level motion; Motion scoped to component-level micro-interactions inside React islands; Astro's native `<ViewTransitions />` for page-to-page transitions. Rationale and reference-site comparisons in `brand/references/design-audit.md`.
 - **Forms:** `react-hook-form` + `zod` installed, not yet wired to any form; submission handler (Astro server endpoint / Vercel function) not yet built
+- **Transactional email:** SendGrid — confirmed 2026-08-07, not yet integrated
 - **Icons:** `lucide-react`
 - **Hosting:** Vercel — `@astrojs/vercel` adapter configured in `astro.config.mjs` (static output)
 - **Analytics:** Vercel Analytics (free tier) + GA4, both — confirmed 2026-08-07, not yet installed/wired
 - **Package manager:** pnpm
 
-**Still open / not yet decided:** transactional email provider for form delivery, and whether Sanity Studio stays embedded (`/studio` route in this repo) vs. standalone.
+**Visual direction (confirmed 2026-08-07):** stay with ELIS's current warm, light, family-photography direction — do not pivot to the dark-mode/neon-accent look from some design-audit references. Premium feel should come from animation/interaction *quality* (scroll choreography, micro-interaction density) within the confirmed light palette, not a dark-UI reskin. See "Decisions" in `brand/references/design-audit.md`.
+
+**No longer open — everything in the tech stack above is decided.** Remaining work is execution: create the real Sanity project, wire animation, build real page content, etc.
 
 ## Who ELIS is
 
@@ -35,7 +38,7 @@ Key contacts:
 - `brand/brand-voice-messaging.md` — locked positioning, mission, vision, communication pillars (with "say this / not that" examples), and segment-specific tone (Engineers, Medical professionals, Business owners/trades, Families & Individuals). Any UI copy should follow these pillars and tone rules.
 - `ia/website-ia-sitemap.md` — approved sitemap: Home, About (incl. advisor profile pages with individual QR codes), Who We Help (four segment landing pages, each with a calculator + FAQ), Services (five service pages, each with coverage overview + FAQ), Tools (calculator index — specific tools still unconfirmed), Resources, Contact. Open items (calculators, domain) are called out there.
 - `brand/logo/` — final SVG logo assets (primary/secondary color, stacked w/ tagline, wordmark, favicons).
-- `brand/Enterprise Life – Visual Identity Guideline – Draft.pdf` — draft visual identity guide: color palette (Enterprise Blue `#0061A6`, Life Green `#85BD2D`, Neutral Grey `#F7F7F7`, plus full 50–900 tint/shade ramps for each), primary typeface Poppins (Bold/Semi-Bold/Medium/Regular), logo usage/clear-space/misuse rules, and sample branding-material mockups (billboard, etc.). Filename says "Draft" — treat as the current directional reference, not yet confirmed as final/locked the way the logo files and brand voice doc are. **Exception: typography is confirmed** — sticking with Poppins (sans-only), no serif accent face, even though other design references explored a serif pairing. See `brand/references/design-audit.md`.
+- `brand/Enterprise Life – Visual Identity Guideline – Draft.pdf` — visual identity guide: color palette (Enterprise Blue `#0061A6`, Life Green `#85BD2D`, Neutral Grey `#F7F7F7`, plus full 50–900 tint/shade ramps for each) and typography (Poppins, Bold/Semi-Bold/Medium/Regular) are both **confirmed final** (2026-08-07) despite the filename still saying "Draft" — treat those two as locked, same as the logo files and brand voice doc. Logo usage/clear-space/misuse rules and the sample branding-material mockups (billboard, etc.) remain directional only. See `brand/references/design-audit.md` for the confirmation history.
 - `brand/company/team/headshots/` — studio headshots for Jay Bablani, Glenn Merkley, and Ekta Balani (for advisor/team directory and profile pages).
 - `brand/partner-logos/` — carrier/partner logos (Manulife, Sun Life, Canada Life, Equitable, Scotiabank, TD, National Bank, First National, Home Trust, Mackenzie, Quadrus, RMG) for a partners/carriers section.
 
