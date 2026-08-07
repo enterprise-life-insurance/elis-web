@@ -4,7 +4,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repo status
 
-No application code yet. This repo currently holds a one-time content/asset bridge from the agency's vault (locked brand voice/messaging, logo assets, approved IA) as the starting point for building the ELIS website. There is no framework, build tooling, package manager, or test suite set up yet — when development starts, choose whatever framework/tooling fits and set it up independent of anything in the agency's `second-brain` vault.
+Astro project scaffolded 2026-08-07 at repo root (`src/`, `public/`, `astro.config.mjs`, `package.json`, etc. alongside the pre-existing `brand/`, `ia/`, and doc files). Route stubs exist for the full approved IA (`src/pages/**`, using `PageStub.astro` placeholders) — structure only, no real copy/design yet. Run `pnpm install` then `pnpm dev`.
+
+## Tech stack (confirmed 2026-08-07, scaffolded 2026-08-07)
+
+- **Framework:** Astro 7, static output, TypeScript (strict) throughout
+- **Interactive islands:** React 19 via `@astrojs/react` (for calculators, quiz tools, contact form — not yet built)
+- **Styling:** Tailwind CSS v4 via the `@tailwindcss/vite` plugin (CSS-first config, no `tailwind.config.js`); brand color ramps (`enterprise-blue-*`, `life-green-*`, `natural-grey-*`) and `--font-sans` defined via `@theme` in `src/styles/global.css`; `@fontsource/poppins` self-hosted (400/500/600/700 imported)
+- **CMS:** Sanity — `@sanity/client`, `@sanity/image-url`, `astro-portabletext` installed; Studio itself not yet scaffolded (still deciding embedded vs. standalone, see below)
+- **Animation:** `gsap`, `lenis`, `motion` installed but not yet wired into any component. Intended split: GSAP + ScrollTrigger and Lenis own page/scroll-level motion; Motion scoped to component-level micro-interactions inside React islands; Astro's native `<ViewTransitions />` for page-to-page transitions. Rationale and reference-site comparisons in `brand/references/design-audit.md`.
+- **Forms:** `react-hook-form` + `zod` installed, not yet wired to any form; submission handler (Astro server endpoint / Vercel function) not yet built
+- **Icons:** `lucide-react`
+- **Hosting:** Vercel — `@astrojs/vercel` adapter configured in `astro.config.mjs` (static output)
+- **Analytics:** Vercel Analytics (free tier) + GA4, both — confirmed 2026-08-07, not yet installed/wired
+- **Package manager:** pnpm
+
+**Still open / not yet decided:** transactional email provider for form delivery, and whether Sanity Studio stays embedded (`/studio` route in this repo) vs. standalone.
 
 ## Who ELIS is
 
@@ -19,7 +34,10 @@ Key contacts:
 
 - `brand/brand-voice-messaging.md` — locked positioning, mission, vision, communication pillars (with "say this / not that" examples), and segment-specific tone (Engineers, Medical professionals, Business owners/trades, Families & Individuals). Any UI copy should follow these pillars and tone rules.
 - `ia/website-ia-sitemap.md` — approved sitemap: Home, About (incl. advisor profile pages with individual QR codes), Who We Help (four segment landing pages, each with a calculator + FAQ), Services (five service pages, each with coverage overview + FAQ), Tools (calculator index — specific tools still unconfirmed), Resources, Contact. Open items (calculators, domain) are called out there.
-- `brand/logo/` — final SVG logo assets (primary/secondary color, stacked w/ tagline, wordmark, favicons). Brand identity beyond the logo (color palette, typography) is **not yet final** — don't treat anything beyond the logo files as locked.
+- `brand/logo/` — final SVG logo assets (primary/secondary color, stacked w/ tagline, wordmark, favicons).
+- `brand/Enterprise Life – Visual Identity Guideline – Draft.pdf` — draft visual identity guide: color palette (Enterprise Blue `#0061A6`, Life Green `#85BD2D`, Neutral Grey `#F7F7F7`, plus full 50–900 tint/shade ramps for each), primary typeface Poppins (Bold/Semi-Bold/Medium/Regular), logo usage/clear-space/misuse rules, and sample branding-material mockups (billboard, etc.). Filename says "Draft" — treat as the current directional reference, not yet confirmed as final/locked the way the logo files and brand voice doc are. **Exception: typography is confirmed** — sticking with Poppins (sans-only), no serif accent face, even though other design references explored a serif pairing. See `brand/references/design-audit.md`.
+- `brand/company/team/headshots/` — studio headshots for Jay Bablani, Glenn Merkley, and Ekta Balani (for advisor/team directory and profile pages).
+- `brand/partner-logos/` — carrier/partner logos (Manulife, Sun Life, Canada Life, Equitable, Scotiabank, TD, National Bank, First National, Home Trust, Mackenzie, Quadrus, RMG) for a partners/carriers section.
 
 ## Sync model — important
 

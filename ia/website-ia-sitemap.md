@@ -52,7 +52,7 @@ Each service page includes a coverage overview and FAQ.
 ## Open items (as of 2026-08-05)
 
 - **Calculators** — which specific tools go under Tools, beyond the index page
-- **Domain** — primary domain not yet confirmed/purchased
+- ~~**Domain** — primary domain not yet confirmed/purchased~~ Resolved 2026-08-07: client purchased `enterpriselife.ca`.
 
 ## ⚠️ Advisor credentialing constraint
 
