@@ -1,8 +1,30 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PageStub from '../../components/PageStub.astro';
+import Card from '../../components/ui/Card.astro';
+import { segments } from '../../data/segments';
 ---
 
-<Layout title="Who We Help">
-	<PageStub title="Who We Help" note="Index of the four segment landing pages: Business Owners/Trades, Medical Professionals, Engineers, Families & Individuals." />
+<Layout
+	title="Who We Help"
+	description="A business owner and a tradesperson need different coverage. See how we think about yours."
+>
+	<section class="bg-enterprise-blue-500">
+		<div class="mx-auto max-w-4xl px-6 py-24">
+			<h1 data-reveal class="text-4xl leading-tight font-semibold text-white md:text-5xl">Who We Help</h1>
+			<p data-reveal class="mt-6 max-w-2xl text-lg text-white/90">
+				A business owner and a tradesperson need different coverage — here's how. We build plans around how you
+				actually live and work, not a generic checklist.
+			</p>
+		</div>
+	</section>
+
+	<section class="mx-auto max-w-7xl px-6 py-24">
+		<div data-reveal class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+			{
+				segments.map((segment) => (
+					<Card href={`/who-we-help/${segment.slug}`} title={segment.title} description={segment.description} />
+				))
+			}
+		</div>
+	</section>
 </Layout>

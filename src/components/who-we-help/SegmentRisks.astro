@@ -1,0 +1,21 @@
+---
+interface Props {
+	risks: string[];
+}
+
+const { risks } = Astro.props;
+---
+
+<section class="mx-auto max-w-4xl px-6 py-24">
+	<h2 data-reveal class="mb-8 text-3xl font-semibold text-natural-grey-900">What We Help You Plan For</h2>
+	<ul data-reveal class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+		{
+			risks.map((risk) => (
+				<li class="flex gap-3 rounded-2xl border border-natural-grey-600 p-5 text-natural-grey-900">
+					<span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-life-green-500" />
+					<span>{risk}</span>
+				</li>
+			))
+		}
+	</ul>
+</section>

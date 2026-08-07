@@ -1,8 +1,21 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PageStub from '../../components/PageStub.astro';
+import SegmentHero from '../../components/who-we-help/SegmentHero.astro';
+import SegmentRisks from '../../components/who-we-help/SegmentRisks.astro';
+import CalculatorTeaser from '../../components/who-we-help/CalculatorTeaser.astro';
+import FAQ from '../../components/ui/FAQ.astro';
+import CTASection from '../../components/ui/CTASection.astro';
+import { segments } from '../../data/segments';
+import { segmentDetails } from '../../data/segmentDetails';
+
+const segment = segments.find((s) => s.slug === 'engineers')!;
+const detail = segmentDetails.find((d) => d.slug === 'engineers')!;
 ---
 
-<Layout title="Engineers">
-	<PageStub title="Engineers" note="Segment landing page — needs its calculator and FAQ block." />
+<Layout title={segment.title} description={segment.description}>
+	<SegmentHero title={segment.title} intro={detail.intro} />
+	<SegmentRisks risks={detail.risks} />
+	<CalculatorTeaser />
+	<FAQ items={detail.faq} />
+	<CTASection title="Ready to model your coverage?" />
 </Layout>
