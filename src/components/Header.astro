@@ -1,0 +1,79 @@
+---
+import Button from './ui/Button.astro';
+
+const navItems = [
+	{ label: 'About', href: '/about' },
+	{ label: 'Who We Help', href: '/who-we-help' },
+	{ label: 'Services', href: '/services' },
+	{ label: 'Tools', href: '/tools' },
+	{ label: 'Resources', href: '/resources' },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-natural-grey-600 bg-white/90 backdrop-blur">
+	<div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
+		<a href="/" class="shrink-0" aria-label="Enterprise Life home">
+			<img src="/brand/ELIS-logo-color-primary.svg" alt="Enterprise Life" class="h-9 w-auto" />
+		</a>
+
+		<nav class="hidden items-center gap-8 md:flex" aria-label="Primary">
+			{
+				navItems.map((item) => (
+					<a
+						href={item.href}
+						class="text-sm font-medium text-natural-grey-900 transition-colors duration-300 hover:text-enterprise-blue-500"
+					>
+						{item.label}
+					</a>
+				))
+			}
+		</nav>
+
+		<div class="hidden md:block">
+			<Button href="/contact">Contact Us</Button>
+		</div>
+
+		<button
+			type="button"
+			data-nav-toggle
+			aria-expanded="false"
+			aria-controls="mobile-nav"
+			class="inline-flex items-center justify-center rounded-full p-2 text-natural-grey-900 md:hidden"
+		>
+			<span class="sr-only">Toggle menu</span>
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="3" y1="6" x2="21" y2="6"></line>
+				<line x1="3" y1="12" x2="21" y2="12"></line>
+				<line x1="3" y1="18" x2="21" y2="18"></line>
+			</svg>
+		</button>
+	</div>
+
+	<nav id="mobile-nav" data-mobile-nav hidden class="border-t border-natural-grey-600 px-6 py-4 md:hidden" aria-label="Primary mobile">
+		<ul class="flex flex-col gap-4">
+			{
+				navItems.map((item) => (
+					<li>
+						<a href={item.href} class="text-base font-medium text-natural-grey-900">
+							{item.label}
+						</a>
+					</li>
+				))
+			}
+			<li>
+				<Button href="/contact" class="w-full">Contact Us</Button>
+			</li>
+		</ul>
+	</nav>
+</header>
+
+<script>
+	const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+	const mobileNav = document.querySelector<HTMLElement>('[data-mobile-nav]');
+
+	toggle?.addEventListener('click', () => {
+		const expanded = toggle.getAttribute('aria-expanded') === 'true';
+		toggle.setAttribute('aria-expanded', String(!expanded));
+		mobileNav?.toggleAttribute('hidden', expanded);
+	});
+</script>

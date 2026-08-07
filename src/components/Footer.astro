@@ -1,0 +1,95 @@
+---
+const partnerLogos = [
+	{ file: 'logo-manulife.png', name: 'Manulife' },
+	{ file: 'logo-sunlife.png', name: 'Sun Life' },
+	{ file: 'logo-canadalife-2.png', name: 'Canada Life' },
+	{ file: 'logo-equitable.png', name: 'Equitable' },
+	{ file: 'logo-scotiabank.png', name: 'Scotiabank' },
+	{ file: 'logo-td-1.png', name: 'TD' },
+	{ file: 'logo-nationalbank.png', name: 'National Bank' },
+	{ file: 'logo-firstnational.png', name: 'First National' },
+	{ file: 'logo-hometrust.png', name: 'Home Trust' },
+	{ file: 'logo-mackenzie.png', name: 'Mackenzie' },
+	{ file: 'logo-quadrus.png', name: 'Quadrus' },
+	{ file: 'logo-rmg.png', name: 'RMG' },
+];
+
+const footerNav = [
+	{
+		title: 'Who We Help',
+		links: [
+			{ label: 'Business Owners & Trades', href: '/who-we-help/business-owners' },
+			{ label: 'Medical Professionals', href: '/who-we-help/medical-professionals' },
+			{ label: 'Engineers', href: '/who-we-help/engineers' },
+			{ label: 'Families & Individuals', href: '/who-we-help/families-individuals' },
+		],
+	},
+	{
+		title: 'Services',
+		links: [
+			{ label: 'Life Insurance', href: '/services/life-insurance' },
+			{ label: 'Disability Insurance', href: '/services/disability-insurance' },
+			{ label: 'Group Benefits', href: '/services/group-benefits' },
+			{ label: 'Financial & Estate Planning', href: '/services/financial-estate-planning' },
+			{ label: 'Travel Insurance', href: '/services/travel-insurance' },
+		],
+	},
+	{
+		title: 'Company',
+		links: [
+			{ label: 'About', href: '/about' },
+			{ label: 'Tools', href: '/tools' },
+			{ label: 'Resources', href: '/resources' },
+			{ label: 'Contact', href: '/contact' },
+		],
+	},
+];
+---
+
+<footer class="border-t border-natural-grey-600 bg-natural-grey-500">
+	<div class="mx-auto max-w-7xl px-6 py-16">
+		<p class="mb-8 text-center text-sm font-medium tracking-wide text-natural-grey-800 uppercase">
+			Working with trusted carriers and partners
+		</p>
+		<ul class="mb-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 grayscale">
+			{
+				partnerLogos.map((logo) => (
+					<li>
+						<img src={`/brand/partners/${logo.file}`} alt={logo.name} class="h-8 w-auto object-contain opacity-70" />
+					</li>
+				))
+			}
+		</ul>
+
+		<div class="grid grid-cols-2 gap-10 border-t border-natural-grey-600 pt-12 md:grid-cols-4">
+			<div class="col-span-2 md:col-span-1">
+				<img src="/brand/ELIS-logo-color-primary.svg" alt="Enterprise Life" class="mb-4 h-8 w-auto" />
+				<p class="text-sm text-natural-grey-800">Insurance & Investment Solutions Inc.</p>
+			</div>
+			{
+				footerNav.map((group) => (
+					<div>
+						<p class="mb-4 text-sm font-semibold text-natural-grey-900">{group.title}</p>
+						<ul class="flex flex-col gap-3">
+							{group.links.map((link) => (
+								<li>
+									<a href={link.href} class="text-sm text-natural-grey-800 transition-colors duration-300 hover:text-enterprise-blue-500">
+										{link.label}
+									</a>
+								</li>
+							))}
+						</ul>
+					</div>
+				))
+			}
+		</div>
+
+		<div class="mt-12 flex flex-col gap-4 border-t border-natural-grey-600 pt-8 text-sm text-natural-grey-800 md:flex-row md:items-center md:justify-between">
+			<p>&copy; {new Date().getFullYear()} Enterprise Life Insurance and Investment Solutions Inc.</p>
+			<div class="flex gap-6">
+				<a href="/privacy" class="hover:text-enterprise-blue-500">Privacy Policy</a>
+				<a href="/terms" class="hover:text-enterprise-blue-500">Terms</a>
+			</div>
+		</div>
+	</div>
+</footer>
