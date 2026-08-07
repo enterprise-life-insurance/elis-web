@@ -1,8 +1,19 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PageStub from '../../components/PageStub.astro';
+import ServiceHero from '../../components/services/ServiceHero.astro';
+import CoverageOverview from '../../components/services/CoverageOverview.astro';
+import FAQ from '../../components/ui/FAQ.astro';
+import CTASection from '../../components/ui/CTASection.astro';
+import { services } from '../../data/services';
+import { serviceDetails } from '../../data/serviceDetails';
+
+const service = services.find((s) => s.slug === 'life-insurance')!;
+const detail = serviceDetails.find((d) => d.slug === 'life-insurance')!;
 ---
 
-<Layout title="Life Insurance">
-	<PageStub title="Life Insurance" note="Service page — needs coverage overview and FAQ." />
+<Layout title={service.title} description={service.description}>
+	<ServiceHero title={service.title} intro={detail.intro} />
+	<CoverageOverview points={detail.coverageOverview} />
+	<FAQ items={detail.faq} />
+	<CTASection title="Ready to talk about your coverage?" />
 </Layout>

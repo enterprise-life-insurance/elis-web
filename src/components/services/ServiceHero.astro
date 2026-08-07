@@ -1,0 +1,21 @@
+---
+import Button from '../ui/Button.astro';
+
+interface Props {
+	title: string;
+	intro: string;
+}
+
+const { title, intro } = Astro.props;
+---
+
+<section class="bg-enterprise-blue-500">
+	<div class="mx-auto max-w-4xl px-6 py-24">
+		<a href="/services" class="mb-6 inline-block text-sm font-semibold text-white/80 hover:text-white">← Services</a>
+		<h1 data-reveal class="text-4xl leading-tight font-semibold text-white md:text-5xl">{title}</h1>
+		<p data-reveal class="mt-6 max-w-2xl text-lg text-white/90">{intro}</p>
+		<div data-reveal class="mt-8">
+			<Button href="/contact">Talk to an Advisor</Button>
+		</div>
+	</div>
+</section>

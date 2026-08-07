@@ -1,8 +1,27 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PageStub from '../../components/PageStub.astro';
+import Card from '../../components/ui/Card.astro';
+import { services } from '../../data/services';
 ---
 
-<Layout title="Services">
-	<PageStub title="Services" note="Index of the five service pages: Life Insurance, Disability Insurance, Group Benefits, Financial & Estate Planning, Travel Insurance." />
+<Layout title="Services" description="Comprehensive coverage, under one roof — life, disability, group benefits, estate planning, and travel insurance.">
+	<section class="bg-enterprise-blue-500">
+		<div class="mx-auto max-w-4xl px-6 py-24">
+			<h1 data-reveal class="text-4xl leading-tight font-semibold text-white md:text-5xl">Services</h1>
+			<p data-reveal class="mt-6 max-w-2xl text-lg text-white/90">
+				One advisor handled her life insurance, benefits, and estate plan together. Comprehensive coverage, under
+				one roof.
+			</p>
+		</div>
+	</section>
+
+	<section class="mx-auto max-w-7xl px-6 py-24">
+		<div data-reveal class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				services.map((service) => (
+					<Card href={`/services/${service.slug}`} title={service.title} description={service.description} />
+				))
+			}
+		</div>
+	</section>
 </Layout>
