@@ -1,8 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import PageStub from '../components/PageStub.astro';
+import ContactForm from '../components/contact/ContactForm.tsx';
+import ContactInfo from '../components/contact/ContactInfo.astro';
 ---
 
-<Layout title="Contact">
-	<PageStub title="Contact" note="Contact form, phone, and email. Form submission handling and email provider still open (see CLAUDE.md)." />
+<Layout title="Contact" description="Get in touch with an Enterprise Life advisor.">
+	<section class="bg-enterprise-blue-500">
+		<div class="mx-auto max-w-4xl px-6 py-24">
+			<h1 data-reveal class="text-4xl leading-tight font-semibold text-white md:text-5xl">Let's Talk</h1>
+			<p data-reveal class="mt-6 max-w-2xl text-lg text-white/90">
+				Tell us a bit about what you're looking for, and an advisor will get back to you.
+			</p>
+		</div>
+	</section>
+
+	<section class="mx-auto max-w-4xl px-6 py-24">
+		<div data-reveal class="grid grid-cols-1 gap-16 md:grid-cols-3">
+			<div class="md:col-span-2">
+				<ContactForm client:load />
+			</div>
+			<div>
+				<ContactInfo />
+			</div>
+		</div>
+	</section>
 </Layout>
