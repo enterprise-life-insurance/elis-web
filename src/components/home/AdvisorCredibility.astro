@@ -1,0 +1,52 @@
+---
+// ⚠️ Glenn Merkley is not licensed for life insurance sales/servicing (see
+// CLAUDE.md / ia/website-ia-sitemap.md). His copy below stays scoped to commercial
+// insurance for business owners, professionals, and HNW clients.
+const advisors = [
+	{
+		slug: 'jay-bablani',
+		name: 'Jay Bablani',
+		detail: 'Advisor since 1994',
+		image: '/brand/team/jay-bablani.jpg',
+	},
+	{
+		slug: 'glenn-merkley',
+		name: 'Glenn Merkley',
+		detail: 'Director — 30+ years in commercial insurance for business owners, professionals, and HNW clients',
+		image: '/brand/team/glenn-merkley.png',
+	},
+];
+---
+
+<section class="bg-enterprise-blue-900">
+	<div class="mx-auto max-w-7xl px-6 py-24">
+		<div data-reveal class="mb-12 max-w-2xl">
+			<p class="mb-3 text-sm font-semibold tracking-wide text-life-green-300 uppercase">A New Company, Not New Advisors</p>
+			<h2 class="text-3xl font-semibold text-white md:text-4xl">Decades of experience, brought into one place.</h2>
+		</div>
+
+		<div data-reveal class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+			{
+				advisors.map((advisor) => (
+					<a
+						href={`/about/${advisor.slug}`}
+						class="group flex items-center gap-5 rounded-2xl bg-white/5 p-6 transition-colors duration-300 hover:bg-white/10"
+					>
+						<img
+							src={advisor.image}
+							alt={advisor.name}
+							class="h-20 w-20 shrink-0 rounded-full object-cover"
+						/>
+						<div>
+							<p class="text-lg font-semibold text-white">{advisor.name}</p>
+							<p class="text-sm text-white/80">{advisor.detail}</p>
+							<span class="mt-2 inline-block text-sm font-semibold text-life-green-300 group-hover:text-life-green-200">
+								View profile →
+							</span>
+						</div>
+					</a>
+				))
+			}
+		</div>
+	</div>
+</section>

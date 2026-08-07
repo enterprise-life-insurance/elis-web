@@ -6,7 +6,7 @@
 
 /*
   Tokens from brand/Enterprise Life – Visual Identity Guideline – Draft.pdf.
-  Palette is still draft (see CLAUDE.md); typography (Poppins) is confirmed.
+  Palette and typography (Poppins) are both confirmed final (see CLAUDE.md).
 */
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
@@ -43,4 +43,11 @@
   --color-natural-grey-700: #afafaf;
   --color-natural-grey-800: #888888;
   --color-natural-grey-900: #686868;
+}
+
+/* Scroll-reveal sections start hidden only once src/scripts/motion.ts can actually
+   animate them in (html.js is added pre-paint in Layout.astro) — no-JS visitors
+   always see full content. */
+.js [data-reveal] {
+  opacity: 0;
 }

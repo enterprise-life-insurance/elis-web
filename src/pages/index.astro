@@ -1,11 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import PageStub from '../components/PageStub.astro';
+import Hero from '../components/home/Hero.astro';
+import WhoWeHelp from '../components/home/WhoWeHelp.astro';
+import AdvisorCredibility from '../components/home/AdvisorCredibility.astro';
+import Services from '../components/home/Services.astro';
+import ToolsTeaser from '../components/home/ToolsTeaser.astro';
+import Testimonials from '../components/home/Testimonials.astro';
+import ResourcesTeaser from '../components/home/ResourcesTeaser.astro';
 ---
 
 <Layout title="Home">
-	<PageStub
-		title="Home"
-		note="Hero, Who We Help segment cards, advisor credibility, Services, Tools/calculators teaser, testimonials, latest resources teaser."
-	/>
+	<Hero />
+	<WhoWeHelp />
+	<AdvisorCredibility />
+	<Services />
+	<ToolsTeaser />
+	<Testimonials />
+	<ResourcesTeaser />
 </Layout>

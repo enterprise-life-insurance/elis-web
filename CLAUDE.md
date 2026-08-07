@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repo status
 
-Astro project scaffolded 2026-08-07 at repo root (`src/`, `public/`, `astro.config.mjs`, `package.json`, etc. alongside the pre-existing `brand/`, `ia/`, and doc files). Route stubs exist for the full approved IA (`src/pages/**`, using `PageStub.astro` placeholders) — structure only, no real copy/design yet. Run `pnpm install` then `pnpm dev`.
+Astro project scaffolded 2026-08-07 at repo root (`src/`, `public/`, `astro.config.mjs`, `package.json`, etc. alongside the pre-existing `brand/`, `ia/`, and doc files). Run `pnpm install` then `pnpm dev` (site at `localhost:4321`, Sanity Studio at `localhost:4321/studio`).
+
+**Home page (`src/pages/index.astro`) has real content and layout** — hero, Who We Help, advisor credibility, Services, Tools teaser, and placeholder Testimonials/Resources sections (no fabricated quotes/articles — those stay placeholder until real Sanity content exists). Every other route (`src/pages/**`) is still a structure-only `PageStub.astro` placeholder pending the same treatment. Shared layout: `Header`/`Footer`/`Button`/`Card` in `src/components/`, first animation wiring in `src/scripts/motion.ts` (Lenis + GSAP ScrollTrigger reveals on `[data-reveal]`, see below).
 
 ## Tech stack (confirmed 2026-08-07, scaffolded 2026-08-07)
 
@@ -12,7 +14,7 @@ Astro project scaffolded 2026-08-07 at repo root (`src/`, `public/`, `astro.conf
 - **Interactive islands:** React 19 via `@astrojs/react` (for calculators, quiz tools, contact form — not yet built)
 - **Styling:** Tailwind CSS v4 via the `@tailwindcss/vite` plugin (CSS-first config, no `tailwind.config.js`); brand color ramps (`enterprise-blue-*`, `life-green-*`, `natural-grey-*`) and `--font-sans` defined via `@theme` in `src/styles/global.css`; `@fontsource/poppins` self-hosted (400/500/600/700 imported)
 - **CMS:** Sanity, embedded at `/studio` in this repo via `@sanity/astro` (confirmed 2026-08-07 — not standalone). Config in `sanity.config.ts`; schema types in `src/sanity/schemaTypes/` (`advisor`, `service`, `segment`, `resource`, `testimonial`, singleton `siteSettings`, plus a reusable `faqItem` object). No real Sanity project exists yet — `astro.config.mjs` falls back to a placeholder `projectId` so the site still builds; see `.env.example` for the real `PUBLIC_SANITY_*` vars to set once a project is created.
-- **Animation:** `gsap`, `lenis`, `motion` installed but not yet wired into any component. Intended split: GSAP + ScrollTrigger and Lenis own page/scroll-level motion; Motion scoped to component-level micro-interactions inside React islands; Astro's native `<ViewTransitions />` for page-to-page transitions. Rationale and reference-site comparisons in `brand/references/design-audit.md`.
+- **Animation:** `src/scripts/motion.ts` (imported once, in `Layout.astro`) sets up Lenis smooth-scroll and GSAP + ScrollTrigger fade/slide-up reveals on any `[data-reveal]` element — respects `prefers-reduced-motion` and avoids FOUC via an `html.js` class added pre-paint (see `src/styles/global.css`). `motion` (the React-focused library, formerly Framer Motion) is installed but still unused — reserved for component-level micro-interactions inside React islands per the original plan. Astro's native `<ViewTransitions />` for page-to-page transitions also still unused. Rationale and reference-site comparisons in `brand/references/design-audit.md`.
 - **Forms:** `react-hook-form` + `zod` installed, not yet wired to any form; submission handler (Astro server endpoint / Vercel function) not yet built
 - **Transactional email:** SendGrid — confirmed 2026-08-07, not yet integrated
 - **Icons:** `lucide-react`

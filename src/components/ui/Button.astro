@@ -1,4 +1,6 @@
 ---
+import { twMerge } from 'tailwind-merge';
+
 interface Props {
 	href?: string;
 	variant?: 'primary' | 'secondary';
@@ -16,6 +18,6 @@ const variants = {
 };
 ---
 
-<Tag href={href} class={`${base} ${variants[variant]} ${className}`}>
+<Tag href={href} class={twMerge(base, variants[variant], className)}>
 	<slot />
 </Tag>

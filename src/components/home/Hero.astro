@@ -1,0 +1,29 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<section class="relative overflow-hidden bg-enterprise-blue-500">
+	<!-- Brand petal-shape motif from the visual identity guideline, standing in for
+	     photography until licensed lifestyle imagery is available. -->
+	<div class="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-bl-[10rem] bg-life-green-500/90 md:h-[32rem] md:w-[32rem]"></div>
+	<div class="pointer-events-none absolute top-1/2 -right-40 h-72 w-72 rounded-tl-[8rem] bg-enterprise-blue-400/60 md:h-96 md:w-96"></div>
+
+	<div class="relative mx-auto flex max-w-7xl flex-col gap-6 px-6 py-28 md:max-w-3xl md:py-40">
+		<p data-reveal class="text-sm font-semibold tracking-wide text-life-green-300 uppercase">
+			A new company. Not new advisors.
+		</p>
+		<h1 data-reveal class="text-4xl leading-tight font-semibold text-white md:text-5xl">
+			Insurance and financial planning built on real experience.
+		</h1>
+		<p data-reveal class="text-lg text-white/90">
+			Personalized life insurance, disability insurance, group benefits, and estate planning — from advisors who've
+			been doing this since 1994.
+		</p>
+		<div data-reveal class="flex flex-wrap gap-4 pt-2">
+			<Button href="/contact">Get Started</Button>
+			<Button href="/who-we-help" variant="secondary" class="border-white text-white hover:bg-white/10">
+				See How We Help
+			</Button>
+		</div>
+	</div>
+</section>
