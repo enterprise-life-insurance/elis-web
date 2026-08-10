@@ -41,7 +41,7 @@ Enterprise Life Insurance and Investment Solutions (ELIS) is a new insurance ven
 Key contacts:
 - **Jay Bablani** — client-side lead, primary decision-maker on brand/positioning.
 - **Glenn Merkley** — Director, 30+ years in insurance, specializes in commercial insurance for business owners, professionals, and HNW clients. ⚠️ **Not licensed for life insurance sales/servicing** — never attribute life insurance sales, servicing, or credentialing to him anywhere on the site (bio, advisor profile, homepage/services credibility copy). See `ia/website-ia-sitemap.md` for the confirmed bio and full constraint.
-- **Ekta Balani** — client-side, handles logistics; also listed on the advisor/team directory.
+- **Ekta Balani** — client-side, Insurance Broker and Financial Planner, RIBO certified, handles the life insurance side of the business; also listed on the advisor/team directory.
 
 ## Content sources (read before writing copy or building pages)
 

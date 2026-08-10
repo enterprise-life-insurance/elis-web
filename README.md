@@ -11,7 +11,7 @@ ELIS is a new insurance venture built on its founders' long-standing advisor exp
 - **Jay Bablani** — client-side lead, primary decision-maker on brand/positioning direction.
 - **Glenn Merkley** — Director, 30+ years in insurance, specializes in commercial insurance for business owners, professionals, and HNW clients.
   ⚠️ **Not licensed for life insurance sales/servicing** (confirmed by Jay Bablani, 2026-08-04) — exclude Glenn from any life-insurance-specific copy, bio claims, or credentialing anywhere on the site. See `ia/website-ia-sitemap.md` for the full note.
-- **Ekta Balani** — client-side, handles logistics; also listed on the advisor/team directory.
+- **Ekta Balani** — client-side, Insurance Broker and Financial Planner, RIBO certified, handles the life insurance side of the business; also listed on the advisor/team directory.
 
 ## What's in this folder
 

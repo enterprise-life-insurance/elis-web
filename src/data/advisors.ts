@@ -35,8 +35,9 @@ export const advisors: Advisor[] = [
 	{
 		slug: 'ekta-balani',
 		name: 'Ekta Balani',
+		role: 'Insurance Broker & Financial Planner',
 		image: '/brand/team/ekta-balani.png',
-		shortBio: 'Supports day-to-day operations at Enterprise Life.',
-		bio: ["Ekta Balani supports Enterprise Life's day-to-day operations, helping keep client service running smoothly behind the scenes."],
+		shortBio: 'RIBO-certified Insurance Broker and Financial Planner specializing in life insurance.',
+		bio: ["Ekta Balani is a RIBO-certified Insurance Broker and Financial Planner at Enterprise Life, specializing in life insurance for clients and their families."],
 	},
 ];
