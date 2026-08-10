@@ -8,7 +8,10 @@ import sanity from '@sanity/astro';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://enterpriselife.ca',
+  // TODO: switch back to 'https://enterpriselife.ca' once DNS points there —
+  // it's currently still on the registrar's parking page (redirects to /lander),
+  // so OG/Twitter tags pointing at it 404 for link-preview crawlers (WhatsApp etc).
+  site: 'https://elis-web.vercel.app',
 
   integrations: [
     react(),
