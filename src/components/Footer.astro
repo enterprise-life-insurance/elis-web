@@ -51,15 +51,21 @@ const footerNav = [
 		<p class="mb-8 text-center text-sm font-medium tracking-wide text-natural-grey-800 uppercase">
 			Working with trusted carriers and partners
 		</p>
-		<ul class="mb-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 grayscale">
-			{
-				partnerLogos.map((logo) => (
-					<li>
-						<img src={`/brand/partners/${logo.file}`} alt={logo.name} class="h-8 w-auto object-contain opacity-70" />
-					</li>
-				))
-			}
-		</ul>
+		<div class="logo-ticker mb-16">
+			<ul class="logo-ticker__track">
+				{
+					[...partnerLogos, ...partnerLogos].map((logo) => (
+						<li class="flex shrink-0 items-center px-8">
+							<img
+								src={`/brand/partners/${logo.file}`}
+								alt={logo.name}
+								class="logo-ticker__logo h-14 w-auto object-contain opacity-70 grayscale transition-all duration-300"
+							/>
+						</li>
+					))
+				}
+			</ul>
+		</div>
 
 		<div class="grid grid-cols-2 gap-10 border-t border-natural-grey-600 pt-12 md:grid-cols-4">
 			<div class="col-span-2 md:col-span-1">
@@ -93,3 +99,43 @@ const footerNav = [
 		</div>
 	</div>
 </footer>
+
+<style>
+	.logo-ticker {
+		overflow: hidden;
+		width: 100%;
+		mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+		-webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+	}
+
+	.logo-ticker__track {
+		display: flex;
+		align-items: center;
+		width: max-content;
+		animation: logo-ticker-scroll 30s linear infinite;
+	}
+
+	.logo-ticker:hover .logo-ticker__track {
+		animation-play-state: paused;
+	}
+
+	.logo-ticker__logo:hover {
+		opacity: 1;
+		filter: grayscale(0);
+	}
+
+	@keyframes logo-ticker-scroll {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(calc(-100% / 2));
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.logo-ticker__track {
+			animation: none;
+		}
+	}
+</style>
