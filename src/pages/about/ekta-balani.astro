@@ -6,6 +6,6 @@ import { advisors } from '../../data/advisors';
 const advisor = advisors.find((a) => a.slug === 'ekta-balani')!;
 ---
 
-<Layout title={advisor.name} description={advisor.shortBio}>
+<Layout title={advisor.name} description={advisor.shortBio} image={advisor.image}>
 	<AdvisorProfile advisor={advisor} />
 </Layout>
