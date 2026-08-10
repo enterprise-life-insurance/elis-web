@@ -10,12 +10,12 @@ export interface Segment {
 export const segments: Segment[] = [
 	{
 		slug: 'business-owners',
-		title: 'Business Owners & Trades',
+		title: 'Business Owners & Contractors',
 		description: "Your business carries risks a standard policy won't cover. We build coverage around how you actually operate.",
 	},
 	{
 		slug: 'medical-professionals',
-		title: 'Medical Professionals',
+		title: 'Healthcare',
 		description: 'Long hours, high liability, and a career you spent years building — your coverage should work as hard as you do.',
 	},
 	{

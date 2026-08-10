@@ -1,6 +1,6 @@
 # ELIS — Website Information Architecture (Approved)
 
-Approved by client 2026-08-04. Built around four audience segments (business owners/trades, medical professionals, engineers, families & individuals) and the reference sites the client shared (Qopia Financial, Safe Pacific, Radiant Life Financial).
+Approved by client 2026-08-04. Built around four audience segments (business owners & contractors, healthcare, engineers, families & individuals) and the reference sites the client shared (Qopia Financial, Safe Pacific, Radiant Life Financial).
 
 See `website-ia-sitemap.png` in this folder for the visual sitemap.
 
@@ -23,8 +23,8 @@ See `website-ia-sitemap.png` in this folder for the visual sitemap.
 
 ### Who We Help
 Four segment landing pages, each speaking directly to that audience's risks:
-- Business Owners / Trades
-- Medical Professionals
+- Business Owners & Contractors
+- Healthcare
 - Engineers
 - Families & Individuals
 

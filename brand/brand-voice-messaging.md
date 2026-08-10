@@ -45,8 +45,8 @@
 ## Segment tone
 
 - **Engineers** — Authority/Ruler inflection. Analytical, precise, cut-to-the-point. Lead with numbers and logic.
-- **Medical professionals** — Caregiver inflection. Empathetic but efficient.
-- **Business owners / trades** — Sage + practical. Speak to risk to the business itself.
+- **Healthcare** — Caregiver inflection. Empathetic but efficient.
+- **Business owners & contractors** — Sage + practical. Speak to risk to the business itself.
 - **Families & Individuals** — Caregiver + Sage. Warmest of the four; centers protection and peace of mind.
 
 ## Core brand tension

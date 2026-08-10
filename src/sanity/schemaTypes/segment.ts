@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity';
 
-// Four confirmed segments per ia/website-ia-sitemap.md: Business Owners/Trades,
-// Medical Professionals, Engineers, Families & Individuals.
+// Four confirmed segments per ia/website-ia-sitemap.md: Business Owners & Contractors,
+// Healthcare, Engineers, Families & Individuals.
 export const segment = defineType({
 	name: 'segment',
 	title: 'Who We Help — Segment',
