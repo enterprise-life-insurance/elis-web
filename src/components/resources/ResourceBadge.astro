@@ -1,0 +1,28 @@
+---
+interface Props {
+	format: 'blog-post' | 'article' | 'guide';
+	gated?: boolean;
+	class?: string;
+}
+
+const { format, gated = false, class: className = '' } = Astro.props;
+
+const formatLabels: Record<Props['format'], string> = {
+	'blog-post': 'Blog Post',
+	article: 'Article',
+	guide: 'Guide',
+};
+---
+
+<div class:list={['flex flex-wrap items-center gap-2', className]}>
+	<span class="rounded-full bg-enterprise-blue-50 px-3 py-1 text-xs font-semibold text-enterprise-blue-700">
+		{formatLabels[format]}
+	</span>
+	{
+		gated && (
+			<span class="rounded-full bg-life-green-50 px-3 py-1 text-xs font-semibold text-life-green-700">
+				Free Download
+			</span>
+		)
+	}
+</div>

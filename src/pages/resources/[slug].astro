@@ -1,0 +1,143 @@
+---
+import { PortableText } from 'astro-portabletext';
+import Layout from '../../layouts/Layout.astro';
+import CTASection from '../../components/ui/CTASection.astro';
+import ResourceBadge from '../../components/resources/ResourceBadge.astro';
+import { urlFor } from '../../lib/sanityImage';
+import { safeFetch } from '../../lib/sanityFetch';
+
+export async function getStaticPaths() {
+	const slugs = await safeFetch<{ slug: string }[]>(
+		`*[_type == "resource" && defined(slug.current)] { "slug": slug.current }`,
+		{},
+		[],
+	);
+	return slugs.map(({ slug }) => ({ params: { slug } }));
+}
+
+interface ResourceDetail {
+	title: string;
+	excerpt?: string;
+	coverImage?: any;
+	body: any[];
+	format: 'blog-post' | 'article' | 'guide';
+	gated: boolean;
+	downloadableGuide?: { asset: { url: string } };
+	tags?: { name: string; slug: string }[];
+	relatedSegments?: { title: string; slug: string }[];
+	author?: { name: string; role: string; slug: string; headshot: any };
+	publishDate: string;
+}
+
+const { slug } = Astro.params;
+
+const resource = await safeFetch<ResourceDetail | null>(
+	`*[_type == "resource" && slug.current == $slug][0]{
+		title,
+		excerpt,
+		coverImage,
+		body,
+		format,
+		gated,
+		downloadableGuide{ asset->{ url } },
+		"tags": tags[]->{ name, "slug": slug.current },
+		"relatedSegments": relatedSegments[]->{ title, "slug": slug.current },
+		"author": author->{ name, role, "slug": slug.current, headshot },
+		publishDate,
+	}`,
+	{ slug },
+	null,
+);
+
+if (!resource) {
+	return Astro.redirect('/resources');
+}
+
+const publishedOn = new Date(resource.publishDate).toLocaleDateString('en-CA', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+});
+---
+
+<Layout
+	title={resource.title}
+	description={resource.excerpt}
+	image={resource.coverImage ? urlFor(resource.coverImage).width(1200).height(630).url() : undefined}
+>
+	<article>
+		<section class="bg-enterprise-blue-500">
+			<div class="mx-auto max-w-3xl px-6 py-24">
+				<ResourceBadge format={resource.format} gated={resource.gated} class="mb-6" />
+				<h1 data-reveal class="text-4xl leading-tight font-semibold text-white md:text-5xl">{resource.title}</h1>
+				{resource.excerpt && (
+					<p data-reveal class="mt-6 max-w-2xl text-lg text-white/90">
+						{resource.excerpt}
+					</p>
+				)}
+				<p class="mt-8 text-sm text-white/70">
+					{resource.author && <span>{resource.author.name} · </span>}
+					{publishedOn}
+				</p>
+			</div>
+		</section>
+
+		{resource.coverImage && (
+			<div class="mx-auto -mt-12 max-w-4xl px-6">
+				<img
+					src={urlFor(resource.coverImage).width(1200).height(675).url()}
+					alt=""
+					class="aspect-[16/9] w-full rounded-2xl object-cover shadow-lg"
+				/>
+			</div>
+		)}
+
+		<div class="mx-auto max-w-3xl px-6 py-16">
+			<div data-reveal class="prose prose-natural-grey max-w-none">
+				<PortableText value={resource.body} />
+			</div>
+
+			{resource.downloadableGuide?.asset?.url && (
+				<div class="mt-10 rounded-2xl border border-natural-grey-600 bg-natural-grey-500 p-6">
+					<p class="text-sm font-semibold text-natural-grey-900">
+						{resource.gated ? 'Free Download' : 'Downloadable PDF'}
+					</p>
+					<p class="mt-1 text-sm text-natural-grey-800">
+						{resource.gated
+							? "This download doesn't require a form yet — that flow is still being built. For now it opens directly."
+							: 'Save or print this guide for later.'}
+					</p>
+					<a
+						href={resource.downloadableGuide.asset.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="mt-4 inline-flex items-center justify-center rounded-full bg-life-green-500 px-6 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-life-green-600"
+					>
+						Download PDF
+					</a>
+				</div>
+			)}
+
+			{resource.tags && resource.tags.length > 0 && (
+				<div class="mt-10 flex flex-wrap gap-2 border-t border-natural-grey-600 pt-6">
+					{resource.tags.map((tag) => (
+						<span class="rounded-full bg-natural-grey-500 px-3 py-1 text-xs text-natural-grey-800">{tag.name}</span>
+					))}
+				</div>
+			)}
+
+			{resource.relatedSegments && resource.relatedSegments.length > 0 && (
+				<div class="mt-6 flex flex-wrap items-center gap-2 text-sm text-natural-grey-800">
+					<span class="font-semibold text-natural-grey-900">Relevant to:</span>
+					{resource.relatedSegments.map((segment) => (
+						<a href={`/who-we-help/${segment.slug}`} class="text-enterprise-blue-500 underline hover:text-enterprise-blue-600">
+							{segment.title}
+						</a>
+					))}
+				</div>
+			)}
+		</div>
+	</article>
+
+	<CTASection title="Have questions about your own coverage?" />
+</Layout>
