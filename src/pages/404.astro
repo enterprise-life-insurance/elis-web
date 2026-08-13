@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EmptyState from '../components/ui/EmptyState.astro';
+---
+
+<Layout title="Page Not Found" description="This page doesn't exist — let's get you back on track.">
+	<EmptyState
+		headingLevel="h1"
+		eyebrow="404"
+		title="This page took a detour."
+		message="The page you're looking for doesn't exist or may have moved. Let's get you back on track."
+		ctaLabel="Back to Home"
+		ctaHref="/"
+		secondaryLabel="Talk to an Advisor"
+		secondaryHref="/contact"
+	/>
+</Layout>

@@ -1,0 +1,22 @@
+---
+// Server-rendered (not prerendered) per Astro convention for 500.astro — this page
+// only fires on an actual runtime error, which a static build can't predict ahead
+// of time. Everything else on the site stays static; see CLAUDE.md hybrid-mode note.
+export const prerender = false;
+
+import Layout from '../layouts/Layout.astro';
+import EmptyState from '../components/ui/EmptyState.astro';
+---
+
+<Layout title="Something Went Wrong" description="We hit an unexpected error — try again shortly.">
+	<EmptyState
+		headingLevel="h1"
+		eyebrow="500"
+		title="Something went wrong on our end."
+		message="This isn't you — it's us. Try refreshing the page, or reach out if it keeps happening."
+		ctaLabel="Back to Home"
+		ctaHref="/"
+		secondaryLabel="Contact Us"
+		secondaryHref="/contact"
+	/>
+</Layout>

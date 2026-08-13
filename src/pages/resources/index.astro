@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/ui/Button.astro';
+import EmptyState from '../../components/ui/EmptyState.astro';
 import ResourceBadge from '../../components/resources/ResourceBadge.astro';
 import { urlFor } from '../../lib/sanityImage';
 import { safeFetch } from '../../lib/sanityFetch';
@@ -46,13 +47,17 @@ const resources = await safeFetch<ResourceListItem[]>(
 		</div>
 	</section>
 
-	<section class="mx-auto max-w-7xl px-6 py-24">
-		{
-			resources.length === 0 ? (
-				<p data-reveal class="text-natural-grey-800">
-					No resources have been published yet — check back soon.
-				</p>
-			) : (
+	{
+		resources.length === 0 ? (
+			<EmptyState
+				eyebrow="Coming Soon"
+				title="No resources published yet."
+				message="We're not going to fabricate articles or guides to fill this page. Check back soon — or talk to an advisor directly in the meantime."
+				ctaLabel="Talk to an Advisor"
+				ctaHref="/contact"
+			/>
+		) : (
+			<section class="mx-auto max-w-7xl px-6 py-24">
 				<div data-reveal class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 					{resources.map((resource) => (
 						<a
@@ -85,9 +90,9 @@ const resources = await safeFetch<ResourceListItem[]>(
 						</a>
 					))}
 				</div>
-			)
-		}
-	</section>
+			</section>
+		)
+	}
 
 	<section class="bg-enterprise-blue-900">
 		<div data-reveal class="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-20 text-center">

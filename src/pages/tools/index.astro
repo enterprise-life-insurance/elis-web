@@ -1,8 +1,28 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PageStub from '../../components/PageStub.astro';
+import EmptyState from '../../components/ui/EmptyState.astro';
 ---
 
-<Layout title="Tools">
-	<PageStub title="Tools" note="Calculator index. Specific calculators still pending client confirmation — see ia/website-ia-sitemap.md open items." />
+<Layout
+	title="Tools"
+	description="Calculators to help you get a clearer picture of your coverage — coming soon."
+>
+	<section class="bg-enterprise-blue-500">
+		<div class="mx-auto max-w-4xl px-6 py-24">
+			<h1 data-reveal class="text-4xl leading-tight font-semibold text-white md:text-5xl">Tools</h1>
+			<p data-reveal class="mt-6 max-w-2xl text-lg text-white/90">
+				Calculators to help you get a clearer picture of your coverage before you talk to an advisor.
+			</p>
+		</div>
+	</section>
+
+	<EmptyState
+		eyebrow="Coming Soon"
+		title="Our calculators are still being built."
+		message="We're not going to fake a tool that doesn't exist yet. In the meantime, an advisor can walk you through a personalized estimate directly — no calculator required."
+		ctaLabel="Talk to an Advisor"
+		ctaHref="/contact"
+		secondaryLabel="Browse Resources"
+		secondaryHref="/resources"
+	/>
 </Layout>

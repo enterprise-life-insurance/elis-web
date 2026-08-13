@@ -1,0 +1,58 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+	eyebrow: string;
+	title: string;
+	message: string;
+	headingLevel?: 'h1' | 'h2';
+	ctaLabel?: string;
+	ctaHref?: string;
+	secondaryLabel?: string;
+	secondaryHref?: string;
+}
+
+const {
+	eyebrow,
+	title,
+	message,
+	headingLevel = 'h2',
+	ctaLabel,
+	ctaHref,
+	secondaryLabel,
+	secondaryHref,
+} = Astro.props;
+
+const Heading = headingLevel;
+---
+
+<section class="mx-auto max-w-4xl px-6 py-24">
+	<div
+		data-reveal
+		class="relative overflow-hidden rounded-3xl border border-natural-grey-600 bg-natural-grey-500 px-8 py-16 text-center md:px-16 md:py-20"
+	>
+		<!-- Brand petal-shape motif, same device used for the Home hero's placeholder
+		     graphic — reused here instead of a generic icon so empty states still read
+		     as Enterprise Life rather than boilerplate. -->
+		<div class="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-bl-[6rem] bg-life-green-500/10 md:h-64 md:w-64"></div>
+		<div class="pointer-events-none absolute -bottom-20 -left-16 h-40 w-40 rounded-tr-[5rem] bg-enterprise-blue-400/10 md:h-56 md:w-56"></div>
+
+		<div class="relative">
+			<p class="mb-3 text-sm font-semibold tracking-wide text-life-green-600 uppercase">{eyebrow}</p>
+			<Heading class="text-3xl font-semibold text-natural-grey-900 md:text-4xl">{title}</Heading>
+			<p class="mx-auto mt-4 max-w-md text-natural-grey-800">{message}</p>
+			{
+				(ctaLabel && ctaHref) || (secondaryLabel && secondaryHref) ? (
+					<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+						{ctaLabel && ctaHref && <Button href={ctaHref}>{ctaLabel}</Button>}
+						{secondaryLabel && secondaryHref && (
+							<Button href={secondaryHref} variant="secondary">
+								{secondaryLabel}
+							</Button>
+						)}
+					</div>
+				) : null
+			}
+		</div>
+	</div>
+</section>
