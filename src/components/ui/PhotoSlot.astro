@@ -1,0 +1,17 @@
+---
+import { ImageIcon } from 'lucide-react';
+
+interface Props {
+	caption: string;
+	class?: string;
+}
+
+const { caption, class: className = '' } = Astro.props;
+---
+
+<div
+	class={`flex aspect-[4/3] flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-natural-grey-700 bg-natural-grey-500 p-6 text-center ${className}`}
+>
+	<ImageIcon aria-hidden="true" className="h-6 w-6 text-natural-grey-800" />
+	<p class="text-xs font-medium text-natural-grey-800">Photo needed: {caption}</p>
+</div>

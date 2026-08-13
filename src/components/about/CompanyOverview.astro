@@ -1,29 +1,57 @@
 ---
-// Copy verbatim from brand/Enterprise Life – Visual Identity Guideline – Draft.pdf
-// ("Brand Overview" slide) — confirmed brand voice, not written here.
+import Button from '../ui/Button.astro';
+import PhotoSlot from '../ui/PhotoSlot.astro';
+
+// Body copy is verbatim from brand/Enterprise Life – Visual Identity Guideline – Draft.pdf
+// ("Brand Overview" slide) — confirmed brand voice, not written here. Photo grid below the
+// hero is real layout, placeholder imagery — swap PhotoSlot cells for licensed stock per the
+// caption on each cell (see brand/references/about page reference.mp4 and "about page taste.png"
+// for the reference layouts this section is modeled on).
 ---
 
-<section class="bg-enterprise-blue-900">
-	<div class="mx-auto max-w-7xl px-6 py-24">
-		<div data-reveal class="grid grid-cols-1 gap-10 md:grid-cols-2">
-			<div>
-				<p class="mb-3 text-sm font-semibold tracking-wide text-life-green-300 uppercase">A New Company, Not New Advisors</p>
-				<h1 class="text-3xl font-semibold text-white md:text-4xl">
-					Enterprise Life is a specialized insurance and investment practice built on advisors with decades of
-					hands-on experience writing, managing, and tailoring policies to real people's lives.
-				</h1>
-			</div>
-			<div class="flex flex-col gap-4 text-white/90">
-				<p>
-					The brand voice is grounded in understated confidence, precise and segment-fluent language, and a
-					commitment to plain, honest explanations that close the gap between what people think their insurance
-					covers and what it actually does.
-				</p>
-				<p>
-					At its core, ELIS exists to make expert-level insurance advice accessible and human, earning trust
-					through clarity, experience, and a consistent focus on the lives clients have worked hard to build.
-				</p>
-			</div>
+<section class="bg-enterprise-blue-500">
+	<div class="mx-auto max-w-4xl px-6 py-24">
+		<p data-reveal class="mb-3 text-sm font-semibold tracking-wide text-life-green-300 uppercase">
+			A New Company, Not New Advisors
+		</p>
+		<h1 data-reveal class="text-4xl leading-tight font-semibold text-white md:text-5xl">
+			Protecting what you've spent years building.
+		</h1>
+		<div data-reveal class="mt-8">
+			<Button href="/contact">Talk to an Advisor</Button>
 		</div>
+	</div>
+</section>
+
+<section class="mx-auto max-w-7xl px-6 py-24">
+	<div data-reveal class="grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-2">
+		<PhotoSlot caption="advisors in conversation with a client" class="md:col-start-1 md:row-start-1" />
+
+		<div
+			class="flex h-full items-center rounded-2xl bg-enterprise-blue-900 p-8 md:col-start-2 md:row-span-2 md:row-start-1"
+		>
+			<p class="text-base font-semibold text-white md:text-lg">
+				Enterprise Life is a specialized insurance and investment practice built on advisors with decades of
+				hands-on experience writing, managing, and tailoring policies to real people's lives.
+			</p>
+		</div>
+
+		<PhotoSlot caption="team reviewing a client's coverage plan" class="md:col-start-3 md:row-start-1" />
+		<PhotoSlot caption="Enterprise Life office or workspace" class="md:col-start-1 md:row-start-2" />
+		<PhotoSlot caption="advisors collaborating" class="md:col-start-3 md:row-start-2" />
+	</div>
+</section>
+
+<section class="mx-auto max-w-7xl px-6 pb-24">
+	<div data-reveal class="grid grid-cols-1 gap-8 md:grid-cols-2">
+		<p class="text-natural-grey-700">
+			The brand voice is grounded in understated confidence, precise and segment-fluent language, and a
+			commitment to plain, honest explanations that close the gap between what people think their insurance
+			covers and what it actually does.
+		</p>
+		<p class="text-natural-grey-700">
+			At its core, ELIS exists to make expert-level insurance advice accessible and human, earning trust
+			through clarity, experience, and a consistent focus on the lives clients have worked hard to build.
+		</p>
 	</div>
 </section>
