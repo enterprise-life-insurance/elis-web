@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SegmentHero from '../../components/who-we-help/SegmentHero.astro';
+import EmptyState from '../../components/ui/EmptyState.astro';
+import { segments } from '../../data/segments';
+
+const segment = segments.find((s) => s.slug === 'professionals')!;
+---
+
+<Layout title={segment.title} description={segment.description}>
+	<SegmentHero
+		title={segment.title}
+		intro="Lawyers, accountants, and other professionals carry income and liability considerations a standard policy doesn't always address."
+	/>
+	<EmptyState
+		eyebrow="Coming Soon"
+		title="Full details for this page are on the way"
+		message="In the meantime, an advisor can walk you through your options directly."
+		ctaLabel="Talk to an Advisor"
+		ctaHref="/contact"
+	/>
+</Layout>

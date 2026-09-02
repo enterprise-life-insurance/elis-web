@@ -17,7 +17,7 @@ Not included: Tools and Resources (still placeholder stubs pending the calculato
 **Who We Help teaser**
 - Eyebrow: "Who We Help"
 - H2: "Every client's risk looks different. Here's how we think about yours."
-- Cards: the four segment title + description pairs (see Who We Help section below)
+- Cards: the eight segment title + description pairs (see Who We Help section below)
 
 **Advisor Credibility**
 - Eyebrow: "A New Company, Not New Advisors"
@@ -28,7 +28,7 @@ Not included: Tools and Resources (still placeholder stubs pending the calculato
 **Services teaser**
 - Eyebrow: "Services"
 - H2: "Comprehensive coverage, under one roof."
-- Cards: the five service title + description pairs (see Services section below)
+- Cards: the six service title + description pairs (see Services section below)
 
 **Tools teaser**
 - Eyebrow: "Tools & Calculators"
@@ -108,11 +108,15 @@ His extensive experience and client-focused approach help guide the organization
 - H1: "Who We Help"
 - Body: "A business owner and a tradesperson need different coverage — here's how. We build plans around how you actually live and work, not a generic checklist."
 
-**Segment card descriptions** (index page cards + home teaser cards)
+**Segment card descriptions** (index page cards + home teaser cards) — 8 segments, expanded from 4 per Jay Bablani, client call 2026-08-28
 - Business Owners & Contractors: "Your business carries risks a standard policy won't cover. We build coverage around how you actually operate."
-- Healthcare: "Long hours, high liability, and a career you spent years building — your coverage should work as hard as you do."
-- Engineers: "Income protection and estate planning, modeled with the same precision you bring to your own work."
+- Professional *(new)*: "Coverage built around your income, your practice, and the specifics of how you work."
+- Health Care *(renamed from "Healthcare")*: "Long hours, high liability, and a career you spent years building — your coverage should work as hard as you do."
+- Architect and Engineers *(renamed from "Engineers")*: "Income protection and estate planning, modeled with the same precision you bring to your own work."
 - Families & Individuals: "Coverage that protects the people who depend on you — clear, and built around your life."
+- Mortgage Brokers *(new)*: "Coverage that reflects commission-based income and the way mortgage brokers actually get paid."
+- Farmers *(new)*: "Coverage built around land, equipment, and a business that often passes through the family."
+- IT Professionals *(new)*: "Coverage that keeps pace with contract work, equity compensation, and a fast-moving career."
 
 ### Business Owners & Contractors (`/who-we-help/business-owners`)
 
@@ -134,7 +138,9 @@ His extensive experience and client-focused approach help guide the organization
 - Q: I already have insurance through my trade association — do I need anything else?
   A: Association plans are a starting point, not usually a complete plan. We can review what you have and show you the gaps.
 
-### Healthcare (`/who-we-help/medical-professionals`)
+### Health Care (`/who-we-help/medical-professionals`)
+
+*(Tile renamed from "Healthcare"; intro/list/FAQ below unchanged.)*
 
 **Intro:** "Between long hours and high liability, your coverage needs to work as hard as you do — and account for how specialized your income actually is."
 
@@ -154,7 +160,9 @@ His extensive experience and client-focused approach help guide the organization
 - Q: How is this different from what my hospital or group offers?
   A: Employer or group coverage is often not portable and may not follow you if you change roles or specialties. We look at what you have and fill in the gaps.
 
-### Engineers (`/who-we-help/engineers`)
+### Architect and Engineers (`/who-we-help/engineers`)
+
+*(Tile renamed from "Engineers"; intro/list/FAQ below still written for engineers only — flagged in the questionnaire for whether architect-specific content is needed.)*
 
 **Intro:** "Income protection and estate planning, modeled with the same precision you bring to your own work — not a flat percentage rule of thumb."
 
@@ -194,6 +202,30 @@ His extensive experience and client-focused approach help guide the organization
 - Q: Is mortgage protection the same as life insurance?
   A: Not exactly. Mortgage protection through a lender is usually tied to that one loan and isn't portable. A personal life insurance policy is more flexible and stays with you.
 
+### Professional (`/who-we-help/professionals`) — new, content pending
+
+**Intro:** "Lawyers, accountants, and other professionals carry income and liability considerations a standard policy doesn't always address."
+
+Page currently shows a "Full details for this page are on the way" placeholder with a Talk to an Advisor button — no "What We Help You Plan For" list or FAQ yet.
+
+### Mortgage Brokers (`/who-we-help/mortgage-brokers`) — new, content pending
+
+**Intro:** "Commission-based income changes how much coverage you need and how it should be structured."
+
+Same placeholder state as above.
+
+### Farmers (`/who-we-help/farmers`) — new, content pending
+
+**Intro:** "Between land, equipment, and passing the operation to the next generation, farm coverage looks different from a standard personal policy."
+
+Same placeholder state as above.
+
+### IT Professionals (`/who-we-help/it-professionals`) — new, content pending
+
+**Intro:** "Contract work, equity compensation, and a fast-moving career call for coverage that keeps up."
+
+Same placeholder state as above.
+
 ---
 
 ## Services (`/services`)
@@ -202,9 +234,10 @@ His extensive experience and client-focused approach help guide the organization
 - H1: "Services"
 - Body: "One advisor handled her life insurance, benefits, and estate plan together. Comprehensive coverage, under one roof."
 
-**Service card descriptions** (index page cards + home teaser cards)
+**Service card descriptions** (index page cards + home teaser cards) — 6 services, expanded from 5 per Jay Bablani, client call 2026-08-28
 - Life Insurance: "Income replacement and legacy protection for the people who depend on you."
-- Disability Insurance: "Protects your income if you're unable to work — the coverage most people underestimate."
+- Disability & Critical Illness Insurance *(renamed from "Disability Insurance")*: "Protects your income if you're unable to work, and provides a lump sum if you're diagnosed with a serious illness."
+- Investments *(new)*: "Investment planning coordinated with the rest of your coverage, not managed in isolation."
 - Group Benefits: "Health, dental, and wellness coverage that helps you retain the people who built your business."
 - Financial & Estate Planning: "A clear plan for what you're building — and what happens to it."
 - Travel Insurance: "Medical coverage for when you're away from home, sized to how you actually travel."
@@ -229,14 +262,17 @@ His extensive experience and client-focused approach help guide the organization
 - Q: What happens if I outlive my term policy?
   A: Most term policies can be renewed or converted to permanent coverage, usually at a higher premium reflecting your age. We review this with you before your term ends.
 
-### Disability Insurance (`/services/disability-insurance`)
+### Disability & Critical Illness Insurance (`/services/disability-insurance`)
 
-**Intro:** "Protects your income if you're unable to work — the coverage most people underestimate."
+*(Renamed from "Disability Insurance" per the 2026-08-28 call. Added one coverage bullet and one FAQ for critical illness, in the same general-education tone as the rest — flagged in the questionnaire for real specifics.)*
+
+**Intro:** "Protects your income if you're unable to work, and provides a lump sum if you're diagnosed with a serious illness — two of the most underestimated coverages there are."
 
 **Coverage Overview:**
 - Income replacement if illness or injury keeps you from working
 - Short-term and long-term disability options
 - Own-occupation vs. any-occupation definitions, and why they matter
+- Critical illness coverage that pays a lump sum on a covered diagnosis
 - Coordination with employer group coverage to close gaps
 
 **FAQ**
@@ -248,6 +284,14 @@ His extensive experience and client-focused approach help guide the organization
   A: It depends on the policy — benefit periods can range from a couple of years to age 65. We help you choose a term that matches your actual risk.
 - Q: Is disability insurance only for physical jobs?
   A: No — disability claims are frequently related to conditions like mental health, cancer, and chronic illness, not just workplace injuries.
+- Q: What does critical illness insurance cover?
+  A: It pays a lump sum if you're diagnosed with a covered serious illness — like cancer, a heart attack, or a stroke — that you can use however you need, on top of any disability coverage you have.
+
+### Investments (`/services/investments`) — new, content pending
+
+**Intro:** "Investment planning coordinated with the rest of your coverage, not managed in isolation."
+
+Page currently shows a "Full details for this page are on the way" placeholder with a Talk to an Advisor button — no coverage/offering list or FAQ yet.
 
 ### Group Benefits (`/services/group-benefits`)
 
@@ -326,13 +370,15 @@ His extensive experience and client-focused approach help guide the organization
 
 **Who We Help:**
 - Business Owners & Contractors: "Ready to talk about your business?"
-- Healthcare: "Ready to talk about your coverage?"
-- Engineers: "Ready to model your coverage?"
+- Health Care: "Ready to talk about your coverage?"
+- Architect and Engineers: "Ready to model your coverage?"
 - Families & Individuals: "Ready to protect what matters most?"
+- Professional / Mortgage Brokers / Farmers / IT Professionals: no separate CTA section — the "coming soon" placeholder's own Talk to an Advisor button serves that role.
 
 **Services:**
 - Life Insurance: "Ready to talk about your coverage?"
-- Disability Insurance: "Ready to talk about your coverage?"
+- Disability & Critical Illness Insurance: "Ready to talk about your coverage?"
 - Group Benefits: "Ready to set up a plan for your team?"
 - Financial & Estate Planning: "Ready to put a plan in writing?"
 - Travel Insurance: "Ready to get covered for your next trip?"
+- Investments: no separate CTA section — same placeholder pattern as above.

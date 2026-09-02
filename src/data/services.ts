@@ -1,5 +1,9 @@
-// Five confirmed services per ia/website-ia-sitemap.md. Shared across the Home
-// teaser and the Services index/detail pages once those are built.
+// Six confirmed services per ia/website-ia-sitemap.md, expanded per Jay Bablani,
+// client call 2026-08-28 (added Investments; Disability Insurance renamed to
+// Disability & Critical Illness Insurance). Shared across the Home teaser and the
+// Services index/detail pages. Investments has no confirmed page content yet —
+// see brand/scratch-content-questionnaire.md — so its detail page renders an
+// honest "coming soon" state rather than fabricated specifics.
 export interface Service {
 	slug: string;
 	title: string;
@@ -14,8 +18,13 @@ export const services: Service[] = [
 	},
 	{
 		slug: 'disability-insurance',
-		title: 'Disability Insurance',
-		description: "Protects your income if you're unable to work — the coverage most people underestimate.",
+		title: 'Disability & Critical Illness Insurance',
+		description: "Protects your income if you're unable to work, and provides a lump sum if you're diagnosed with a serious illness.",
+	},
+	{
+		slug: 'investments',
+		title: 'Investments',
+		description: 'Investment planning coordinated with the rest of your coverage, not managed in isolation.',
 	},
 	{
 		slug: 'group-benefits',

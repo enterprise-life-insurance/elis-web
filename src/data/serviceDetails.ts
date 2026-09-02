@@ -45,11 +45,13 @@ export const serviceDetails: ServiceDetail[] = [
 	},
 	{
 		slug: 'disability-insurance',
-		intro: "Protects your income if you're unable to work — the coverage most people underestimate.",
+		intro:
+			"Protects your income if you're unable to work, and provides a lump sum if you're diagnosed with a serious illness — two of the most underestimated coverages there are.",
 		coverageOverview: [
 			"Income replacement if illness or injury keeps you from working",
 			'Short-term and long-term disability options',
 			'Own-occupation vs. any-occupation definitions, and why they matter',
+			'Critical illness coverage that pays a lump sum on a covered diagnosis',
 			'Coordination with employer group coverage to close gaps',
 		],
 		faq: [
@@ -70,6 +72,11 @@ export const serviceDetails: ServiceDetail[] = [
 			{
 				question: 'Is disability insurance only for physical jobs?',
 				answer: 'No — disability claims are frequently related to conditions like mental health, cancer, and chronic illness, not just workplace injuries.',
+			},
+			{
+				question: 'What does critical illness insurance cover?',
+				answer:
+					"It pays a lump sum if you're diagnosed with a covered serious illness — like cancer, a heart attack, or a stroke — that you can use however you need, on top of any disability coverage you have.",
 			},
 		],
 	},

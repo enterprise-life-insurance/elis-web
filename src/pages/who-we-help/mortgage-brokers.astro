@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SegmentHero from '../../components/who-we-help/SegmentHero.astro';
+import EmptyState from '../../components/ui/EmptyState.astro';
+import { segments } from '../../data/segments';
+
+const segment = segments.find((s) => s.slug === 'mortgage-brokers')!;
+---
+
+<Layout title={segment.title} description={segment.description}>
+	<SegmentHero
+		title={segment.title}
+		intro="Commission-based income changes how much coverage you need and how it should be structured."
+	/>
+	<EmptyState
+		eyebrow="Coming Soon"
+		title="Full details for this page are on the way"
+		message="In the meantime, an advisor can walk you through your options directly."
+		ctaLabel="Talk to an Advisor"
+		ctaHref="/contact"
+	/>
+</Layout>

@@ -69,7 +69,7 @@ It's not just the FAQs that read disconnected — the intro line and the "What W
 - Can I offer group benefits without it being complicated to manage?
 - I already have insurance through my trade association — do I need anything else?
 
-### Healthcare
+### Health Care
 
 **Current intro:** "Between long hours and high liability, your coverage needs to work as hard as you do — and account for how specialized your income actually is."
 
@@ -87,7 +87,9 @@ It's not just the FAQs that read disconnected — the intro line and the "What W
 - I own my practice — what's overhead expense insurance?
 - How is this different from what my hospital or group offers?
 
-### Engineers
+### Architect and Engineers
+
+*(Tile renamed from "Engineers" to "Architect and Engineers" per the 2026-08-28 call — the intro/list/FAQ below are still written for engineers only. Do they also apply to architects, or does this page need architect-specific additions?)*
 
 **Current intro:** "Income protection and estate planning, modeled with the same precision you bring to your own work — not a flat percentage rule of thumb."
 
@@ -123,7 +125,19 @@ It's not just the FAQs that read disconnected — the intro line and the "What W
 - We just had a baby. What should we be thinking about?
 - Is mortgage protection the same as life insurance?
 
-## 7. Services Pages — Body Copy + FAQs
+## 7. New Who We Help Pages — Professional / Mortgage Brokers / Farmers / IT Professionals
+
+These four are brand new (added per the 2026-08-28 call) — there's no draft copy to react to yet, so the pages are currently live with a "full details coming soon" placeholder and a Talk to an Advisor button, nothing invented. For each, same format as above once you send it: an intro line, a 3-4 item "What We Help You Plan For" list, and 3-4 FAQ questions + real answers.
+
+**Professional** — is this meant for a specific group (lawyers, accountants, consultants?) or professionals in general? That'll shape the copy.
+
+**Mortgage Brokers**
+
+**Farmers**
+
+**IT Professionals**
+
+## 8. Services Pages — Body Copy + FAQs
 
 Same deal: check the intro + "Coverage Overview" list per service against reality, then answer the FAQs for real.
 
@@ -145,14 +159,17 @@ Same deal: check the intro + "Coverage Overview" list per service against realit
 - Can I have more than one life insurance policy?
 - What happens if I outlive my term policy?
 
-### Disability Insurance
+### Disability & Critical Illness Insurance
 
-**Current intro:** "Protects your income if you're unable to work — the coverage most people underestimate."
+*(Renamed from "Disability Insurance" per the 2026-08-28 call to fold in critical illness. We added one placeholder coverage bullet and one FAQ for critical illness below in the same general-education tone as the rest — flag if that's wrong or if there's more specific to say.)*
+
+**Current intro:** "Protects your income if you're unable to work, and provides a lump sum if you're diagnosed with a serious illness — two of the most underestimated coverages there are."
 
 **Current "Coverage Overview" list:**
 - Income replacement if illness or injury keeps you from working
 - Short-term and long-term disability options
 - Own-occupation vs. any-occupation definitions, and why they matter
+- Critical illness coverage that pays a lump sum on a covered diagnosis
 - Coordination with employer group coverage to close gaps
 
 **Does that match reality?**
@@ -162,6 +179,7 @@ Same deal: check the intro + "Coverage Overview" list per service against realit
 - What's the difference between "own occupation" and "any occupation" coverage?
 - How long does disability coverage pay out for?
 - Is disability insurance only for physical jobs?
+- What does critical illness insurance cover? *(new — needs a real answer, not just the generic placeholder currently on the page)*
 
 ### Group Benefits
 
@@ -216,3 +234,7 @@ Same deal: check the intro + "Coverage Overview" list per service against realit
 - I travel often — is there a better option than buying a policy every trip?
 - Can I get coverage if I have a pre-existing medical condition?
 - What's the difference between trip cancellation and emergency medical coverage?
+
+## 9. New Service — Investments
+
+Also new from the 2026-08-28 call — no draft copy exists yet, so this page is currently live with a "full details coming soon" placeholder. What does ELIS actually offer here (RRSPs, TFSAs, managed portfolios, segregated funds?), and how does it connect to the insurance side of the business? Once we have that, we'll build out an intro, a coverage/offering list, and FAQs the same as the other service pages.

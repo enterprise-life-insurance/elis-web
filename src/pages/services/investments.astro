@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceHero from '../../components/services/ServiceHero.astro';
+import EmptyState from '../../components/ui/EmptyState.astro';
+import { services } from '../../data/services';
+
+const service = services.find((s) => s.slug === 'investments')!;
+---
+
+<Layout title={service.title} description={service.description}>
+	<ServiceHero
+		title={service.title}
+		intro="Investment planning coordinated with the rest of your coverage, not managed in isolation."
+	/>
+	<EmptyState
+		eyebrow="Coming Soon"
+		title="Full details for this page are on the way"
+		message="In the meantime, an advisor can walk you through your options directly."
+		ctaLabel="Talk to an Advisor"
+		ctaHref="/contact"
+	/>
+</Layout>
