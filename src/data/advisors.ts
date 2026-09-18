@@ -45,7 +45,7 @@ export const advisors: Advisor[] = [
 		slug: 'glenn-merkley',
 		name: 'Glenn Merkley',
 		role: 'Director',
-		image: '/brand/team/glenn-merkley.png',
+		image: '/brand/team/glenn-merkley.jpg',
 		shortBio: '30+ years in commercial insurance for business owners, professionals, and HNW clients',
 		bio: [
 			'Glenn Merkley brings more than 30 years of insurance industry experience to his role as Director of Enterprise Life. His background is rooted in commercial insurance, with particular depth advising business owners, professionals, and high-net-worth clients on complex coverage and planning needs.',
@@ -72,7 +72,7 @@ export const advisors: Advisor[] = [
 		name: 'Ekta Balani',
 		role: 'Insurance Broker & Financial Planner',
 		homeRole: 'Insurance Broker & Financial Planner, CLU',
-		image: '/brand/team/ekta-balani.png',
+		image: '/brand/team/ekta-balani.jpg',
 		shortBio: '10+ years advising on life insurance and estate planning',
 		bio: [
 			'Ekta Balani is a RIBO-certified Insurance Broker and Financial Planner at Enterprise Life, specializing in life insurance for clients and their families. With more than 10 years of experience as an advisor, she brings particular expertise to complex cases, working closely with clients on sophisticated financial and estate planning needs.',
