@@ -1,10 +1,10 @@
 // Eight confirmed segments per Jay Bablani, client call 2026-08-28 (expanded from
 // the original four in ia/website-ia-sitemap.md). Tone per
 // brand/brand-voice-messaging.md ("Segment tone"). Shared across the Home teaser
-// and the Who We Help index/detail pages. The four new segments (Professional,
-// Mortgage Brokers, Farmers, IT Professionals) don't have confirmed page content
-// yet — see brand/scratch-content-questionnaire.md — so their detail pages render
-// an honest "coming soon" state rather than fabricated specifics.
+// and the Who We Help index/detail pages. Client-approved page content landed
+// 2026-09-17 (brand/content-revision/) for Professional, Farmers, and IT
+// Professionals — see src/data/segmentDetails.ts. Mortgage Brokers still has no
+// confirmed page content, so its detail page stays a "coming soon" state.
 export interface Segment {
 	slug: string;
 	title: string;
@@ -15,41 +15,41 @@ export const segments: Segment[] = [
 	{
 		slug: 'business-owners',
 		title: 'Business Owners & Contractors',
-		description: "Your business carries risks a standard policy won't cover. We build coverage around how you actually operate.",
+		description: 'Your business carries exposures that off-the-shelf policies overlook. We structure coverage around how your business actually generates revenue.',
 	},
 	{
 		slug: 'professionals',
 		title: 'Professional',
-		description: 'Coverage built around your income, your practice, and the specifics of how you work.',
+		description: 'Your earning potential is your greatest asset. We build income protection calibrated to your practice and career.',
 	},
 	{
 		slug: 'medical-professionals',
 		title: 'Health Care',
-		description: 'Long hours, high liability, and a career you spent years building — your coverage should work as hard as you do.',
+		description: "You've spent years — and significant liability exposure — building your career. Your coverage should reflect the demands of your profession.",
 	},
 	{
 		slug: 'engineers',
 		title: 'Architect and Engineers',
-		description: 'Income protection and estate planning, modeled with the same precision you bring to your own work.',
+		description: 'Precision matters in your work — it matters in your coverage, too. We model income protection with the same rigor.',
 	},
 	{
 		slug: 'families-individuals',
 		title: 'Families & Individuals',
-		description: 'Coverage that protects the people who depend on you — clear, and built around your life.',
+		description: "The people who count on you deserve a plan that's easy to understand and built around your family's real needs.",
 	},
 	{
 		slug: 'mortgage-brokers',
 		title: 'Mortgage Brokers',
-		description: 'Coverage that reflects commission-based income and the way mortgage brokers actually get paid.',
+		description: "Commission-based income requires a different approach to protection, reflecting how you're actually compensated.",
 	},
 	{
 		slug: 'farmers',
 		title: 'Farmers',
-		description: 'Coverage built around land, equipment, and a business that often passes through the family.',
+		description: 'Your operation is a business, an asset, and often a legacy. We protect your land, equipment, and the transition ahead.',
 	},
 	{
 		slug: 'it-professionals',
 		title: 'IT Professionals',
-		description: 'Coverage that keeps pace with contract work, equity compensation, and a fast-moving career.',
+		description: 'Contract work, equity compensation, and rapid career growth call for coverage that adapts as quickly as your industry does.',
 	},
 ];

@@ -23,23 +23,24 @@ export const serviceDetails: ServiceDetail[] = [
 		],
 		faq: [
 			{
-				question: "What's the difference between term and permanent life insurance?",
-				answer:
-					'Term life covers you for a set period — usually 10, 20, or 30 years — and is generally more affordable. Permanent life insurance covers you for life and can build cash value over time. Which one makes sense depends on what you\'re protecting against and for how long.',
-			},
-			{
 				question: 'How much life insurance do I actually need?',
 				answer:
-					"It depends on your income, debts, mortgage, and how many years of support your dependents would need. We calculate this with you rather than defaulting to a flat multiple of your salary.",
+					'It depends on income replacement needs, debt, and how many years of support your dependents would need. We calculate this with you rather than applying a flat multiple of income.',
 			},
 			{
-				question: 'Can I have more than one life insurance policy?',
-				answer: "Yes. It's common to combine a term policy for a specific need, like a mortgage, with a smaller permanent policy for lifelong coverage.",
-			},
-			{
-				question: 'What happens if I outlive my term policy?',
+				question: "What's the difference between term and permanent life insurance?",
 				answer:
-					'Most term policies can be renewed or converted to permanent coverage, usually at a higher premium reflecting your age. We review this with you before your term ends.',
+					'Term covers a set period at a lower cost, ideal for time-bound needs like a mortgage. Permanent lasts your lifetime and can build cash value, often used for estate planning or legacy goals.',
+			},
+			{
+				question: 'Can I convert term coverage to permanent later?',
+				answer:
+					'Many term policies include a conversion option, letting you move to permanent coverage later without new medical underwriting. We build this into your plan from the start where it makes sense.',
+			},
+			{
+				question: 'Who should I name as my beneficiary?',
+				answer:
+					"It depends on your goals — a spouse, children, a trust, or your estate can each make sense depending on your family and tax situation, and it's worth revisiting as life changes.",
 			},
 		],
 	},
@@ -140,32 +141,66 @@ export const serviceDetails: ServiceDetail[] = [
 	},
 	{
 		slug: 'travel-insurance',
-		intro: 'Medical coverage for when you’re away from home, sized to how you actually travel.',
+		intro:
+			"Emergency medical coverage scaled to how you travel — including visitors to Canada, Super Visa applicants, and frequent flyers — so you're always covered, never re-arranging.",
 		coverageOverview: [
 			'Emergency medical coverage for trips outside your home province or country',
-			'Single-trip and annual multi-trip options',
+			"Single-trip and annual multi-trip options, so you're not setting up new coverage before every departure",
+			'Visitors to Canada coverage for parents, grandparents, and other visitors during their stay',
+			"Super Visa insurance that meets the Government of Canada's minimum coverage requirements",
 			'Coverage for pre-existing conditions, where eligible',
 			'Trip cancellation and interruption options',
 		],
 		faq: [
 			{
-				question: "Doesn't my provincial health plan cover me when I travel?",
+				question: 'What is Super Visa insurance, and do I need it?',
 				answer:
-					'Only partially, and usually at a much lower rate than what care actually costs outside your home province or country. Travel insurance covers the gap.',
+					"If you're sponsoring a parent or grandparent's Super Visa application, they're required to have Canadian medical insurance meeting specific minimum coverage and duration requirements. We set up a policy that qualifies.",
 			},
 			{
-				question: 'I travel often — is there a better option than buying a policy every trip?',
+				question: "What's the advantage of an annual multi-trip policy?",
 				answer:
-					'Yes, an annual multi-trip plan can cover unlimited trips up to a set length each, which is often more convenient and cost-effective for frequent travelers.',
+					"A single annual policy covers every trip you take that year, so you're not setting up new coverage — and risking a gap — before each departure.",
 			},
 			{
-				question: 'Can I get coverage if I have a pre-existing medical condition?',
-				answer: "Often yes, depending on how stable the condition has been before your trip. We'll walk through what's eligible.",
+				question: 'Can visitors to Canada get coverage even without a Super Visa?',
+				answer:
+					'Yes — visitor-to-Canada plans are available for parents, grandparents, and other visitors regardless of visa type, covering emergency medical costs during their stay.',
 			},
 			{
-				question: "What's the difference between trip cancellation and emergency medical coverage?",
+				question: 'Will pre-existing conditions be covered?',
+				answer: "In many cases, yes, depending on how well-controlled the condition is and other eligibility factors. We'll review your situation to find a plan that qualifies.",
+			},
+		],
+	},
+	{
+		slug: 'investments',
+		intro: 'Investment planning coordinated with the rest of your coverage, not managed in isolation.',
+		coverageOverview: [
+			'RRSPs for tax-deferred, long-term retirement savings',
+			'TFSAs for flexible, tax-free growth and withdrawals',
+			"RESPs for a child's education, structured to capture government grants",
+			'Retirement income planning coordinated with your pension, CPP, and OAS',
+		],
+		faq: [
+			{
+				question: 'Should I contribute to an RRSP or a TFSA first?',
 				answer:
-					'Emergency medical covers health costs while you\'re away. Trip cancellation/interruption reimburses non-refundable costs if you have to cancel or cut a trip short for a covered reason.',
+					"It depends on your income, tax bracket, and how soon you'll need the money. We'll walk through the trade-offs for your specific situation rather than apply a one-size-fits-all rule.",
+			},
+			{
+				question: 'How do RESP government grants work?',
+				answer:
+					"The Canada Education Savings Grant matches a portion of your RESP contributions, up to annual and lifetime limits. We make sure you're capturing what's available.",
+			},
+			{
+				question: 'Are my investments coordinated with my insurance and estate plan?',
+				answer:
+					'Yes — that coordination is central to how we work, rather than having investments managed separately from your protection and estate strategy.',
+			},
+			{
+				question: 'What happens to my investment accounts if I ever change advisors?',
+				answer: 'Your accounts are yours. If you ever choose to move them, we help make the transition straightforward.',
 			},
 		],
 	},

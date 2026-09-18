@@ -1,21 +1,23 @@
 ---
 // ⚠️ Glenn Merkley is not licensed for life insurance sales/servicing (see
-// CLAUDE.md / ia/website-ia-sitemap.md). His copy below stays scoped to commercial
-// insurance for business owners, professionals, and HNW clients.
-const advisors = [
-	{
-		slug: 'jay-bablani',
-		name: 'Jay Bablani',
-		detail: 'Advisor since 1994',
-		image: '/brand/team/jay-bablani.jpg',
-	},
-	{
-		slug: 'glenn-merkley',
-		name: 'Glenn Merkley',
-		detail: 'Director — 30+ years in commercial insurance for business owners, professionals, and HNW clients',
-		image: '/brand/team/glenn-merkley.png',
-	},
-];
+// CLAUDE.md / ia/website-ia-sitemap.md). His copy stays scoped to commercial
+// insurance for business owners, professionals, and HNW clients — now editable in
+// Sanity Studio too, so that constraint is enforced editorially, not by code.
+import { advisors as staticAdvisors } from '../../data/advisors';
+import { safeFetchList } from '../../lib/sanityFetch';
+import { advisorListQuery, isValidAdvisorCardData, type AdvisorCardData } from '../../lib/queries';
+
+const fetchedAdvisors = await safeFetchList<AdvisorCardData>(advisorListQuery, {}, staticAdvisors, isValidAdvisorCardData);
+const advisors = fetchedAdvisors.map((advisor) => {
+	const staticMatch = staticAdvisors.find((a) => a.slug === advisor.slug);
+	const role = staticMatch?.homeRole ?? advisor.role;
+	return {
+		slug: advisor.slug,
+		name: advisor.name,
+		detail: role ? `${role} — ${advisor.shortBio}` : advisor.shortBio,
+		image: staticMatch?.image ?? '',
+	};
+});
 ---
 
 <section class="bg-enterprise-blue-900">
@@ -25,7 +27,7 @@ const advisors = [
 			<h2 class="text-3xl font-semibold text-white md:text-4xl">Decades of experience, brought into one place.</h2>
 		</div>
 
-		<div data-reveal class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+		<div data-reveal class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
 			{
 				advisors.map((advisor) => (
 					<a

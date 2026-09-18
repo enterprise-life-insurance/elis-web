@@ -1,9 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import AdvisorProfile from '../../components/about/AdvisorProfile.astro';
-import { advisors } from '../../data/advisors';
+import { advisors, type Advisor } from '../../data/advisors';
+import { safeFetchOne } from '../../lib/sanityFetch';
+import { advisorDetailQuery, isValidAdvisorPageData, type AdvisorPageData } from '../../lib/queries';
 
-const advisor = advisors.find((a) => a.slug === 'ekta-balani')!;
+const SLUG = 'ekta-balani';
+const staticAdvisor = advisors.find((a) => a.slug === SLUG)!;
+const fetched = await safeFetchOne<AdvisorPageData | null>(advisorDetailQuery, { slug: SLUG }, null);
+const advisor: Advisor = isValidAdvisorPageData(fetched) ? { ...staticAdvisor, ...fetched } : staticAdvisor;
 ---
 
 <Layout title={advisor.name} description={advisor.shortBio} image={advisor.image}>

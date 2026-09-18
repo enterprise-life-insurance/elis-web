@@ -1,5 +1,6 @@
 ---
 import QRCode from 'qrcode';
+import CTASection from '../ui/CTASection.astro';
 import type { Advisor } from '../../data/advisors';
 
 interface Props {
@@ -18,23 +19,38 @@ const qrSvg = await QRCode.toString(profileUrl, {
 });
 ---
 
-<main class="mx-auto max-w-4xl px-6 py-20">
-	<a href="/about" class="mb-8 inline-block text-sm font-semibold text-enterprise-blue-500 hover:text-enterprise-blue-600">
-		← Back to About
-	</a>
+<main>
+	<div class="mx-auto max-w-4xl px-6 pt-10">
+		<a href="/about" class="mb-8 inline-block text-sm font-semibold text-enterprise-blue-500 hover:text-enterprise-blue-600">
+			← Back to About
+		</a>
+	</div>
 
-	<div class="flex flex-col gap-10 md:flex-row md:items-start">
-		<img
-			src={advisor.image}
-			alt={advisor.name}
-			class="h-40 w-40 shrink-0 rounded-2xl object-cover"
-		/>
+	<section class="bg-enterprise-blue-900">
+		<div class="mx-auto flex max-w-4xl flex-col gap-8 px-6 py-14 md:flex-row md:items-center">
+			<img
+				src={advisor.image}
+				alt={advisor.name}
+				class="h-32 w-32 shrink-0 rounded-full border-2 border-white/15 object-cover md:h-36 md:w-36"
+			/>
+			<div>
+				<h1 class="text-3xl font-semibold text-white">{advisor.name}</h1>
+				{advisor.role && <p class="mt-1 font-semibold text-life-green-300">{advisor.role}</p>}
+				<div class="mt-4 flex flex-wrap gap-2">
+					{
+						advisor.tags.map((tag) => (
+							<span class="rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-semibold text-white/90">{tag}</span>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
 
+	<div class="mx-auto flex max-w-4xl flex-col gap-10 px-6 py-14 md:flex-row md:items-start">
 		<div class="flex-1">
-			<h1 class="text-3xl font-semibold text-natural-grey-900">{advisor.name}</h1>
-			{advisor.role && <p class="mt-1 text-life-green-600 font-semibold">{advisor.role}</p>}
-
-			<div class="mt-6 flex flex-col gap-4 text-natural-grey-800">
+			<h2 class="mb-4 text-2xl font-semibold text-natural-grey-900">About {advisor.name.split(' ')[0]}</h2>
+			<div class="flex flex-col gap-4 text-natural-grey-800">
 				{advisor.bio.map((paragraph) => <p>{paragraph}</p>)}
 			</div>
 		</div>
@@ -46,4 +62,24 @@ const qrSvg = await QRCode.toString(profileUrl, {
 			<p class="text-xs text-natural-grey-800">Scan for this profile</p>
 		</div>
 	</div>
+
+	<div class="mx-auto max-w-4xl px-6 pb-20">
+		<h2 class="mb-6 text-2xl font-semibold text-natural-grey-900">Areas of Focus</h2>
+		<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+			{
+				advisor.areasOfFocus.map((area) => (
+					<div class="rounded-2xl border border-natural-grey-600 p-6">
+						<h3 class="mb-2 font-semibold text-natural-grey-900">{area.title}</h3>
+						<p class="text-sm text-natural-grey-800">{area.description}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+
+	<CTASection
+		title={`Speak with ${advisor.name.split(' ')[0]} about your coverage`}
+		buttonLabel="Contact Us"
+		buttonHref="/contact"
+	/>
 </main>

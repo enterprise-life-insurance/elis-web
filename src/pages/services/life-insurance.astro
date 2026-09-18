@@ -6,14 +6,21 @@ import FAQ from '../../components/ui/FAQ.astro';
 import CTASection from '../../components/ui/CTASection.astro';
 import { services } from '../../data/services';
 import { serviceDetails } from '../../data/serviceDetails';
+import { safeFetchOne } from '../../lib/sanityFetch';
+import { serviceDetailQuery, isValidServicePageData, type ServicePageData } from '../../lib/queries';
 
-const service = services.find((s) => s.slug === 'life-insurance')!;
-const detail = serviceDetails.find((d) => d.slug === 'life-insurance')!;
+const SLUG = 'life-insurance';
+const fallback: ServicePageData = {
+	...services.find((s) => s.slug === SLUG)!,
+	...serviceDetails.find((d) => d.slug === SLUG)!,
+};
+const fetched = await safeFetchOne<ServicePageData | null>(serviceDetailQuery, { slug: SLUG }, null);
+const service: ServicePageData = isValidServicePageData(fetched) ? fetched : fallback;
 ---
 
 <Layout title={service.title} description={service.description}>
-	<ServiceHero title={service.title} intro={detail.intro} />
-	<CoverageOverview points={detail.coverageOverview} />
-	<FAQ items={detail.faq} />
+	<ServiceHero title={service.title} intro={service.intro} />
+	<CoverageOverview points={service.coverageOverview} />
+	<FAQ items={service.faq} />
 	<CTASection title="Ready to talk about your coverage?" />
 </Layout>

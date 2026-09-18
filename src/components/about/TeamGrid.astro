@@ -1,5 +1,15 @@
 ---
 import { advisors } from '../../data/advisors';
+import { safeFetchList } from '../../lib/sanityFetch';
+import { advisorListQuery, isValidAdvisorCardData, type AdvisorCardData } from '../../lib/queries';
+
+// Headshots stay keyed off the static list (see src/lib/queries.ts) since Sanity
+// doesn't manage advisor photos yet.
+const fetchedAdvisors = await safeFetchList<AdvisorCardData>(advisorListQuery, {}, advisors, isValidAdvisorCardData);
+const teamCards = fetchedAdvisors.map((fetched) => ({
+	...fetched,
+	image: advisors.find((a) => a.slug === fetched.slug)?.image ?? '',
+}));
 ---
 
 <section class="bg-natural-grey-500">
@@ -11,7 +21,7 @@ import { advisors } from '../../data/advisors';
 
 		<div data-reveal class="grid grid-cols-1 gap-8 sm:grid-cols-3">
 			{
-				advisors.map((advisor) => (
+				teamCards.map((advisor) => (
 					<a
 						href={`/about/${advisor.slug}`}
 						class="group flex flex-col items-center rounded-2xl bg-white p-8 text-center transition-shadow duration-300 hover:shadow-lg"

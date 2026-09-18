@@ -7,15 +7,22 @@ import FAQ from '../../components/ui/FAQ.astro';
 import CTASection from '../../components/ui/CTASection.astro';
 import { segments } from '../../data/segments';
 import { segmentDetails } from '../../data/segmentDetails';
+import { safeFetchOne } from '../../lib/sanityFetch';
+import { segmentDetailQuery, isValidSegmentPageData, type SegmentPageData } from '../../lib/queries';
 
-const segment = segments.find((s) => s.slug === 'families-individuals')!;
-const detail = segmentDetails.find((d) => d.slug === 'families-individuals')!;
+const SLUG = 'families-individuals';
+const fallback: SegmentPageData = {
+	...segments.find((s) => s.slug === SLUG)!,
+	...segmentDetails.find((d) => d.slug === SLUG)!,
+};
+const fetched = await safeFetchOne<SegmentPageData | null>(segmentDetailQuery, { slug: SLUG }, null);
+const segment: SegmentPageData = isValidSegmentPageData(fetched) ? fetched : fallback;
 ---
 
 <Layout title={segment.title} description={segment.description}>
-	<SegmentHero title={segment.title} intro={detail.intro} />
-	<SegmentRisks risks={detail.risks} />
+	<SegmentHero title={segment.title} intro={segment.intro} />
+	<SegmentRisks risks={segment.risks} />
 	<CalculatorTeaser />
-	<FAQ items={detail.faq} />
-	<CTASection title="Ready to protect what matters most?" />
+	<FAQ items={segment.faq} />
+	<CTASection title="Ready to talk about your family's coverage?" />
 </Layout>

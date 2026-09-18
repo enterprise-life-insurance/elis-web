@@ -3,8 +3,12 @@ import Layout from '../../layouts/Layout.astro';
 import SegmentHero from '../../components/who-we-help/SegmentHero.astro';
 import EmptyState from '../../components/ui/EmptyState.astro';
 import { segments } from '../../data/segments';
+import { safeFetchList } from '../../lib/sanityFetch';
+import { segmentListQuery, isValidSegmentCardData, type SegmentCardData } from '../../lib/queries';
 
-const segment = segments.find((s) => s.slug === 'mortgage-brokers')!;
+const SLUG = 'mortgage-brokers';
+const allSegments = await safeFetchList<SegmentCardData>(segmentListQuery, {}, segments, isValidSegmentCardData);
+const segment = allSegments.find((s) => s.slug === SLUG) ?? segments.find((s) => s.slug === SLUG)!;
 ---
 
 <Layout title={segment.title} description={segment.description}>

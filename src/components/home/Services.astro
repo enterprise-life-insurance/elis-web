@@ -1,17 +1,23 @@
 ---
 import Card from '../ui/Card.astro';
 import { services } from '../../data/services';
+import { safeFetchList } from '../../lib/sanityFetch';
+import { serviceListQuery, isValidServiceCardData, type ServiceCardData } from '../../lib/queries';
+
+const serviceCards = await safeFetchList<ServiceCardData>(serviceListQuery, {}, services, isValidServiceCardData);
 ---
 
 <section class="mx-auto max-w-7xl px-6 py-24">
 	<div data-reveal class="mb-12 max-w-2xl">
 		<p class="mb-3 text-sm font-semibold tracking-wide text-life-green-600 uppercase">Services</p>
-		<h2 class="text-3xl font-semibold text-natural-grey-900 md:text-4xl">Comprehensive coverage, under one roof.</h2>
+		<h2 class="text-3xl font-semibold text-natural-grey-900 md:text-4xl">
+			A complete range of coverage, coordinated under one plan.
+		</h2>
 	</div>
 
 	<div data-reveal class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 		{
-			services.map((service) => (
+			serviceCards.map((service) => (
 				<Card href={`/services/${service.slug}`} title={service.title} description={service.description} />
 			))
 		}

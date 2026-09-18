@@ -56,22 +56,22 @@ export const segmentDetails: SegmentDetail[] = [
 		],
 		faq: [
 			{
-				question: 'What is own-occupation disability coverage, and why does it matter for me?',
+				question: 'Why does my specialty matter for disability coverage?',
 				answer:
-					"Own-occupation coverage pays out if you can't perform the specific duties of your specialty — even if you could technically work in a different medical role. Standard disability policies often don't offer this distinction.",
+					'Generic occupation categories can undervalue specialized training. Coverage should reflect what it would actually cost to replace your specific skill set and income, not a broad average.',
 			},
 			{
-				question: 'I still have student debt. Does that affect my coverage needs?',
-				answer: 'It should factor into how much coverage you carry. We build your plan around your actual financial picture, including debt.',
+				question: 'I still have student debt — how does that factor in?',
+				answer: "Outstanding debt doesn't disappear if you're unable to work. Coverage can be structured to specifically cover those payments so they don't become a burden on your family.",
 			},
 			{
-				question: "I own my practice — what's overhead expense insurance?",
+				question: "I own my practice — what happens to overhead if I can't work?",
 				answer:
-					"It covers your practice's fixed costs — rent, staff wages, utilities — if you're unable to work due to illness or injury, so the business can keep running while you recover.",
+					"Overhead expense insurance covers fixed costs like rent, staff wages, and equipment leases while you're unable to work, so the practice can stay open until you're back.",
 			},
 			{
-				question: 'How is this different from what my hospital or group offers?',
-				answer: "Employer or group coverage is often not portable and may not follow you if you change roles or specialties. We look at what you have and fill in the gaps.",
+				question: 'Can I set up group benefits for my staff?',
+				answer: 'Yes — group benefits plans can be structured for practices of any size, including clinics with just a few employees.',
 			},
 		],
 	},
@@ -87,21 +87,23 @@ export const segmentDetails: SegmentDetail[] = [
 		],
 		faq: [
 			{
-				question: 'How is my coverage amount actually calculated?',
-				answer: "We model it against your income, debt, and future earning trajectory — not a flat multiple. You'll see the numbers, not just a recommendation.",
-			},
-			{
-				question: 'Does my coverage keep pace with inflation?',
+				question: "Why can't I just use a standard disability policy?",
 				answer:
-					"It can — disability coverage can be structured with a cost-of-living adjustment rider so your benefit doesn't lose value over time.",
+					'Standard policies are often built around a flat percentage of salary. Ours are modeled against your actual earning trajectory and the specialized nature of your training.',
 			},
 			{
-				question: 'I have group coverage through my employer. Do I need my own policy too?',
-				answer: "Often, yes. Group coverage is usually capped and not portable if you change jobs. We'll show you exactly where the gaps are.",
+				question: 'How does inflation protection work on disability coverage?',
+				answer:
+					"A cost-of-living rider increases your benefit over time if you're on claim for an extended period, so a payout doesn't lose purchasing power over a long career.",
 			},
 			{
-				question: 'What happens to my RRSPs and pension if I die before retirement?',
-				answer: 'It depends on your beneficiary designations and estate structure. We review this as part of your plan so nothing gets left to default rules.',
+				question: 'How do RRSPs and pensions factor into my estate plan?',
+				answer:
+					"They're often among the largest assets in a professional's estate and carry specific tax implications on death. We plan around how they transfer, not just what they're worth today.",
+			},
+			{
+				question: 'I have group benefits through my employer — do I still need my own coverage?',
+				answer: "Group coverage is often capped and doesn't follow you if you change jobs. Individual coverage fills the gap and stays with you.",
 			},
 		],
 	},
@@ -132,6 +134,101 @@ export const segmentDetails: SegmentDetail[] = [
 				question: 'Is mortgage protection the same as life insurance?',
 				answer:
 					"Not exactly. Mortgage protection through a lender is usually tied to that one loan and isn't portable. A personal life insurance policy is more flexible and stays with you.",
+			},
+		],
+	},
+	{
+		slug: 'professionals',
+		intro:
+			"Lawyers, accountants, and other professionals carry income and liability considerations a standard policy doesn't always address.",
+		risks: [
+			'Income protection sized to a highly specialized, hard-to-replace skill set',
+			'Overhead expense coverage for professionals who own or share a practice',
+			'Buy-sell and partnership agreements properly funded for a firm or partnership',
+			'Retirement and tax-efficient investment planning alongside a demanding career',
+		],
+		faq: [
+			{
+				question: 'I already have liability insurance through my professional association — do I need anything else?',
+				answer:
+					"Professional liability (errors & omissions) insurance protects you against claims arising from your work. It doesn't replace your personal income or fund a partnership buyout if something happens to you.",
+			},
+			{
+				question: "What's a buy-sell agreement, and why would I need one?",
+				answer:
+					"It's an agreement, funded by insurance, that lets remaining partners buy out a partner's share of the practice if they die, become disabled, or leave — avoiding a forced sale or a drawn-out valuation dispute.",
+			},
+			{
+				question: 'How is coverage different for a partner versus a sole practitioner?',
+				answer:
+					"Partners often need buy-sell funding and shared overhead coverage. Sole practitioners typically prioritize personal income replacement and overhead expense coverage, since there's no partner to absorb a gap.",
+			},
+			{
+				question: 'Can you work alongside my accountant or lawyer?',
+				answer: "Yes. We regularly coordinate with a client's existing legal and accounting team rather than duplicating or replacing that advice.",
+			},
+		],
+	},
+	{
+		slug: 'farmers',
+		intro:
+			'Between land, equipment, and passing the operation to the next generation, farm coverage looks different from a standard personal policy.',
+		risks: [
+			'Coverage for land, equipment, and buildings tied to the operation',
+			'Key person protection if an owner or essential worker is unable to work',
+			'Succession planning for passing the farm to the next generation',
+			'Coordinating personal and business coverage so nothing is duplicated or missed',
+		],
+		faq: [
+			{
+				question: 'How is farm succession planning different from a regular estate plan?',
+				answer:
+					'It often means keeping the operation intact for one heir while treating other heirs fairly — usually funded through life insurance rather than forcing a sale of land or equipment.',
+			},
+			{
+				question: "Do I need separate coverage for the farm business and my family?",
+				answer:
+					"Often both, coordinated together. The farm's key person and succession needs are distinct from your personal family protection, but they should be planned as one picture.",
+			},
+			{
+				question: 'What happens to the farm if something happens to me before a succession plan is in place?',
+				answer:
+					'Without a plan, the farm may need to be sold or divided to cover debts or settle the estate among heirs. Insurance-funded succession planning is designed to prevent that outcome.',
+			},
+			{
+				question: "Can you work with our farm's accountant or lawyer?",
+				answer: 'Yes — succession and estate plans for farms usually involve coordinating with your existing accountant and lawyer, not replacing them.',
+			},
+		],
+	},
+	{
+		slug: 'it-professionals',
+		intro: 'Contract work, equity compensation, and a fast-moving career call for coverage that keeps up.',
+		risks: [
+			'Income protection that reflects contract and consulting income, not just T4 salary',
+			'Coverage that adapts as you move between employment, contract work, and incorporation',
+			'Planning for equity compensation like stock options and RSUs',
+			'Group benefits options for founders and small tech teams',
+		],
+		faq: [
+			{
+				question: 'I work on contract — can I still get disability or life insurance?',
+				answer:
+					'Yes. Coverage can be structured around your actual income pattern, including contract and consulting income, rather than requiring a traditional salaried role.',
+			},
+			{
+				question: 'How does stock compensation factor into my planning?',
+				answer:
+					"Equity compensation like RSUs and options is factored into your overall financial and estate plan, including how it's taxed and how it fits into your net worth.",
+			},
+			{
+				question: 'I just incorporated — does that change my insurance needs?',
+				answer:
+					"It can. Incorporation opens up options like corporate-owned life insurance and changes how you'd fund a buy-sell agreement if you have partners.",
+			},
+			{
+				question: 'Can I get group benefits for a small team?',
+				answer: 'Yes — group plans can be structured for very small teams, including early-stage startups.',
 			},
 		],
 	},

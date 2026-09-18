@@ -2,6 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/ui/Card.astro';
 import { segments } from '../../data/segments';
+import { safeFetchList } from '../../lib/sanityFetch';
+import { segmentListQuery, isValidSegmentCardData, type SegmentCardData } from '../../lib/queries';
+
+const segmentCards = await safeFetchList<SegmentCardData>(segmentListQuery, {}, segments, isValidSegmentCardData);
 ---
 
 <Layout
@@ -21,7 +25,7 @@ import { segments } from '../../data/segments';
 	<section class="mx-auto max-w-7xl px-6 py-24">
 		<div data-reveal class="grid grid-cols-1 gap-6 sm:grid-cols-2">
 			{
-				segments.map((segment) => (
+				segmentCards.map((segment) => (
 					<Card href={`/who-we-help/${segment.slug}`} title={segment.title} description={segment.description} />
 				))
 			}

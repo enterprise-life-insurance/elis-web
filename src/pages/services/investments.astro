@@ -1,22 +1,26 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ServiceHero from '../../components/services/ServiceHero.astro';
-import EmptyState from '../../components/ui/EmptyState.astro';
+import CoverageOverview from '../../components/services/CoverageOverview.astro';
+import FAQ from '../../components/ui/FAQ.astro';
+import CTASection from '../../components/ui/CTASection.astro';
 import { services } from '../../data/services';
+import { serviceDetails } from '../../data/serviceDetails';
+import { safeFetchOne } from '../../lib/sanityFetch';
+import { serviceDetailQuery, isValidServicePageData, type ServicePageData } from '../../lib/queries';
 
-const service = services.find((s) => s.slug === 'investments')!;
+const SLUG = 'investments';
+const fallback: ServicePageData = {
+	...services.find((s) => s.slug === SLUG)!,
+	...serviceDetails.find((d) => d.slug === SLUG)!,
+};
+const fetched = await safeFetchOne<ServicePageData | null>(serviceDetailQuery, { slug: SLUG }, null);
+const service: ServicePageData = isValidServicePageData(fetched) ? fetched : fallback;
 ---
 
 <Layout title={service.title} description={service.description}>
-	<ServiceHero
-		title={service.title}
-		intro="Investment planning coordinated with the rest of your coverage, not managed in isolation."
-	/>
-	<EmptyState
-		eyebrow="Coming Soon"
-		title="Full details for this page are on the way"
-		message="In the meantime, an advisor can walk you through your options directly."
-		ctaLabel="Talk to an Advisor"
-		ctaHref="/contact"
-	/>
+	<ServiceHero title={service.title} intro={service.intro} />
+	<CoverageOverview points={service.coverageOverview} />
+	<FAQ items={service.faq} />
+	<CTASection title="Ready to talk about your investment strategy?" />
 </Layout>

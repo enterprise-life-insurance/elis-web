@@ -2,6 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/ui/Card.astro';
 import { services } from '../../data/services';
+import { safeFetchList } from '../../lib/sanityFetch';
+import { serviceListQuery, isValidServiceCardData, type ServiceCardData } from '../../lib/queries';
+
+const serviceCards = await safeFetchList<ServiceCardData>(serviceListQuery, {}, services, isValidServiceCardData);
 ---
 
 <Layout title="Services" description="Comprehensive coverage, under one roof — life, disability, group benefits, estate planning, and travel insurance.">
@@ -18,7 +22,7 @@ import { services } from '../../data/services';
 	<section class="mx-auto max-w-7xl px-6 py-24">
 		<div data-reveal class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{
-				services.map((service) => (
+				serviceCards.map((service) => (
 					<Card href={`/services/${service.slug}`} title={service.title} description={service.description} />
 				))
 			}
