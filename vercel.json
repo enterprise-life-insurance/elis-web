@@ -1,9 +1,0 @@
-{
-	"headers": [
-		{
-			"source": "/(.*)",
-			"has": [{ "type": "header", "key": "accept", "value": ".*text/html.*" }],
-			"headers": [{ "key": "Cache-Control", "value": "no-store" }]
-		}
-	]
-}
