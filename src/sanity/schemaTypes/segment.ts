@@ -1,7 +1,10 @@
 import { defineField, defineType } from 'sanity';
 
-// Four confirmed segments per ia/website-ia-sitemap.md: Business Owners & Contractors,
-// Healthcare, Engineers, Families & Individuals.
+// Eight confirmed segments per Jay Bablani, client call 2026-08-28 (see
+// src/data/segments.ts). Schema shape matches Segment/SegmentDetail in
+// src/data/{segments,segmentDetails}.ts exactly, so Studio content is a 1:1
+// source for the site (via safeFetch in src/lib/sanityFetch.ts, with the
+// static data files kept as a build-time fallback).
 export const segment = defineType({
 	name: 'segment',
 	title: 'Who We Help — Segment',
@@ -21,6 +24,13 @@ export const segment = defineType({
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
+			name: 'description',
+			title: 'Description',
+			type: 'text',
+			description: 'Short card blurb — used on the Who We Help index and the Home page segment cards.',
+			validation: (Rule) => Rule.required().max(240),
+		}),
+		defineField({
 			name: 'heroImage',
 			title: 'Hero image',
 			type: 'image',
@@ -29,10 +39,16 @@ export const segment = defineType({
 		defineField({
 			name: 'intro',
 			title: 'Intro',
-			type: 'array',
-			of: [{ type: 'block' }],
-			description: "This segment's risks/needs, in the tone set by brand/brand-voice-messaging.md.",
+			type: 'text',
+			description: "This segment's intro paragraph, in the tone set by brand/brand-voice-messaging.md.",
 			validation: (Rule) => Rule.required(),
+		}),
+		defineField({
+			name: 'risks',
+			title: 'Risks / what we help you plan for',
+			type: 'array',
+			of: [{ type: 'string' }],
+			description: 'Bulleted list rendered under "What We Help You Plan For" on the segment detail page.',
 		}),
 		defineField({
 			name: 'calculatorNote',

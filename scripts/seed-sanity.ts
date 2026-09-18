@@ -2,7 +2,16 @@
 // into Sanity as real documents, so Studio isn't empty. Uses createOrReplace with
 // deterministic IDs, so rerunning this after editing src/data/*.ts overwrites the
 // seeded documents again — any content since edited directly in Studio for these
-// same documents will be clobbered.
+// same documents will be clobbered. It also discards any draft revision of those
+// same documents (see discardStaleDrafts below), so an in-progress Studio edit
+// gets wiped too — only rerun when Studio has no pending changes worth keeping.
+//
+// 2026-09-17: schema (src/sanity/schemaTypes/{segment,service,advisor}.ts,
+// objects/faqItem.ts) was reshaped to match src/data/*.ts field-for-field (plain
+// strings/string-arrays instead of portable-text blocks, plus new fields:
+// segment.description/risks, service.intro, advisor.shortBio/tags/areasOfFocus).
+// Documents seeded by the OLD version of this script are in the old shape and
+// won't render correctly on the site until this is rerun.
 //
 // Run: pnpm seed  (needs SANITY_API_WRITE_TOKEN in .env — create one at
 // sanity.io/manage -> API -> Tokens, with "Editor" permission)
@@ -32,34 +41,21 @@ const client = createClient({ projectId, dataset, apiVersion, token, useCdn: fal
 let keyCounter = 0;
 const key = () => `k${(keyCounter++).toString(36)}`;
 
-function toBlocks(paragraphs: string[]) {
-	return paragraphs.map((text) => ({
-		_type: 'block' as const,
-		_key: key(),
-		style: 'normal',
-		markDefs: [],
-		children: [{ _type: 'span' as const, _key: key(), text, marks: [] }],
-	}));
-}
-
-function toBulletBlocks(items: string[]) {
-	return items.map((text) => ({
-		_type: 'block' as const,
-		_key: key(),
-		style: 'normal',
-		listItem: 'bullet' as const,
-		level: 1,
-		markDefs: [],
-		children: [{ _type: 'span' as const, _key: key(), text, marks: [] }],
-	}));
-}
-
 function toFaq(items: { question: string; answer: string }[]) {
 	return items.map((item) => ({
 		_type: 'faqItem' as const,
 		_key: key(),
 		question: item.question,
-		answer: toBlocks([item.answer]),
+		answer: item.answer,
+	}));
+}
+
+function toAreasOfFocus(items: { title: string; description: string }[]) {
+	return items.map((item) => ({
+		_type: 'areaOfFocus' as const,
+		_key: key(),
+		title: item.title,
+		description: item.description,
 	}));
 }
 
@@ -85,7 +81,10 @@ async function seedAdvisors() {
 			slug: { _type: 'slug', current: advisor.slug },
 			role: advisor.role ?? '',
 			headshot,
-			bio: toBlocks(advisor.bio),
+			shortBio: advisor.shortBio,
+			bio: advisor.bio,
+			tags: advisor.tags,
+			areasOfFocus: toAreasOfFocus(advisor.areasOfFocus),
 			licensedForLifeInsurance: advisor.slug !== 'glenn-merkley',
 			order: index,
 		});
@@ -96,15 +95,19 @@ async function seedAdvisors() {
 async function seedSegments() {
 	for (const [index, segment] of segments.entries()) {
 		const detail = segmentDetails.find((d) => d.slug === segment.slug);
-		if (!detail) continue;
+		// Segments without a full detail page yet (e.g. mortgage-brokers, still
+		// "coming soon") still need a card-level document so they appear in the
+		// Who We Help / Home segment grids, which only read title/description/slug.
 		await client.createOrReplace({
 			_id: `segment-${segment.slug}`,
 			_type: 'segment',
 			title: segment.title,
 			slug: { _type: 'slug', current: segment.slug },
-			intro: [...toBlocks([detail.intro]), ...toBulletBlocks(detail.risks)],
+			description: segment.description,
+			intro: detail?.intro ?? '',
+			risks: detail?.risks ?? [],
 			calculatorNote: 'Coming soon',
-			faq: toFaq(detail.faq),
+			faq: toFaq(detail?.faq ?? []),
 			order: index,
 		});
 		console.log(`  segment: ${segment.title}`);
@@ -120,8 +123,9 @@ async function seedServices() {
 			_type: 'service',
 			title: service.title,
 			slug: { _type: 'slug', current: service.slug },
-			summary: service.description,
-			coverageOverview: toBulletBlocks(detail.coverageOverview),
+			description: service.description,
+			intro: detail.intro,
+			coverageOverview: detail.coverageOverview,
 			faq: toFaq(detail.faq),
 			order: index,
 		});
@@ -143,6 +147,25 @@ async function seedSiteSettings() {
 	console.log('  siteSettings');
 }
 
+// createOrReplace only overwrites the PUBLISHED document. Studio still prefers an
+// existing DRAFT over it if one exists, so a draft left over from before the
+// 2026-09-17 schema reshape (old field shapes, e.g. `risks` as a string instead of
+// an array) keeps showing as invalid in Studio and blocks publishing, even though
+// the live site (which reads published documents, not drafts) is already correct.
+// Discard those stale drafts after every reseed so Studio matches what's published.
+async function discardStaleDrafts() {
+	const ids = [
+		...advisors.map((a) => `advisor-${a.slug}`),
+		...segments.map((s) => `segment-${s.slug}`),
+		...services.map((s) => `service-${s.slug}`),
+		'siteSettings',
+	];
+	for (const id of ids) {
+		await client.delete(`drafts.${id}`);
+	}
+	console.log(`  discarded ${ids.length} stale drafts (no-op for ids without one)`);
+}
+
 async function main() {
 	console.log('Seeding advisors...');
 	await seedAdvisors();
@@ -152,6 +175,8 @@ async function main() {
 	await seedServices();
 	console.log('Seeding site settings...');
 	await seedSiteSettings();
+	console.log('Discarding stale drafts...');
+	await discardStaleDrafts();
 	console.log('Done.');
 }
 

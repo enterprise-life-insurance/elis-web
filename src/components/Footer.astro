@@ -1,4 +1,19 @@
 ---
+import { segments } from '../data/segments';
+import { services } from '../data/services';
+import { safeFetchList } from '../lib/sanityFetch';
+import {
+	segmentListQuery,
+	serviceListQuery,
+	isValidSegmentCardData,
+	isValidServiceCardData,
+	type SegmentCardData,
+	type ServiceCardData,
+} from '../lib/queries';
+
+const segmentLinks = await safeFetchList<SegmentCardData>(segmentListQuery, {}, segments, isValidSegmentCardData);
+const serviceLinks = await safeFetchList<ServiceCardData>(serviceListQuery, {}, services, isValidServiceCardData);
+
 const partnerLogos = [
 	{ file: 'logo-manulife.png', name: 'Manulife' },
 	{ file: 'logo-sunlife.png', name: 'Sun Life' },
@@ -17,22 +32,11 @@ const partnerLogos = [
 const footerNav = [
 	{
 		title: 'Who We Help',
-		links: [
-			{ label: 'Business Owners & Contractors', href: '/who-we-help/business-owners' },
-			{ label: 'Healthcare', href: '/who-we-help/medical-professionals' },
-			{ label: 'Engineers', href: '/who-we-help/engineers' },
-			{ label: 'Families & Individuals', href: '/who-we-help/families-individuals' },
-		],
+		links: segmentLinks.map((segment) => ({ label: segment.title, href: `/who-we-help/${segment.slug}` })),
 	},
 	{
 		title: 'Services',
-		links: [
-			{ label: 'Life Insurance', href: '/services/life-insurance' },
-			{ label: 'Disability Insurance', href: '/services/disability-insurance' },
-			{ label: 'Group Benefits', href: '/services/group-benefits' },
-			{ label: 'Financial & Estate Planning', href: '/services/financial-estate-planning' },
-			{ label: 'Travel Insurance', href: '/services/travel-insurance' },
-		],
+		links: serviceLinks.map((service) => ({ label: service.title, href: `/services/${service.slug}` })),
 	},
 	{
 		title: 'Company',
