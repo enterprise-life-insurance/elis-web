@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ToolHero from '../../components/tools/ToolHero.astro';
+import BuySellCalculator from '../../components/tools/BuySellCalculator.tsx';
+import CTASection from '../../components/ui/CTASection.astro';
+---
+
+<Layout title="Buy-Sell Funding Calculator" description="Estimate the life insurance needed to fund a shareholder buy-sell agreement.">
+	<ToolHero
+		title="How much coverage does your buy-sell agreement need?"
+		intro="If an owner dies, the others need cash to buy that owner's shares from the estate at a fair price. Life insurance on each owner provides it."
+	/>
+	<section class="mx-auto max-w-6xl px-6 py-16 md:py-24">
+		<BuySellCalculator client:visible />
+	</section>
+	<CTASection title="Ready to structure your buy-sell coverage?" />
+</Layout>

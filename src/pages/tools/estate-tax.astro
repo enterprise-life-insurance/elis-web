@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ToolHero from '../../components/tools/ToolHero.astro';
+import EstateTaxCalculator from '../../components/tools/EstateTaxCalculator.tsx';
+import CTASection from '../../components/ui/CTASection.astro';
+---
+
+<Layout title="Estate Tax Calculator" description="Estimate the tax and Ontario probate fees your estate could owe at death.">
+	<ToolHero
+		title="What will your estate owe at death?"
+		intro="Canada has no estate tax, but at death you're taxed as if you sold everything. Registered plans become fully taxable, and Ontario charges a fee to probate the estate."
+	/>
+	<section class="mx-auto max-w-6xl px-6 py-16 md:py-24">
+		<EstateTaxCalculator client:visible />
+	</section>
+	<CTASection title="Plan ahead so your heirs don't have to sell." />
+</Layout>

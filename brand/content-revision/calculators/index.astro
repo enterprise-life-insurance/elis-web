@@ -1,0 +1,61 @@
+---
+// Replaces the PageStub for /tools. Assumes src/layouts/Layout.astro — adjust the import if it's elsewhere.
+import Layout from "../../layouts/Layout.astro";
+
+const tools = [
+  {
+    href: "/tools/life-insurance-needs",
+    audience: "Families & Individuals",
+    title: "Life insurance needs",
+    body: "Add up what your family would need to pay for, subtract what's already in place, and see the gap.",
+  },
+  {
+    href: "/tools/buy-sell",
+    audience: "Business Owners",
+    title: "Buy-sell funding",
+    body: "Size the coverage each owner needs so partners can buy out a share of the business without draining it.",
+  },
+  {
+    href: "/tools/estate-tax",
+    audience: "Estate Planning",
+    title: "Estate tax at death",
+    body: "Estimate the capital gains tax, RRSP tax and Ontario probate your estate could owe — and what reaches your heirs.",
+  },
+];
+---
+
+<Layout title="Tools & Calculators" description="Get a clearer picture of your coverage before you talk to an advisor.">
+  <section class="bg-natural-grey-50">
+    <div class="mx-auto max-w-6xl px-6 pb-12 pt-16 sm:pt-20" data-reveal>
+      <p class="text-sm font-semibold text-life-green-700">Tools & Calculators</p>
+      <h1 class="mt-2 max-w-3xl text-3xl font-bold tracking-tight text-enterprise-blue-900 sm:text-5xl">
+        Get a clearer picture of your coverage before you talk to an advisor.
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg text-natural-grey-700">
+        Each tool gives a quick estimate using your own numbers. Nothing you enter is stored or sent anywhere.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-14">
+    <div class="grid gap-6 md:grid-cols-3">
+      {tools.map((t) => (
+        <a
+          href={t.href}
+          data-reveal
+          class="group flex flex-col rounded-2xl border border-natural-grey-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-enterprise-blue-500"
+        >
+          <span class="text-sm font-medium text-life-green-700">{t.audience}</span>
+          <h2 class="mt-2 text-xl font-semibold text-enterprise-blue-900">{t.title}</h2>
+          <p class="mt-2 flex-1 text-natural-grey-700">{t.body}</p>
+          <span class="mt-5 font-semibold text-enterprise-blue-600 group-hover:text-enterprise-blue-800">Open calculator</span>
+        </a>
+      ))}
+    </div>
+    <p class="mt-10 max-w-3xl text-sm text-natural-grey-600">
+      These calculators give general estimates for Ontario residents and are not financial, tax or legal advice.
+      Talk to a licensed advisor before making decisions.
+    </p>
+  </section>
+  <!-- Swap in the shared CTASection component here to match other pages. -->
+</Layout>

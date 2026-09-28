@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import SegmentHero from '../../components/who-we-help/SegmentHero.astro';
 import SegmentRisks from '../../components/who-we-help/SegmentRisks.astro';
-import CalculatorTeaser from '../../components/who-we-help/CalculatorTeaser.astro';
+import CalculatorTeaser from '../../components/tools/CalculatorTeaser.astro';
 import FAQ from '../../components/ui/FAQ.astro';
 import CTASection from '../../components/ui/CTASection.astro';
 import { segments } from '../../data/segments';
@@ -22,7 +22,7 @@ const segment: SegmentPageData = isValidSegmentPageData(fetched) ? fetched : fal
 <Layout title={segment.title} description={segment.description}>
 	<SegmentHero title={segment.title} intro={segment.intro} />
 	<SegmentRisks risks={segment.risks} />
-	<CalculatorTeaser />
+	<CalculatorTeaser slugs={['life-insurance-needs', 'estate-tax']} />
 	<FAQ items={segment.faq} />
 	<CTASection title="Ready to talk about your coverage?" />
 </Layout>

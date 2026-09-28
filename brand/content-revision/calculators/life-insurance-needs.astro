@@ -1,0 +1,20 @@
+---
+// Assumes the shared layout lives at src/layouts/Layout.astro — adjust the import if it's elsewhere.
+import Layout from "../../layouts/Layout.astro";
+import NeedsCalculator from "../../components/tools/NeedsCalculator.tsx";
+---
+
+<Layout title="Life Insurance Needs Calculator" description="Estimate how much life insurance your family would need, and how much you already have in place.">
+  <section class="bg-natural-grey-50">
+    <div class="mx-auto max-w-6xl px-6 pb-10 pt-16 sm:pt-20" data-reveal>
+      <a href="/tools" class="text-sm font-medium text-enterprise-blue-600 hover:text-enterprise-blue-800">All tools</a>
+      <p class="mt-6 text-sm font-semibold text-life-green-700">Families & Individuals</p>
+      <h1 class="mt-2 max-w-3xl text-3xl font-bold tracking-tight text-enterprise-blue-900 sm:text-5xl">How much life insurance does your family need?</h1>
+      <p class="mt-4 max-w-2xl text-lg text-natural-grey-700">Add up what your family would have to pay for, then subtract what's already in place. The difference is the coverage to consider.</p>
+    </div>
+  </section>
+  <section class="mx-auto max-w-6xl px-6 py-12">
+    <NeedsCalculator client:visible />
+  </section>
+  <!-- Swap in the shared CTASection component here to match other pages. -->
+</Layout>

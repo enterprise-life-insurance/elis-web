@@ -1,0 +1,20 @@
+---
+// Assumes the shared layout lives at src/layouts/Layout.astro — adjust the import if it's elsewhere.
+import Layout from "../../layouts/Layout.astro";
+import BuySellCalculator from "../../components/tools/BuySellCalculator.tsx";
+---
+
+<Layout title="Buy-Sell Funding Calculator" description="Estimate the life insurance needed to fund a shareholder buy-sell agreement.">
+  <section class="bg-natural-grey-50">
+    <div class="mx-auto max-w-6xl px-6 pb-10 pt-16 sm:pt-20" data-reveal>
+      <a href="/tools" class="text-sm font-medium text-enterprise-blue-600 hover:text-enterprise-blue-800">All tools</a>
+      <p class="mt-6 text-sm font-semibold text-life-green-700">Business Owners</p>
+      <h1 class="mt-2 max-w-3xl text-3xl font-bold tracking-tight text-enterprise-blue-900 sm:text-5xl">How much coverage does your buy-sell agreement need?</h1>
+      <p class="mt-4 max-w-2xl text-lg text-natural-grey-700">If an owner dies, the others need cash to buy that owner's shares from the estate at a fair price. Life insurance on each owner provides it.</p>
+    </div>
+  </section>
+  <section class="mx-auto max-w-6xl px-6 py-12">
+    <BuySellCalculator client:visible />
+  </section>
+  <!-- Swap in the shared CTASection component here to match other pages. -->
+</Layout>

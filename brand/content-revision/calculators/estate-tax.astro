@@ -1,0 +1,20 @@
+---
+// Assumes the shared layout lives at src/layouts/Layout.astro — adjust the import if it's elsewhere.
+import Layout from "../../layouts/Layout.astro";
+import EstateTaxCalculator from "../../components/tools/EstateTaxCalculator.tsx";
+---
+
+<Layout title="Estate Tax Calculator" description="Estimate the tax and Ontario probate fees your estate could owe at death.">
+  <section class="bg-natural-grey-50">
+    <div class="mx-auto max-w-6xl px-6 pb-10 pt-16 sm:pt-20" data-reveal>
+      <a href="/tools" class="text-sm font-medium text-enterprise-blue-600 hover:text-enterprise-blue-800">All tools</a>
+      <p class="mt-6 text-sm font-semibold text-life-green-700">Estate Planning</p>
+      <h1 class="mt-2 max-w-3xl text-3xl font-bold tracking-tight text-enterprise-blue-900 sm:text-5xl">What will your estate owe at death?</h1>
+      <p class="mt-4 max-w-2xl text-lg text-natural-grey-700">Canada has no estate tax, but at death you're taxed as if you sold everything. Registered plans become fully taxable, and Ontario charges a fee to probate the estate.</p>
+    </div>
+  </section>
+  <section class="mx-auto max-w-6xl px-6 py-12">
+    <EstateTaxCalculator client:visible />
+  </section>
+  <!-- Swap in the shared CTASection component here to match other pages. -->
+</Layout>
