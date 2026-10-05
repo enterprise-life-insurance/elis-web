@@ -1,12 +1,20 @@
 ---
+import { Picture } from 'astro:assets';
 import Button from '../ui/Button.astro';
-import PhotoSlot from '../ui/PhotoSlot.astro';
+import family from '../../assets/about/family.jpg';
+import engineer from '../../assets/about/engineer.jpg';
+import businessOwner from '../../assets/about/business-owner.jpg';
+import healthcare from '../../assets/about/healthcare.jpg';
 
 // Body copy is verbatim from brand/Enterprise Life – Visual Identity Guideline – Draft.pdf
-// ("Brand Overview" slide) — confirmed brand voice, not written here. Photo grid below the
-// hero is real layout, placeholder imagery — swap PhotoSlot cells for licensed stock per the
-// caption on each cell (see brand/references/about page reference.mp4 and "about page taste.png"
-// for the reference layouts this section is modeled on).
+// ("Brand Overview" slide) — confirmed brand voice, not written here. Grid photos are free-licence
+// Unsplash stock, approved 2026-10-02: one per Who We Help segment, showing clients' lives rather
+// than stand-ins for the ELIS team/office (real headshots appear further down the page).
+// Sources: 20YP7NENJzk (CDC), _wNiWrINqoU (NordWood Themes), Pvaaeer8kws (Vitaly Gariev),
+// TB8eQjc3_WE (Colynary Media) — unsplash.com/photos/<id>.
+const photoClass = 'aspect-[4/3] w-full rounded-2xl object-cover';
+const photoSizes = '(min-width: 768px) 33vw, 100vw';
+const photoWidths = [480, 800, 1200];
 ---
 
 <section class="bg-enterprise-blue-500">
@@ -25,7 +33,15 @@ import PhotoSlot from '../ui/PhotoSlot.astro';
 
 <section class="mx-auto max-w-7xl px-6 py-24">
 	<div data-reveal class="grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-2">
-		<PhotoSlot caption="advisors in conversation with a client" class="md:col-start-1 md:row-start-1" />
+		<Picture
+			src={family}
+			alt="A father and his young daughter washing their hands together at a kitchen sink"
+			formats={['avif', 'webp']}
+			widths={photoWidths}
+			sizes={photoSizes}
+			class={photoClass}
+			pictureAttributes={{ class: 'md:col-start-1 md:row-start-1' }}
+		/>
 
 		<div
 			class="flex h-full items-center rounded-2xl bg-enterprise-blue-900 p-8 md:col-start-2 md:row-span-2 md:row-start-1"
@@ -36,9 +52,33 @@ import PhotoSlot from '../ui/PhotoSlot.astro';
 			</p>
 		</div>
 
-		<PhotoSlot caption="team reviewing a client's coverage plan" class="md:col-start-3 md:row-start-1" />
-		<PhotoSlot caption="Enterprise Life office or workspace" class="md:col-start-1 md:row-start-2" />
-		<PhotoSlot caption="advisors collaborating" class="md:col-start-3 md:row-start-2" />
+		<Picture
+			src={engineer}
+			alt="An engineer holding a hard hat while reading plans beside a bright window"
+			formats={['avif', 'webp']}
+			widths={photoWidths}
+			sizes={photoSizes}
+			class={photoClass}
+			pictureAttributes={{ class: 'md:col-start-3 md:row-start-1' }}
+		/>
+		<Picture
+			src={businessOwner}
+			alt="A clothing store owner checking inventory on a tablet beside a rack of garments"
+			formats={['avif', 'webp']}
+			widths={photoWidths}
+			sizes={photoSizes}
+			class={photoClass}
+			pictureAttributes={{ class: 'md:col-start-1 md:row-start-2' }}
+		/>
+		<Picture
+			src={healthcare}
+			alt="A clinician in a white coat holding an X-ray up to the light by a window"
+			formats={['avif', 'webp']}
+			widths={photoWidths}
+			sizes={photoSizes}
+			class={photoClass}
+			pictureAttributes={{ class: 'md:col-start-3 md:row-start-2' }}
+		/>
 	</div>
 </section>
 
