@@ -25,7 +25,7 @@ export const segments: Segment[] = [
 		description: 'Your earning potential is your greatest asset. We build income protection calibrated to your practice and career.',
 	},
 	{
-		slug: 'medical-professionals',
+		slug: 'health-care-professionals',
 		title: 'Health Care Professionals',
 		description: "You've invested years of training in a specialized career. Your income protection, practice, and family plan should reflect what that's worth.",
 	},

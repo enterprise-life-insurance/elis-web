@@ -48,7 +48,7 @@ export const segmentDetails: SegmentDetail[] = [
 		],
 	},
 	{
-		slug: 'medical-professionals',
+		slug: 'health-care-professionals',
 		intro:
 			"Years of training, long hours, and often a practice to run — your coverage needs to work as hard as you do, and account for how specialized your income actually is.",
 		risks: [

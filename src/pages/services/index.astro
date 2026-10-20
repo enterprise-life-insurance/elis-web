@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/ui/Card.astro';
+import InsureLineReferral from '../../components/ui/InsureLineReferral.astro';
 import { services } from '../../data/services';
 import { safeFetchList } from '../../lib/sanityFetch';
 import { serviceListQuery, isValidServiceCardData, type ServiceCardData } from '../../lib/queries';
@@ -28,4 +29,8 @@ const serviceCards = await safeFetchList<ServiceCardData>(serviceListQuery, {}, 
 			}
 		</div>
 	</section>
+
+	<!-- No commercial service of our own — the client's notes flagged that gap given
+	     Glenn's commercial background; commercial coverage is InsureLine's. -->
+	<InsureLineReferral message="Looking for commercial insurance? Commercial property, liability, contractors, and other business coverage are handled by our affiliated company, InsureLine Enterprise." />
 </Layout>

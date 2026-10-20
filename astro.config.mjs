@@ -27,6 +27,12 @@ export default defineConfig({
   // so OG/Twitter tags pointing at it 404 for link-preview crawlers (WhatsApp etc).
   site: 'https://elis-web.vercel.app',
 
+  // Health Care segment renamed to "Health Care Professionals" 2026-10-20; the URL
+  // now matches. Keep the old path working for existing links and bookmarks.
+  redirects: {
+    '/who-we-help/medical-professionals': '/who-we-help/health-care-professionals',
+  },
+
   integrations: [
     react(),
     sanity({

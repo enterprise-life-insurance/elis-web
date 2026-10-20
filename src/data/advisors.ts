@@ -14,6 +14,9 @@ export interface Advisor {
 	bio: string[];
 	tags: string[];
 	areasOfFocus: { title: string; description: string }[];
+	// Regulatory licensing line, from the client's "Website notes.docx" (2026-10-17).
+	// Static only (not seeded to Sanity) so it can't be edited from Studio.
+	licensing: string;
 }
 
 export const advisors: Advisor[] = [
@@ -28,6 +31,7 @@ export const advisors: Advisor[] = [
 			"As President of Enterprise Life Insurance and Investment Solutions, Jay brings that depth of hands-on advisory experience to the firm's leadership and to every client relationship it serves. His approach is grounded in the belief that good advice comes from understanding a client's full picture, not just the policy in front of them.",
 		],
 		tags: ['Advisor Since 1994', 'Life & Disability Insurance', 'Estate Planning'],
+		licensing: 'Licensed with the Financial Services Regulatory Authority of Ontario (FSRA) for life and accident & sickness insurance.',
 		areasOfFocus: [
 			{
 				title: 'Life Insurance',
@@ -54,6 +58,7 @@ export const advisors: Advisor[] = [
 			"Glenn provides the strategic leadership and industry insight that shape the firm's approach to exceptional client service and long-term financial protection. His experience and client-focused philosophy guide the organization's vision and growth, ensuring that as the firm expands, clients remain at the center of every decision it makes.",
 		],
 		tags: ['30+ Years Experience', 'Commercial Insurance', 'HNW Clients'],
+		licensing: 'Licensed for accident & sickness insurance through his RIBO licence.',
 		areasOfFocus: [
 			{
 				title: 'Commercial Insurance',
@@ -81,6 +86,7 @@ export const advisors: Advisor[] = [
 			"Ekta also holds the Chartered Life Underwriter (CLU) designation — a credential conferred exclusively by The Institute for Advanced Financial Education and recognized for a century as one of the highest marks of expertise in Canadian financial services. Earning the CLU requires advanced training in tax and estate law, wealth transfer, and estate planning strategy for both individuals and business owners, and it is an approved designation for use of the title Financial Planner in Ontario. That depth of training allows Ekta to guide clients through the more complex sides of financial protection — from tax-efficient estate structures to planning for the transfer of a business or significant assets — with the same rigor a specialist estate lawyer or accountant would bring to the table.",
 		],
 		tags: ['RIBO Certified', 'CLU Designation', '10+ Years Advising'],
+		licensing: 'Licensed with the Financial Services Regulatory Authority of Ontario (FSRA) for life and accident & sickness insurance.',
 		areasOfFocus: [
 			{
 				title: 'RIBO Certified',

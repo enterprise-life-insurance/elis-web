@@ -54,6 +54,10 @@ const qrSvg = await QRCode.toString(profileUrl, {
 			<div class="flex flex-col gap-4 text-natural-grey-800">
 				{advisor.bio.map((paragraph) => <p>{paragraph}</p>)}
 			</div>
+			<p class="mt-6 border-l-2 border-life-green-500 pl-4 text-sm text-natural-grey-800">
+				<span class="font-semibold text-natural-grey-900">Licensing:</span>{' '}
+				{advisor.licensing}
+			</p>
 		</div>
 
 		<div class="flex shrink-0 flex-col items-center gap-2 self-start rounded-2xl border border-natural-grey-600 p-4">
