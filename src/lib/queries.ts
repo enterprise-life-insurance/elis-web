@@ -42,7 +42,9 @@ export const segmentDetailQuery = `*[_type == "segment" && slug.current == $slug
 // the static fallback.
 export function isValidSegmentPageData(data: unknown): data is SegmentPageData {
 	const d = data as Partial<SegmentPageData> | null;
-	return !!d && typeof d.intro === 'string' && Array.isArray(d.risks) && Array.isArray(d.faq);
+	// Non-empty risks too: segments seeded before their detail content existed (e.g.
+	// mortgage-brokers before 2026-10-19) have intro '' and risks [] in Sanity.
+	return !!d && typeof d.intro === 'string' && Array.isArray(d.risks) && d.risks.length > 0 && Array.isArray(d.faq);
 }
 
 // --- Services ---

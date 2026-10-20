@@ -5,6 +5,7 @@ import SegmentRisks from '../../components/who-we-help/SegmentRisks.astro';
 import CalculatorTeaser from '../../components/tools/CalculatorTeaser.astro';
 import FAQ from '../../components/ui/FAQ.astro';
 import CTASection from '../../components/ui/CTASection.astro';
+import InsureLineReferral from '../../components/ui/InsureLineReferral.astro';
 import { segments } from '../../data/segments';
 import { segmentDetails } from '../../data/segmentDetails';
 import { safeFetchOne } from '../../lib/sanityFetch';
@@ -24,5 +25,6 @@ const segment: SegmentPageData = isValidSegmentPageData(fetched) ? fetched : fal
 	<SegmentRisks risks={segment.risks} />
 	<CalculatorTeaser slugs={['buy-sell']} />
 	<FAQ items={segment.faq} />
+	<InsureLineReferral message="For property, equipment, and liability coverage, speak with our affiliated company, InsureLine Enterprise." />
 	<CTASection title="Ready to talk about your operation?" />
 </Layout>

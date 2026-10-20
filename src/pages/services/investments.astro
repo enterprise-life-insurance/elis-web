@@ -4,6 +4,7 @@ import ServiceHero from '../../components/services/ServiceHero.astro';
 import CoverageOverview from '../../components/services/CoverageOverview.astro';
 import FAQ from '../../components/ui/FAQ.astro';
 import CTASection from '../../components/ui/CTASection.astro';
+import Disclaimer from '../../components/ui/Disclaimer.astro';
 import { services } from '../../data/services';
 import { serviceDetails } from '../../data/serviceDetails';
 import { safeFetchOne } from '../../lib/sanityFetch';
@@ -22,5 +23,16 @@ const service: ServicePageData = isValidServicePageData(fetched) ? fetched : fal
 	<ServiceHero title={service.title} intro={service.intro} />
 	<CoverageOverview points={service.coverageOverview} />
 	<FAQ items={service.faq} />
+	<!-- Segregated fund disclosure — client-supplied wording from the Advisor
+	     Disclosure & Privacy statement ("Website notes.docx", 2026-10-17). -->
+	<Disclaimer>
+		<p>
+			Segregated fund contracts are offered under our life insurance licences, through the insurers we're contracted
+			with, and are placed through HUB Financial Inc. Segregated fund policies are issued by the insurance company. Any
+			amount allocated to a segregated fund is invested at the risk of the contractholder and may increase or decrease
+			in value. The terms of maturity and death benefit guarantees vary by contract.
+		</p>
+		<p><a href="/privacy" class="underline hover:text-enterprise-blue-500">Read our full Advisor Disclosure &amp; Privacy statement</a>.</p>
+	</Disclaimer>
 	<CTASection title="Ready to talk about your investment strategy?" />
 </Layout>

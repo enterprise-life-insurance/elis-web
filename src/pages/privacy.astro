@@ -1,0 +1,185 @@
+---
+// Advisor Disclosure & Privacy statement — wording is the client's, verbatim, from
+// "Website notes.docx" (brand/content-revision/, 2026-10-17). Don't edit the copy
+// without client sign-off; it's a regulatory document.
+//
+// The draft's bracketed analytics sentence ("If you use analytics or cookies…")
+// was removed per its own instruction, since no analytics/cookies are installed
+// yet. When GA4 / Vercel Analytics go in, add a sentence under "Information
+// collected through this website" naming them.
+import Layout from '../layouts/Layout.astro';
+import { office, telHref } from '../data/site';
+
+const carriers = [
+	'BMO Insurance',
+	'Beneva',
+	'Canada Life',
+	'Empire Life',
+	'Foresters Financial',
+	'iA Financial Group (Industrial Alliance)',
+	'Manulife',
+	'RBC Insurance',
+	'Sun Life',
+	'The Edge Benefits',
+];
+---
+
+<Layout
+	title="Advisor Disclosure & Privacy"
+	description="Who we are, the insurers we work with, how we're paid, and how we protect your personal information."
+>
+	<section class="bg-enterprise-blue-500">
+		<div class="mx-auto max-w-4xl px-6 py-24">
+			<h1 data-reveal class="text-4xl leading-tight font-semibold text-white md:text-5xl">Advisor Disclosure & Privacy</h1>
+		</div>
+	</section>
+
+	<article class="legal mx-auto max-w-3xl px-6 py-20 text-natural-grey-800">
+		<h2>Who we are</h2>
+		<p>
+			Enterprise Life Insurance & Investment Solutions Inc. is an independent insurance brokerage based in Pickering,
+			Ontario. Our advisors are licensed as life insurance agents by the Financial Services Regulatory Authority of
+			Ontario (FSRA).
+		</p>
+
+		<h2>The companies we work with</h2>
+		<p>
+			Because we're independent, we're not tied to a single insurer. We hold contracts with, and can recommend products
+			from, the following companies:
+		</p>
+		<p class="font-medium text-natural-grey-900">{carriers.join(' · ')}</p>
+		<p>
+			We work with these insurers through HUB Financial Inc., a Managing General Agency that provides administrative and
+			contracting support between brokers and insurance companies.
+		</p>
+		<p>No insurance company owns any part of our business, and we hold no ownership interest in any insurance company.</p>
+
+		<h2>How we're paid</h2>
+		<p>
+			You don't pay us a fee for insurance advice. When you buy a policy through us, the insurance company pays us a
+			commission. If you keep the policy in force, we may also receive ongoing renewal or service commissions.
+		</p>
+		<p>
+			From time to time, insurers may also offer additional compensation, such as bonuses or non-monetary incentives,
+			based on factors like the volume of business placed or how long policies stay in force. We're happy to explain how
+			we'll be paid on any product we recommend. Just ask.
+		</p>
+
+		<h2>Investment products</h2>
+		<p>
+			We offer segregated fund contracts, which are investment products issued by life insurance companies. They can be
+			held in non-registered accounts and in registered plans such as RRSPs and TFSAs. Segregated funds are offered under
+			our life insurance licences, through the insurers we're contracted with, and are placed through HUB Financial Inc.
+		</p>
+		<p>
+			Segregated fund contracts include features such as maturity and death benefit guarantees and the ability to name a
+			beneficiary. The terms of these guarantees vary by contract.
+		</p>
+		<p>
+			Segregated fund policies are issued by the insurance company. Any amount allocated to a segregated fund is invested
+			at the risk of the contractholder and may increase or decrease in value.
+		</p>
+
+		<h2>Conflicts of interest</h2>
+		<p>
+			We take potential conflicts of interest seriously. If we become aware of a conflict that could affect a
+			recommendation we make to you, we'll tell you. Our recommendations are always based on our analysis of your
+			financial security needs.
+		</p>
+
+		<h2>Your privacy</h2>
+		<p>
+			We comply with the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable Ontario
+			privacy laws.
+		</p>
+		<p>
+			<strong>What we collect and why.</strong> To give you advice and apply for coverage on your behalf, we collect personal,
+			financial and health information. We collect only what we need to recommend suitable products, complete your
+			application and service your policies.
+		</p>
+		<p>
+			<strong>Who we share it with.</strong> With your consent, we share your information with the insurers you apply to and
+			with our Managing General Agency, HUB Financial Inc., in order to place and service your coverage. With your
+			permission, we may also involve trusted associates when you need help outside our area of expertise. We never sell
+			your personal information.
+		</p>
+		<p>
+			<strong>Your consent.</strong> We ask for your written consent before collecting and sharing your information as part
+			of an application. You may withdraw consent at any time. Because we can't advise you or service your coverage
+			without this information, withdrawing consent may end our working relationship.
+		</p>
+		<p>
+			<strong>How we protect it.</strong> Paper records are kept in secure, locked storage. Electronic files are
+			password-protected and encrypted. Records we no longer need are securely shredded or destroyed. Everyone on our team
+			understands the sensitivity of client information and their obligation to protect it.
+		</p>
+		<p>
+			<strong>Keeping it accurate.</strong> We rely on accurate information to give good advice. You may ask to review the
+			information we hold about you at any time and request corrections. We'll also update it as your circumstances change.
+		</p>
+		<p>
+			<strong>How long we keep it.</strong> We keep your information for as long as you're our client, and afterward as long
+			as we have a legal or business need to retain it.
+		</p>
+
+		<h2>Information collected through this website</h2>
+		<p>
+			When you contact us through this website, we collect the information you provide, such as your name, email, phone
+			number and message, and use it only to respond to your inquiry.
+		</p>
+
+		<h2>Communicating electronically</h2>
+		<p>
+			With your consent, we may communicate with you by email and other electronic means. You can withdraw that consent at
+			any time.
+		</p>
+
+		<h2>Questions or concerns</h2>
+		<p>
+			Our Privacy Officer is Jay Bablani. To review your information, ask a question or raise a concern, contact:
+		</p>
+		<address class="not-italic">
+			{office.name}<br />
+			Attn: Jay Bablani, Privacy Officer<br />
+			{office.street}<br />
+			{office.city}<br />
+			<a href={telHref(office.phone)}>{office.phone}</a> ·
+			<a href="mailto:jay.bablani@enterpriselife.ca">jay.bablani@enterpriselife.ca</a>
+		</address>
+		<p>
+			We'll look into any complaint and respond as soon as practical. If you're not satisfied with our response, you may
+			contact the <a href="https://www.olhi.ca" target="_blank" rel="noopener">OmbudService for Life & Health Insurance (OLHI)</a>
+			or <a href="https://www.fsrao.ca" target="_blank" rel="noopener">FSRA</a>. For more about PIPEDA, visit the Office of the
+			Privacy Commissioner of Canada at <a href="https://www.priv.gc.ca" target="_blank" rel="noopener">priv.gc.ca</a>.
+		</p>
+	</article>
+</Layout>
+
+<style>
+	.legal h2 {
+		margin-top: 2.5rem;
+		margin-bottom: 0.75rem;
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: var(--color-natural-grey-900);
+	}
+
+	.legal h2:first-child {
+		margin-top: 0;
+	}
+
+	.legal p,
+	.legal address {
+		margin-bottom: 1rem;
+		line-height: 1.7;
+	}
+
+	.legal strong {
+		color: var(--color-natural-grey-900);
+	}
+
+	.legal a {
+		color: var(--color-enterprise-blue-500);
+		text-decoration: underline;
+	}
+</style>

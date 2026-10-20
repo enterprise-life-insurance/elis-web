@@ -2,6 +2,8 @@
 // Jay Bablani, 2026-08-04 — see CLAUDE.md / ia/website-ia-sitemap.md). His bio below
 // stays scoped to commercial insurance. Bios/titles/credentials below are the
 // client-approved profile copy from brand/content-revision/ (delivered 2026-09-17).
+// 2026-10-19: Jay's shortBio now names his specialty, not just tenure (client's
+// "Website notes.docx" flagged the bios as inconsistent).
 export interface Advisor {
 	slug: string;
 	name: string;
@@ -20,7 +22,7 @@ export const advisors: Advisor[] = [
 		name: 'Jay Bablani',
 		role: 'President',
 		image: '/brand/team/jay-bablani.jpg',
-		shortBio: 'Advisor since 1994',
+		shortBio: 'Life, disability & estate planning advisor since 1994',
 		bio: [
 			"Jay Bablani has been advising clients on insurance and financial protection since 1994. Over three decades in the industry, his practice has grown to encompass life insurance, disability insurance, and financial and estate planning — giving clients a single, experienced point of contact across every stage of their financial life.",
 			"As President of Enterprise Life Insurance and Investment Solutions, Jay brings that depth of hands-on advisory experience to the firm's leadership and to every client relationship it serves. His approach is grounded in the belief that good advice comes from understanding a client's full picture, not just the policy in front of them.",

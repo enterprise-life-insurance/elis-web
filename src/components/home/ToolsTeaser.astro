@@ -1,15 +1,37 @@
 ---
 import Button from '../ui/Button.astro';
+import { tools } from '../../data/tools';
 ---
 
 <section class="mx-auto max-w-7xl px-6 py-24">
-	<div data-reveal class="flex flex-col items-start gap-6 rounded-3xl bg-life-green-50 p-10 md:flex-row md:items-center md:justify-between md:p-16">
-		<div class="max-w-xl">
-			<p class="mb-3 text-sm font-semibold tracking-wide text-life-green-600 uppercase">Tools & Calculators</p>
-			<h2 class="text-3xl font-semibold text-natural-grey-900 md:text-4xl">
-				Get a clearer picture of your coverage before you talk to an advisor.
-			</h2>
+	<div data-reveal class="rounded-3xl bg-life-green-50 p-10 md:p-16">
+		<div class="flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
+			<div class="max-w-xl">
+				<p class="mb-3 text-sm font-semibold tracking-wide text-life-green-600 uppercase">Tools & Calculators</p>
+				<h2 class="text-3xl font-semibold text-natural-grey-900 md:text-4xl">
+					Get a clearer picture of your coverage before you talk to an advisor.
+				</h2>
+			</div>
+			<Button href="/tools" variant="secondary">All Tools</Button>
 		</div>
-		<Button href="/tools">Explore Tools</Button>
+
+		<div class="mt-10 grid gap-4 md:grid-cols-3">
+			{
+				tools.map((t) => (
+					<a
+						href={`/tools/${t.slug}`}
+						class="group flex flex-col gap-2 rounded-2xl border border-natural-grey-600 bg-white p-6 transition-shadow duration-300 hover:shadow-lg"
+					>
+						<span class="text-xs font-semibold tracking-wide text-life-green-600 uppercase">{t.audience}</span>
+						<h3 class="text-lg font-semibold text-natural-grey-900">{t.title}</h3>
+						<p class="text-sm text-natural-grey-800">{t.description}</p>
+						<span class="mt-auto pt-2 text-sm font-semibold text-enterprise-blue-500 transition-colors duration-300 group-hover:text-enterprise-blue-600">
+							Open calculator →
+						</span>
+					</a>
+				))
+			}
+		</div>
+		<p class="mt-6 text-sm text-natural-grey-800">Quick estimates using your own numbers — nothing you enter is stored or sent anywhere.</p>
 	</div>
 </section>

@@ -5,9 +5,11 @@ import WhoWeHelp from '../components/home/WhoWeHelp.astro';
 import AdvisorCredibility from '../components/home/AdvisorCredibility.astro';
 import Services from '../components/home/Services.astro';
 import ToolsTeaser from '../components/home/ToolsTeaser.astro';
-import Testimonials from '../components/home/Testimonials.astro';
-import ResourcesTeaser from '../components/home/ResourcesTeaser.astro';
 import CTASection from '../components/ui/CTASection.astro';
+
+// Testimonials and the Resources teaser were removed 2026-10-19 at the client's
+// request ("Website notes.docx"): no placeholder sections visible to visitors.
+// Testimonials also need MGA compliance sign-off before any are published.
 ---
 
 <Layout title="Home">
@@ -16,7 +18,5 @@ import CTASection from '../components/ui/CTASection.astro';
 	<AdvisorCredibility />
 	<Services />
 	<ToolsTeaser />
-	<Testimonials />
-	<ResourcesTeaser />
-	<CTASection title="Ready to talk about your coverage?" buttonLabel="Contact Us" />
+	<CTASection title="Ready to talk about your coverage?" />
 </Layout>

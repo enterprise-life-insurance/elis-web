@@ -2,6 +2,7 @@
 import QRCode from 'qrcode';
 import CTASection from '../ui/CTASection.astro';
 import type { Advisor } from '../../data/advisors';
+import { primaryCtaShort } from '../../data/site';
 
 interface Props {
 	advisor: Advisor;
@@ -77,9 +78,7 @@ const qrSvg = await QRCode.toString(profileUrl, {
 		</div>
 	</div>
 
-	<CTASection
-		title={`Speak with ${advisor.name.split(' ')[0]} about your coverage`}
-		buttonLabel="Contact Us"
-		buttonHref="/contact"
-	/>
+	<slot />
+
+	<CTASection title={`Speak with ${advisor.name.split(' ')[0]} about your coverage`} buttonLabel={primaryCtaShort} />
 </main>

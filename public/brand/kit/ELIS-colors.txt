@@ -1,0 +1,24 @@
+Enterprise Life — Brand Colours
+(from the Visual Identity Guideline; palette confirmed final 2026-08-07)
+
+PRIMARY
+Enterprise Blue   #0061A6   RGB 0 97 166
+Life Green        #85BD2D   RGB 133 189 45
+Neutral Grey      #F7F7F7   RGB 247 247 247
+
+ENTERPRISE BLUE RAMP
+50 #E6EFFC  100 #B0CEE3  200 #8AB6D6  300 #5495C3  400 #3381B8
+500 #0061A6 600 #005897  700 #004576  800 #00355B  900 #002946
+
+LIFE GREEN RAMP
+50 #F3F8EA  100 #D9EBBE  200 #C7E19E  300 #ADD372  400 #9DCA57
+500 #85BD2D 600 #79AC29  700 #5E8620  800 #496819  900 #384F13
+
+NEUTRAL GREY RAMP
+50 #FEFEFE  100 #FDFDFD  200 #FBFBFB  300 #FAFAFA  400 #F9F9F9
+500 #F7F7F7 600 #E1E1E1  700 #AFAFAF  800 #888888  900 #686868
+
+TYPEFACE
+Poppins — Bold, Semi-Bold, Medium, Regular (free: fonts.google.com/specimen/Poppins)
+
+Print (CMYK) values: to be confirmed by the designer.

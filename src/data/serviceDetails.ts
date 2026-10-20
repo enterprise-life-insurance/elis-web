@@ -142,7 +142,7 @@ export const serviceDetails: ServiceDetail[] = [
 	{
 		slug: 'travel-insurance',
 		intro:
-			"Emergency medical coverage scaled to how you travel — including visitors to Canada, Super Visa applicants, and frequent flyers — so you're always covered, never re-arranging.",
+			'Emergency medical coverage scaled to how you travel — including visitors to Canada, Super Visa applicants, and frequent flyers who would rather set coverage up once than before every trip.',
 		coverageOverview: [
 			'Emergency medical coverage for trips outside your home province or country',
 			"Single-trip and annual multi-trip options, so you're not setting up new coverage before every departure",
@@ -180,6 +180,7 @@ export const serviceDetails: ServiceDetail[] = [
 			'RRSPs for tax-deferred, long-term retirement savings',
 			'TFSAs for flexible, tax-free growth and withdrawals',
 			"RESPs for a child's education, structured to capture government grants",
+			'Segregated fund contracts with maturity and death benefit guarantees, held in non-registered accounts, RRSPs, or TFSAs',
 			'Retirement income planning coordinated with your pension, CPP, and OAS',
 		],
 		faq: [
@@ -201,6 +202,37 @@ export const serviceDetails: ServiceDetail[] = [
 			{
 				question: 'What happens to my investment accounts if I ever change advisors?',
 				answer: 'Your accounts are yours. If you ever choose to move them, we help make the transition straightforward.',
+			},
+		],
+	},
+	{
+		slug: 'health-dental',
+		intro: "Health and dental coverage for people who don't have an employer plan behind them — or are about to lose one.",
+		coverageOverview: [
+			'Prescription drug, dental, vision, and paramedical coverage for you and your family',
+			'Plans for the self-employed, contractors, and commissioned professionals with no group plan',
+			"Options when you're leaving a group plan — retiring, changing jobs, or going out on your own",
+			'Individual plans from carriers such as Sun Life and The Edge Benefits',
+		],
+		faq: [
+			{
+				question: "I'm self-employed — can I get health and dental coverage?",
+				answer:
+					"Yes. Individual plans are designed for people without an employer plan, including business owners, contractors, and commissioned professionals. We'll compare options across carriers for you.",
+			},
+			{
+				question: 'What happens to my coverage when I leave my employer?',
+				answer:
+					"Group coverage usually ends when you leave. Some individual plans can be set up without medical questions if you apply soon after your group coverage ends, so it's worth planning ahead of your last day.",
+			},
+			{
+				question: 'Do I have to answer medical questions?',
+				answer:
+					'It depends on the plan. Some plans accept everyone with more limited benefits; others ask health questions in exchange for broader coverage. We walk through the trade-off with you.',
+			},
+			{
+				question: 'Can I cover my spouse and children?',
+				answer: 'Yes. Most individual plans can include a spouse and dependent children on the same policy.',
 			},
 		],
 	},

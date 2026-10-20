@@ -1,4 +1,7 @@
 ---
+// Hidden 2026-10-19 (client's "Website notes.docx"): unlinked from the header,
+// footer and home page, and noindexed, until real articles are published in Sanity.
+// To relaunch: drop `noindex` here and restore the nav/footer links.
 import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/ui/Button.astro';
 import EmptyState from '../../components/ui/EmptyState.astro';
@@ -36,6 +39,7 @@ const resources = await safeFetch<ResourceListItem[]>(
 <Layout
 	title="Resources"
 	description="Guides, articles, and downloads to help you plan your coverage — from Enterprise Life's advisors."
+	noindex
 >
 	<section class="bg-enterprise-blue-500">
 		<div class="mx-auto max-w-4xl px-6 py-24">

@@ -1,5 +1,6 @@
 ---
 import Button from '../ui/Button.astro';
+import { primaryCta } from '../../data/site';
 
 interface Props {
 	title: string;
@@ -17,7 +18,7 @@ const { title, intro } = Astro.props;
 		<h1 data-reveal class="text-4xl leading-tight font-semibold text-white md:text-5xl">{title}</h1>
 		<p data-reveal class="mt-6 max-w-2xl text-lg text-white/90">{intro}</p>
 		<div data-reveal class="mt-8">
-			<Button href="/contact">Talk to an Advisor</Button>
+			<Button href="/contact">{primaryCta}</Button>
 		</div>
 	</div>
 </section>

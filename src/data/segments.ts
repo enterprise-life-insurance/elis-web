@@ -3,8 +3,10 @@
 // brand/brand-voice-messaging.md ("Segment tone"). Shared across the Home teaser
 // and the Who We Help index/detail pages. Client-approved page content landed
 // 2026-09-17 (brand/content-revision/) for Professional, Farmers, and IT
-// Professionals — see src/data/segmentDetails.ts. Mortgage Brokers still has no
-// confirmed page content, so its detail page stays a "coming soon" state.
+// Professionals — see src/data/segmentDetails.ts. 2026-10-19: labels and the Farmers/
+// Health Care copy revised per the client's "Website notes.docx" (Enterprise Life
+// sells life/disability/health, not property & casualty — that sits with InsureLine),
+// and Mortgage Brokers content added from the InsureLine email blast PDF.
 export interface Segment {
 	slug: string;
 	title: string;
@@ -19,17 +21,17 @@ export const segments: Segment[] = [
 	},
 	{
 		slug: 'professionals',
-		title: 'Professional',
+		title: 'Professionals',
 		description: 'Your earning potential is your greatest asset. We build income protection calibrated to your practice and career.',
 	},
 	{
 		slug: 'medical-professionals',
-		title: 'Health Care',
-		description: "You've spent years — and significant liability exposure — building your career. Your coverage should reflect the demands of your profession.",
+		title: 'Health Care Professionals',
+		description: "You've invested years of training in a specialized career. Your income protection, practice, and family plan should reflect what that's worth.",
 	},
 	{
 		slug: 'engineers',
-		title: 'Architect and Engineers',
+		title: 'Architects & Engineers',
 		description: 'Precision matters in your work — it matters in your coverage, too. We model income protection with the same rigor.',
 	},
 	{
@@ -45,7 +47,7 @@ export const segments: Segment[] = [
 	{
 		slug: 'farmers',
 		title: 'Farmers',
-		description: 'Your operation is a business, an asset, and often a legacy. We protect your land, equipment, and the transition ahead.',
+		description: 'Your operation is a business, an asset, and often a legacy. We protect your income, your family, and the transition to the next generation.',
 	},
 	{
 		slug: 'it-professionals',

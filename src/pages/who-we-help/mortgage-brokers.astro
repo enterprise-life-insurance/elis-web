@@ -1,26 +1,37 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SegmentHero from '../../components/who-we-help/SegmentHero.astro';
-import EmptyState from '../../components/ui/EmptyState.astro';
+import SegmentRisks from '../../components/who-we-help/SegmentRisks.astro';
+import CalculatorTeaser from '../../components/tools/CalculatorTeaser.astro';
+import FAQ from '../../components/ui/FAQ.astro';
+import CTASection from '../../components/ui/CTASection.astro';
+import InsureLineReferral from '../../components/ui/InsureLineReferral.astro';
+import Disclaimer from '../../components/ui/Disclaimer.astro';
 import { segments } from '../../data/segments';
-import { safeFetchList } from '../../lib/sanityFetch';
-import { segmentListQuery, isValidSegmentCardData, type SegmentCardData } from '../../lib/queries';
+import { segmentDetails } from '../../data/segmentDetails';
+import { safeFetchOne } from '../../lib/sanityFetch';
+import { segmentDetailQuery, isValidSegmentPageData, type SegmentPageData } from '../../lib/queries';
 
 const SLUG = 'mortgage-brokers';
-const allSegments = await safeFetchList<SegmentCardData>(segmentListQuery, {}, segments, isValidSegmentCardData);
-const segment = allSegments.find((s) => s.slug === SLUG) ?? segments.find((s) => s.slug === SLUG)!;
+const fallback: SegmentPageData = {
+	...segments.find((s) => s.slug === SLUG)!,
+	...segmentDetails.find((d) => d.slug === SLUG)!,
+};
+const fetched = await safeFetchOne<SegmentPageData | null>(segmentDetailQuery, { slug: SLUG }, null);
+const segment: SegmentPageData = isValidSegmentPageData(fetched) ? fetched : fallback;
 ---
 
 <Layout title={segment.title} description={segment.description}>
-	<SegmentHero
-		title={segment.title}
-		intro="Commission-based income changes how much coverage you need and how it should be structured."
-	/>
-	<EmptyState
-		eyebrow="Coming Soon"
-		title="Full details for this page are on the way"
-		message="In the meantime, an advisor can walk you through your options directly."
-		ctaLabel="Talk to an Advisor"
-		ctaHref="/contact"
-	/>
+	<SegmentHero title={segment.title} intro={segment.intro} />
+	<SegmentRisks risks={segment.risks} />
+	<CalculatorTeaser slugs={['life-insurance-needs']} />
+	<FAQ items={segment.faq} title="What to look for in a disability plan" />
+	<InsureLineReferral message="Working from home? Home office, business-use vehicle, and cyber liability coverage for brokers is handled by our affiliated company, InsureLine Enterprise." />
+	<Disclaimer>
+		<p>
+			Life, disability and health products are offered through Enterprise Life Insurance & Investment Solutions Inc.
+			Benefits are subject to underwriting and policy terms.
+		</p>
+	</Disclaimer>
+	<CTASection title="Ready to protect your commission income?" />
 </Layout>

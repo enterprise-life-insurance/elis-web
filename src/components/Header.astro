@@ -1,13 +1,13 @@
 ---
 import { Menu } from 'lucide-react';
 import Button from './ui/Button.astro';
+import { primaryCtaShort } from '../data/site';
 
 const navItems = [
 	{ label: 'About', href: '/about' },
 	{ label: 'Who We Help', href: '/who-we-help' },
 	{ label: 'Services', href: '/services' },
 	{ label: 'Tools', href: '/tools' },
-	{ label: 'Resources', href: '/resources' },
 ];
 ---
 
@@ -31,7 +31,7 @@ const navItems = [
 		</nav>
 
 		<div class="hidden md:block">
-			<Button href="/contact">Contact Us</Button>
+			<Button href="/contact">{primaryCtaShort}</Button>
 		</div>
 
 		<button
@@ -58,7 +58,7 @@ const navItems = [
 				))
 			}
 			<li>
-				<Button href="/contact" class="w-full">Contact Us</Button>
+				<Button href="/contact" class="w-full">{primaryCtaShort}</Button>
 			</li>
 		</ul>
 	</nav>

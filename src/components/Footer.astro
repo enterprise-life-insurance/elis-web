@@ -10,23 +10,26 @@ import {
 	type SegmentCardData,
 	type ServiceCardData,
 } from '../lib/queries';
+import { office, telHref } from '../data/site';
 
 const segmentLinks = await safeFetchList<SegmentCardData>(segmentListQuery, {}, segments, isValidSegmentCardData);
 const serviceLinks = await safeFetchList<ServiceCardData>(serviceListQuery, {}, services, isValidServiceCardData);
 
-const partnerLogos = [
-	{ file: 'logo-manulife.png', name: 'Manulife' },
-	{ file: 'logo-sunlife.png', name: 'Sun Life' },
-	{ file: 'logo-canadalife-2.png', name: 'Canada Life' },
-	{ file: 'logo-equitable.png', name: 'Equitable' },
-	{ file: 'logo-scotiabank.png', name: 'Scotiabank' },
-	{ file: 'logo-td-1.png', name: 'TD' },
-	{ file: 'logo-nationalbank.png', name: 'National Bank' },
-	{ file: 'logo-firstnational.png', name: 'First National' },
-	{ file: 'logo-hometrust.png', name: 'Home Trust' },
-	{ file: 'logo-mackenzie.png', name: 'Mackenzie' },
-	{ file: 'logo-quadrus.png', name: 'Quadrus' },
-	{ file: 'logo-rmg.png', name: 'RMG' },
+// Contracted carriers only, matching the client's Disclosure & Privacy statement
+// (2026-10-19 — mortgage lenders and fund companies removed). Carriers without a
+// `file` render as a text wordmark until the client supplies logo files and
+// confirms logo-use rights.
+const partnerLogos: { name: string; file?: string }[] = [
+	{ name: 'Manulife', file: 'logo-manulife.png' },
+	{ name: 'Sun Life', file: 'logo-sunlife.png' },
+	{ name: 'Canada Life', file: 'logo-canadalife-2.png' },
+	{ name: 'BMO Insurance' },
+	{ name: 'Beneva' },
+	{ name: 'Empire Life' },
+	{ name: 'Foresters Financial' },
+	{ name: 'iA Financial Group' },
+	{ name: 'RBC Insurance' },
+	{ name: 'The Edge Benefits' },
 ];
 
 const footerNav = [
@@ -43,7 +46,6 @@ const footerNav = [
 		links: [
 			{ label: 'About', href: '/about' },
 			{ label: 'Tools', href: '/tools' },
-			{ label: 'Resources', href: '/resources' },
 			{ label: 'Contact', href: '/contact' },
 		],
 	},
@@ -53,18 +55,26 @@ const footerNav = [
 <footer class="border-t border-natural-grey-600 bg-natural-grey-500">
 	<div class="mx-auto max-w-7xl px-6 py-16">
 		<p class="mb-8 text-center text-sm font-medium tracking-wide text-natural-grey-800 uppercase">
-			Working with trusted carriers and partners
+			Insurance companies we work with
 		</p>
 		<div class="logo-ticker mb-16">
 			<ul class="logo-ticker__track">
 				{
-					[...partnerLogos, ...partnerLogos].map((logo) => (
-						<li class="flex shrink-0 items-center px-8">
-							<img
-								src={`/brand/partners/${logo.file}`}
-								alt={logo.name}
-								class="logo-ticker__logo h-14 w-auto object-contain opacity-70 grayscale transition-all duration-300"
-							/>
+					// Second copy exists only to make the marquee loop seamlessly — hidden from
+					// screen readers so each carrier is announced once.
+					[...partnerLogos, ...partnerLogos].map((logo, i) => (
+						<li class="flex h-14 shrink-0 items-center px-8" aria-hidden={i >= partnerLogos.length ? 'true' : undefined}>
+							{logo.file ? (
+								<img
+									src={`/brand/partners/${logo.file}`}
+									alt={logo.name}
+									class="logo-ticker__logo h-14 w-auto object-contain opacity-70 grayscale transition-all duration-300"
+								/>
+							) : (
+								<span class="logo-ticker__logo text-base font-semibold whitespace-nowrap text-natural-grey-900 opacity-60 transition-all duration-300">
+									{logo.name}
+								</span>
+							)}
 						</li>
 					))
 				}
@@ -75,6 +85,11 @@ const footerNav = [
 			<div class="col-span-2 md:col-span-1">
 				<img src="/brand/ELIS-logo-color-primary.svg" alt="Enterprise Life" class="mb-4 h-8 w-auto" />
 				<p class="text-sm text-natural-grey-800">Insurance & Investment Solutions Inc.</p>
+				<address class="mt-4 text-sm text-natural-grey-800 not-italic">
+					{office.street}<br />
+					{office.city}<br />
+					<a href={telHref(office.phone)} class="hover:text-enterprise-blue-500">{office.phone}</a>
+				</address>
 			</div>
 			{
 				footerNav.map((group) => (
@@ -94,12 +109,16 @@ const footerNav = [
 			}
 		</div>
 
-		<div class="mt-12 flex flex-col gap-4 border-t border-natural-grey-600 pt-8 text-sm text-natural-grey-800 md:flex-row md:items-center md:justify-between">
+		<!-- Points to the client's own disclosure rather than restating licensing in our
+		     words (decided 2026-10-20) — /privacy is the single source for that wording. -->
+		<p class="mt-12 border-t border-natural-grey-600 pt-8 text-xs text-natural-grey-800">
+			For our licensing, the insurers we work with, and how we're paid, see our
+			<a href="/privacy" class="underline hover:text-enterprise-blue-500">Advisor Disclosure & Privacy</a> statement.
+		</p>
+
+		<div class="mt-6 flex flex-col gap-4 text-sm text-natural-grey-800 md:flex-row md:items-center md:justify-between">
 			<p>&copy; {new Date().getFullYear()} Enterprise Life Insurance and Investment Solutions Inc.</p>
-			<div class="flex gap-6">
-				<a href="/privacy" class="hover:text-enterprise-blue-500">Privacy Policy</a>
-				<a href="/terms" class="hover:text-enterprise-blue-500">Terms</a>
-			</div>
+			<a href="/privacy" class="hover:text-enterprise-blue-500">Advisor Disclosure & Privacy</a>
 		</div>
 	</div>
 </footer>

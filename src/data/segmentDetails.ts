@@ -1,7 +1,10 @@
 // Detail-page-only content for each Who We Help segment: intro copy, risk list, and
 // FAQ. Tone per brand/brand-voice-messaging.md ("Segment tone"). FAQ content is
 // general insurance education, not ELIS-specific pricing/policy claims — kept that
-// way deliberately since we don't have confirmed specifics to attribute.
+// way deliberately since we don't have confirmed specifics to attribute. Exception:
+// Mortgage Brokers, whose content comes from the client's InsureLine email blast
+// (brand/content-revision/InsureLine_Email_Blast (5).pdf, page 3 — the life/health/
+// income side only; the home/auto/home-office side is InsureLine's).
 import type { FAQItem } from '../components/ui/FAQ.astro';
 
 export interface SegmentDetail {
@@ -47,7 +50,7 @@ export const segmentDetails: SegmentDetail[] = [
 	{
 		slug: 'medical-professionals',
 		intro:
-			"Between long hours and high liability, your coverage needs to work as hard as you do — and account for how specialized your income actually is.",
+			"Years of training, long hours, and often a practice to run — your coverage needs to work as hard as you do, and account for how specialized your income actually is.",
 		risks: [
 			'Disability coverage that reflects your specific specialty, not a generic occupation category',
 			'Outstanding student debt that would remain even if your income stopped',
@@ -140,7 +143,7 @@ export const segmentDetails: SegmentDetail[] = [
 	{
 		slug: 'professionals',
 		intro:
-			"Lawyers, accountants, and other professionals carry income and liability considerations a standard policy doesn't always address.",
+			"Lawyers, accountants, and other professionals have income, practice, and partnership considerations a standard policy doesn't always address.",
 		risks: [
 			'Income protection sized to a highly specialized, hard-to-replace skill set',
 			'Overhead expense coverage for professionals who own or share a practice',
@@ -172,9 +175,9 @@ export const segmentDetails: SegmentDetail[] = [
 	{
 		slug: 'farmers',
 		intro:
-			'Between land, equipment, and passing the operation to the next generation, farm coverage looks different from a standard personal policy.',
+			'Your land and equipment are tied up in the operation, and passing it to the next generation intact takes planning a standard personal policy doesn\'t do.',
 		risks: [
-			'Coverage for land, equipment, and buildings tied to the operation',
+			'Life insurance to settle debts and estate costs without selling land or equipment',
 			'Key person protection if an owner or essential worker is unable to work',
 			'Succession planning for passing the farm to the next generation',
 			'Coordinating personal and business coverage so nothing is duplicated or missed',
@@ -229,6 +232,40 @@ export const segmentDetails: SegmentDetail[] = [
 			{
 				question: 'Can I get group benefits for a small team?',
 				answer: 'Yes — group plans can be structured for very small teams, including early-stage startups.',
+			},
+		],
+	},
+	{
+		slug: 'mortgage-brokers',
+		intro: "There's no employer plan behind a commissioned broker. Protect the income everything else depends on.",
+		risks: [
+			'Disability income — a monthly benefit replacing part of your income if illness or injury keeps you from closing deals',
+			'Critical illness — a lump sum on diagnosis of a covered condition such as cancer, heart attack, or stroke',
+			"Business overhead expense — ongoing business costs paid while you're off",
+			'Term life and mortgage protection — so your family is protected and debts like your mortgage are paid off',
+			'Individual health and dental — plans from carriers such as Sun Life and The Edge Benefits',
+			"No employer safety net — no group disability, sick pay, or EI sickness benefits unless you registered in advance",
+		],
+		faq: [
+			{
+				question: "What does an 'own-occupation' definition mean?",
+				answer: "It pays if you can't work as a mortgage broker, not only if you can't do any job. It's one of the most important terms to look for in a disability plan.",
+			},
+			{
+				question: 'How does the waiting period affect my premium?',
+				answer: 'The waiting period is how long before benefits start. A longer wait lowers your premium.',
+			},
+			{
+				question: 'How long do disability benefits last?',
+				answer: 'It depends on the benefit period you choose — from a few years up to age 65.',
+			},
+			{
+				question: 'How do insurers prove commission income?',
+				answer: 'Commission income is usually based on net business income from your recent tax returns.',
+			},
+			{
+				question: 'Are disability benefits taxable?',
+				answer: 'Benefits from a plan you pay for personally are generally not taxable.',
 			},
 		],
 	},

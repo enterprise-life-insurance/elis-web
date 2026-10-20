@@ -1,12 +1,44 @@
 ---
-// No confirmed phone number or email address exists yet — deliberately not
-// inventing one. Swap this for real details (or pull from Sanity siteSettings,
-// see src/sanity/schemaTypes/siteSettings.ts) once the client provides them.
+// Details from the client's "Website notes.docx" (2026-10-17), kept in src/data/site.ts.
+// Emails for quotes/Ekta/Glenn are still outstanding — they'll show up here once
+// added to src/data/site.ts. Hours are tentative (see site.ts).
+import { office, advisorContacts, telHref } from '../../data/site';
 ---
 
-<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-8">
 	<div>
-		<p class="mb-2 text-sm font-semibold tracking-wide text-life-green-600 uppercase">Phone & Email</p>
-		<p class="text-natural-grey-800">Direct contact details are being finalized — use the form and we'll get back to you.</p>
+		<p class="mb-2 text-sm font-semibold tracking-wide text-life-green-600 uppercase">Office</p>
+		<address class="text-natural-grey-800 not-italic">
+			{office.street}<br />
+			{office.city}
+		</address>
+		<a href={office.mapUrl} target="_blank" rel="noopener" class="mt-1 inline-block text-sm font-semibold text-enterprise-blue-500 hover:text-enterprise-blue-600">
+			Get directions ↗
+		</a>
+		<p class="mt-3 text-natural-grey-800">
+			<a href={telHref(office.phone)} class="font-semibold text-natural-grey-900 hover:text-enterprise-blue-500">{office.phone}</a>
+		</p>
+		<p class="mt-1 text-natural-grey-800">{office.hours}</p>
+	</div>
+
+	<div>
+		<p class="mb-2 text-sm font-semibold tracking-wide text-life-green-600 uppercase">Our Advisors</p>
+		<ul class="flex flex-col gap-4">
+			{
+				advisorContacts.map((advisor) => (
+					<li>
+						<p class="font-semibold text-natural-grey-900">{advisor.name}</p>
+						<a href={telHref(advisor.phone)} class="block text-natural-grey-800 hover:text-enterprise-blue-500">
+							{advisor.phone}
+						</a>
+						{advisor.email && (
+							<a href={`mailto:${advisor.email}`} class="block break-all text-natural-grey-800 hover:text-enterprise-blue-500">
+								{advisor.email}
+							</a>
+						)}
+					</li>
+				))
+			}
+		</ul>
 	</div>
 </div>

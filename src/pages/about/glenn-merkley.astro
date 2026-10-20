@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import AdvisorProfile from '../../components/about/AdvisorProfile.astro';
+import InsureLineReferral from '../../components/ui/InsureLineReferral.astro';
 import { advisors, type Advisor } from '../../data/advisors';
 import { safeFetchOne } from '../../lib/sanityFetch';
 import { advisorDetailQuery, isValidAdvisorPageData, type AdvisorPageData } from '../../lib/queries';
@@ -10,6 +11,8 @@ import { advisorDetailQuery, isValidAdvisorPageData, type AdvisorPageData } from
 // insurance sales/servicing claims here. See CLAUDE.md / ia/website-ia-sitemap.md.
 // Now editable in Sanity Studio too — that constraint is enforced editorially only
 // (see the `licensedForLifeInsurance` field comment in the advisor schema), not by code.
+// Enterprise Life has no commercial service of its own — commercial coverage is
+// InsureLine's, hence the cross-referral below (client's "Website notes.docx").
 const SLUG = 'glenn-merkley';
 const staticAdvisor = advisors.find((a) => a.slug === SLUG)!;
 const fetched = await safeFetchOne<AdvisorPageData | null>(advisorDetailQuery, { slug: SLUG }, null);
@@ -17,5 +20,7 @@ const advisor: Advisor = isValidAdvisorPageData(fetched) ? { ...staticAdvisor, .
 ---
 
 <Layout title={advisor.name} description={advisor.shortBio} image={advisor.image}>
-	<AdvisorProfile advisor={advisor} />
+	<AdvisorProfile advisor={advisor}>
+		<InsureLineReferral message="Looking for commercial insurance for your business? Commercial coverage is placed through our affiliated company, InsureLine Enterprise." />
+	</AdvisorProfile>
 </Layout>

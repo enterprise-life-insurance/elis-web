@@ -1,6 +1,7 @@
 ---
 import { Picture } from 'astro:assets';
 import Button from '../ui/Button.astro';
+import { primaryCta } from '../../data/site';
 import family from '../../assets/about/family.jpg';
 import engineer from '../../assets/about/engineer.jpg';
 import businessOwner from '../../assets/about/business-owner.jpg';
@@ -26,7 +27,7 @@ const photoWidths = [480, 800, 1200];
 			Protecting what you've spent years building.
 		</h1>
 		<div data-reveal class="mt-8">
-			<Button href="/contact">Talk to an Advisor</Button>
+			<Button href="/contact">{primaryCta}</Button>
 		</div>
 	</div>
 </section>

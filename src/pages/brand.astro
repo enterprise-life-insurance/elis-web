@@ -1,0 +1,412 @@
+---
+// Web-based brand guidelines + asset downloads for the ELIS team (the "Brand
+// Identity" deliverable). Deliberately standalone (no site header/footer),
+// unlinked, and noindexed — shared by URL only.
+//
+// Sources: palette/typography/logos from the Visual Identity Guideline (confirmed
+// final 2026-08-07); voice and messaging verbatim from brand/brand-voice-messaging.md.
+// Left out on purpose until the client/designer confirms them: CMYK values (the
+// guideline PDF repeats "100 60 0 10" for every colour — a copy error), and the
+// clear-space / minimum-size / misuse rules (those guideline slides are empty).
+// Downloads live in public/brand/kit/ (PNGs exported from the SVGs in brand/logo/).
+import '../styles/global.css';
+
+const kit = '/brand/kit';
+
+const logos = [
+	{ file: 'ELIS-logo-color-primary', name: 'Primary logo', use: 'Default for web, documents, and email signatures.', bg: 'light' },
+	{ file: 'ELIS-logo-stacked-tagline', name: 'Secondary logo (stacked)', use: 'Centred layouts, signage, and covers where there is vertical room.', bg: 'light' },
+	{ file: 'ELIS-favicon-square-primary', name: 'Icon', use: 'Social avatars, app icons, and favicons.', bg: 'light', square: true },
+	{ file: 'ELIS-logo-color-secondary', name: 'Primary logo, no tagline', use: 'Small sizes where the tagline would be too small to read.', bg: 'light' },
+	{ file: 'ELIS-wordmark-color', name: 'Wordmark', use: 'Tight horizontal spaces where the icon is shown elsewhere.', bg: 'light' },
+	{ file: 'ELIS-favicon-square-inverse', name: 'Icon — reversed', use: 'On Enterprise Blue backgrounds only.', bg: 'blue', square: true },
+];
+
+const hexToRgb = (hex: string) =>
+	[1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16)).join(' ');
+
+const primaries = [
+	{ name: 'Enterprise Blue', hex: '#0061A6', light: true },
+	{ name: 'Life Green', hex: '#85BD2D', light: false },
+	{ name: 'Neutral Grey', hex: '#F7F7F7', light: false },
+];
+
+const steps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+const ramps = [
+	{
+		name: 'Enterprise Blue',
+		hexes: ['#E6EFFC', '#B0CEE3', '#8AB6D6', '#5495C3', '#3381B8', '#0061A6', '#005897', '#004576', '#00355B', '#002946'],
+		lightFrom: 400,
+	},
+	{
+		name: 'Life Green',
+		hexes: ['#F3F8EA', '#D9EBBE', '#C7E19E', '#ADD372', '#9DCA57', '#85BD2D', '#79AC29', '#5E8620', '#496819', '#384F13'],
+		lightFrom: 700,
+	},
+	{
+		name: 'Neutral Grey',
+		hexes: ['#FEFEFE', '#FDFDFD', '#FBFBFB', '#FAFAFA', '#F9F9F9', '#F7F7F7', '#E1E1E1', '#AFAFAF', '#888888', '#686868'],
+		lightFrom: 800,
+	},
+];
+
+const weights = [
+	{ name: 'Bold', weight: 700, use: 'Headlines' },
+	{ name: 'Semi-Bold', weight: 600, use: 'Subheads, buttons' },
+	{ name: 'Medium', weight: 500, use: 'Labels, emphasis' },
+	{ name: 'Regular', weight: 400, use: 'Body copy' },
+];
+
+const values = [
+	'Honest and transparent advice',
+	'Solutions tailored to your unique needs',
+	'Ongoing guidance as life changes',
+	'Trusted long-term relationships',
+	'Comprehensive insurance and financial solutions under one roof',
+];
+
+const pillars = [
+	{
+		title: 'Clarity Over Complexity',
+		value: 'Honest & Transparent Advice',
+		say: "Here's exactly what this policy covers.",
+		not: 'We believe in transparency.',
+	},
+	{
+		title: 'Built Around You',
+		value: 'Tailored Solutions',
+		say: 'A business owner and a tradesperson need different coverage — here’s how.',
+		not: 'Comprehensive solutions for everyone.',
+	},
+	{
+		title: 'In It for the Long Run',
+		value: 'Ongoing Guidance',
+		say: 'Your plan changes when your life does.',
+		not: 'Get your free quote today.',
+	},
+	{
+		title: 'Earned Trust, Not Claimed Trust',
+		value: 'Trusted Long-Term Relationships',
+		say: "Jay's been writing policies since 1994.",
+		not: "We're the most trusted advisor in the industry.",
+	},
+	{
+		title: 'One Advisor, Every Angle',
+		value: 'Comprehensive Coverage',
+		say: 'One advisor handled her life insurance, benefits, and estate plan together.',
+		not: 'We offer life, health, travel insurance, and more.',
+	},
+];
+
+const tones = [
+	{ segment: 'Engineers', tone: 'Authority/Ruler inflection. Analytical, precise, cut-to-the-point. Lead with numbers and logic.' },
+	{ segment: 'Healthcare', tone: 'Caregiver inflection. Empathetic but efficient.' },
+	{ segment: 'Business owners & contractors', tone: 'Sage + practical. Speak to risk to the business itself.' },
+	{ segment: 'Families & Individuals', tone: 'Caregiver + Sage. Warmest of the four; centers protection and peace of mind.' },
+];
+
+const sections = [
+	{ id: 'logo', label: 'Logo' },
+	{ id: 'colour', label: 'Colour' },
+	{ id: 'type', label: 'Typography' },
+	{ id: 'voice', label: 'Voice' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, nofollow" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Brand Guidelines | Enterprise Life</title>
+	</head>
+	<body class="bg-white font-sans text-natural-grey-900 antialiased">
+		<header class="sticky top-0 z-50 border-b border-natural-grey-600 bg-white/90 backdrop-blur">
+			<div class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-3 sm:px-6">
+				<a href="#top" aria-label="Back to top"><img src={`${kit}/ELIS-logo-color-primary.svg`} alt="Enterprise Life" class="h-9 w-auto" /></a>
+				<nav class="hidden items-center gap-7 md:flex" aria-label="Sections">
+					{sections.map((s) => <a href={`#${s.id}`} class="text-sm font-medium hover:text-enterprise-blue-500">{s.label}</a>)}
+				</nav>
+				<a
+					href={`${kit}/ELIS-brand-kit.zip`}
+					download
+					class="rounded-full bg-life-green-500 px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-white transition-colors hover:bg-life-green-600"
+				>
+					Download kit
+				</a>
+			</div>
+		</header>
+
+		<main id="top">
+			<section class="relative overflow-hidden bg-enterprise-blue-500">
+				<div class="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-bl-[8rem] bg-life-green-500 md:h-[26rem] md:w-[26rem] md:rounded-bl-[12rem]"></div>
+				<div class="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
+					<p class="text-sm font-semibold tracking-[0.2em] text-life-green-300 uppercase">Brand Guidelines</p>
+					<h1 class="mt-4 max-w-2xl text-4xl leading-tight font-bold text-white md:text-6xl">
+						How Enterprise Life looks, sounds, and shows up.
+					</h1>
+					<p class="mt-6 max-w-xl text-lg text-white/90">
+						Enterprise Life is a specialized insurance and investment practice built on advisors with decades of hands-on
+						experience writing, managing, and tailoring policies to real people's lives.
+					</p>
+					<p class="mt-4 max-w-xl text-white/80">
+						Everything you need to use the brand consistently — logo files, colours, type, and the voice behind the words.
+					</p>
+				</div>
+			</section>
+
+			<!-- 01 Logo -->
+			<section id="logo" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-20 sm:px-6">
+				<p class="text-sm font-semibold tracking-[0.2em] text-life-green-600 uppercase">01 — Logo</p>
+				<h2 class="mt-3 text-3xl font-bold md:text-4xl">Our logos</h2>
+				<p class="mt-4 max-w-2xl text-natural-grey-900">
+					The logo should be treated as one unit and should never be altered. It should be considered a picture, not a word,
+					and must not be modified or manipulated in any way.
+				</p>
+
+				<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+					{
+						logos.map((logo) => (
+							<article class="flex flex-col overflow-hidden rounded-2xl border border-natural-grey-600">
+								<div
+									class:list={[
+										'flex h-48 items-center justify-center p-8',
+										logo.bg === 'blue' ? 'bg-enterprise-blue-500' : 'bg-natural-grey-500',
+									]}
+								>
+									<img
+										src={`${kit}/${logo.file}.svg`}
+										alt={logo.name}
+										class:list={[logo.square ? 'h-28 w-28' : 'max-h-full w-full', 'object-contain']}
+									/>
+								</div>
+								<div class="flex flex-1 flex-col gap-1 p-5">
+									<h3 class="font-semibold text-natural-grey-900">{logo.name}</h3>
+									<p class="text-sm text-natural-grey-900">{logo.use}</p>
+									<div class="mt-auto flex gap-2 pt-4">
+										<a
+											href={`${kit}/${logo.file}.svg`}
+											download
+											class="rounded-full border-2 border-life-green-500 px-4 py-1.5 text-xs font-semibold text-enterprise-blue-900 hover:bg-life-green-50"
+										>
+											SVG
+										</a>
+										<a
+											href={`${kit}/${logo.file}.png`}
+											download
+											class="rounded-full border-2 border-life-green-500 px-4 py-1.5 text-xs font-semibold text-enterprise-blue-900 hover:bg-life-green-50"
+										>
+											PNG
+										</a>
+									</div>
+								</div>
+							</article>
+						))
+					}
+				</div>
+				<p class="mt-6 text-sm text-natural-grey-900">
+					SVG for web and professional print; PNG (transparent, high resolution) for documents, slides, and social.
+				</p>
+			</section>
+
+			<!-- 02 Colour -->
+			<section id="colour" class="scroll-mt-20 bg-natural-grey-500">
+				<div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+					<p class="text-sm font-semibold tracking-[0.2em] text-life-green-600 uppercase">02 — Colour</p>
+					<h2 class="mt-3 text-3xl font-bold md:text-4xl">Colour palette</h2>
+					<p class="mt-4 max-w-2xl text-natural-grey-900">Click any swatch to copy its HEX code.</p>
+
+					<div class="mt-10 grid gap-6 md:grid-cols-3">
+						{
+							primaries.map((c) => (
+								<button
+									type="button"
+									data-copy={c.hex}
+									class="group overflow-hidden rounded-2xl border border-natural-grey-600 bg-white text-left"
+								>
+									<div class="h-36 rounded-tr-[4rem]" style={`background:${c.hex}`} />
+									<div class="p-5">
+										<p class="text-lg font-semibold text-natural-grey-900">{c.name}</p>
+										<p class="mt-1 font-mono text-sm text-natural-grey-900">{c.hex}</p>
+										<p class="font-mono text-sm text-natural-grey-900">RGB {hexToRgb(c.hex)}</p>
+										<p data-copied class="mt-2 h-4 text-xs font-semibold text-life-green-700" />
+									</div>
+								</button>
+							))
+						}
+					</div>
+
+					<div class="mt-6 h-16 rounded-2xl rounded-tr-[3rem]" style="background:linear-gradient(110deg,#0061A6,#85BD2D)" role="img" aria-label="Brand gradient from Enterprise Blue to Life Green"></div>
+					<p class="mt-2 text-sm text-natural-grey-900">Brand gradient: Enterprise Blue to Life Green — for accents, not body backgrounds.</p>
+
+					<h3 class="mt-14 text-xl font-semibold">Tints & shades</h3>
+					<div class="mt-6 flex flex-col gap-6">
+						{
+							ramps.map((ramp) => (
+								<div>
+									<p class="mb-2 text-sm font-semibold">{ramp.name}</p>
+									<div class="grid grid-cols-5 overflow-hidden rounded-xl border border-natural-grey-600 md:grid-cols-10">
+										{ramp.hexes.map((hex, i) => (
+											<button
+												type="button"
+												data-copy={hex}
+												class:list={['flex h-20 flex-col justify-end p-2 text-left text-[11px] leading-tight', steps[i] >= ramp.lightFrom ? 'text-white' : 'text-enterprise-blue-900']}
+												style={`background:${hex}`}
+												aria-label={`${ramp.name} ${steps[i]}, ${hex} — copy`}
+											>
+												<span class="font-semibold">{steps[i]}</span>
+												<span class="font-mono">{hex}</span>
+											</button>
+										))}
+									</div>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</section>
+
+			<!-- 03 Typography -->
+			<section id="type" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-20 sm:px-6">
+				<p class="text-sm font-semibold tracking-[0.2em] text-life-green-600 uppercase">03 — Typography</p>
+				<h2 class="mt-3 text-3xl font-bold md:text-4xl">Poppins, in four weights</h2>
+				<div class="mt-10 grid gap-10 md:grid-cols-[1fr_2fr]">
+					<div>
+						<p class="text-8xl leading-none font-semibold text-enterprise-blue-500">Aa</p>
+						<p class="mt-4 font-semibold text-life-green-600">PRIMARY FONT</p>
+						<p class="text-2xl font-semibold">Poppins</p>
+						<a
+							href="https://fonts.google.com/specimen/Poppins"
+							target="_blank"
+							rel="noopener"
+							class="mt-4 inline-block text-sm font-semibold text-enterprise-blue-500 hover:text-enterprise-blue-600"
+						>
+							Download free from Google Fonts ↗
+						</a>
+					</div>
+					<div class="grid gap-6 sm:grid-cols-2">
+						{
+							weights.map((w) => (
+								<div class="border-l-2 border-life-green-500 pl-5">
+									<p class="font-semibold text-enterprise-blue-500">
+										Poppins {w.name} <span class="text-sm font-normal text-natural-grey-900">· {w.use}</span>
+									</p>
+									<p class="mt-2 text-lg break-words" style={`font-weight:${w.weight}`}>
+										ABCDEFGHIJKLMNOPQRSTUVWXYZ
+										<br />
+										abcdefghijklmnopqrstuvwxyz
+										<br />
+										0123456789
+									</p>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</section>
+
+			<!-- 04 Voice -->
+			<section id="voice" class="scroll-mt-20 bg-enterprise-blue-900 text-white">
+				<div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+					<p class="text-sm font-semibold tracking-[0.2em] text-life-green-300 uppercase">04 — Voice & Messaging</p>
+					<h2 class="mt-3 max-w-3xl text-3xl font-bold md:text-4xl">A new company, not new advisors.</h2>
+					<p class="mt-4 max-w-2xl text-white/85">
+						Jay Bablani (since 1994) and Glenn Merkley (30+ years) bring decades of experience into a freshly formed company —
+						the newness of Enterprise Life must never read as inexperience.
+					</p>
+
+					<div class="mt-12 grid gap-6 md:grid-cols-2">
+						<div class="rounded-2xl bg-white/5 p-6">
+							<p class="text-sm font-semibold tracking-wide text-life-green-300 uppercase">Mission</p>
+							<p class="mt-2 text-lg">
+								Our mission is to help clients protect their loved ones, support their employees, and achieve lasting financial
+								security with confidence and clarity.
+							</p>
+						</div>
+						<div class="rounded-2xl bg-white/5 p-6">
+							<p class="text-sm font-semibold tracking-wide text-life-green-300 uppercase">Vision</p>
+							<p class="mt-2 text-lg">
+								Our vision is to be the trusted advisor for individuals, families, and business owners by empowering them with
+								knowledge, personalized planning, and strategies that protect what matters most.
+							</p>
+						</div>
+						<div class="rounded-2xl bg-white/5 p-6 md:col-span-2">
+							<p class="text-sm font-semibold tracking-wide text-life-green-300 uppercase">Positioning</p>
+							<p class="mt-2 text-lg">
+								Enterprise Life Insurance and Investment Solutions provides personalized financial and estate planning,
+								insurance, and group benefits solutions for business owners, professionals, and families. Our advisors bring
+								decades of hands-on experience, helping clients translate complex risks into clear, actionable plans.
+							</p>
+						</div>
+					</div>
+
+					<h3 class="mt-14 text-xl font-semibold">What we stand for</h3>
+					<ul class="mt-4 flex flex-wrap gap-2">
+						{values.map((v) => <li class="rounded-full bg-white/10 px-4 py-2 text-sm">{v}</li>)}
+					</ul>
+
+					<h3 class="mt-14 text-xl font-semibold">Communication pillars</h3>
+					<div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+						{
+							pillars.map((p, i) => (
+								<article class="flex flex-col rounded-2xl bg-white p-6 text-natural-grey-900">
+									<p class="text-xs font-semibold tracking-wide text-life-green-700 uppercase">
+										{String(i + 1).padStart(2, '0')} · {p.value}
+									</p>
+									<h4 class="mt-2 text-lg font-semibold text-enterprise-blue-900">{p.title}</h4>
+									<p class="mt-4 text-sm">
+										<span class="font-semibold text-life-green-700">Say</span> “{p.say}”
+									</p>
+									<p class="mt-2 text-sm">
+										<span class="font-semibold text-enterprise-blue-500">Not</span> <s>“{p.not}”</s>
+									</p>
+								</article>
+							))
+						}
+					</div>
+
+					<h3 class="mt-14 text-xl font-semibold">Tone by audience</h3>
+					<dl class="mt-6 grid gap-4 md:grid-cols-2">
+						{
+							tones.map((t) => (
+								<div class="border-l-2 border-life-green-400 pl-5">
+									<dt class="font-semibold">{t.segment}</dt>
+									<dd class="mt-1 text-white/85">{t.tone}</dd>
+								</div>
+							))
+						}
+					</dl>
+				</div>
+			</section>
+		</main>
+
+		<footer class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-10 text-sm text-natural-grey-900 sm:px-6 md:flex-row md:justify-between">
+			<p>Enterprise Life Insurance & Investment Solutions Inc. — Brand Guidelines</p>
+			<a href={`${kit}/ELIS-brand-kit.zip`} download class="font-semibold text-enterprise-blue-500 hover:text-enterprise-blue-600">
+				Download the full kit (.zip)
+			</a>
+		</footer>
+
+		<script>
+			document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((el) => {
+				el.addEventListener('click', async () => {
+					const hex = el.dataset.copy!;
+					try {
+						await navigator.clipboard.writeText(hex);
+					} catch {
+						return;
+					}
+					const note = el.querySelector<HTMLElement>('[data-copied]');
+					if (note) {
+						note.textContent = `Copied ${hex}`;
+						setTimeout(() => (note.textContent = ''), 1500);
+					} else {
+						el.animate([{ opacity: 0.5 }, { opacity: 1 }], { duration: 300 });
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
