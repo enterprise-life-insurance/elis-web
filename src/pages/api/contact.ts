@@ -51,7 +51,7 @@ export const POST: APIRoute = async ({ request }) => {
 
 	try {
 		await sgMail.send({
-			to: toEmail,
+			to: toEmail.split(',').map((address) => address.trim()).filter(Boolean),
 			from: fromEmail,
 			replyTo: email,
 			subject: `New contact form submission from ${name}`,

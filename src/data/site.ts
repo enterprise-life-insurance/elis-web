@@ -1,9 +1,9 @@
 // Firm-wide contact details and primary call to action, shared by the contact page,
 // footer, and Disclosure & Privacy page. Address/phones/Jay's email are from the
-// client's "Website notes.docx" (brand/content-revision/, 2026-10-17). Still
-// missing from the client: email addresses for quotes, Ekta and Glenn — Jay's is
-// the only one shown for now (agreed 2026-10-20). Office hours are a tentative
-// placeholder until the client confirms.
+// client's "Website notes.docx" (brand/content-revision/, 2026-10-17). Email
+// convention agreed 2026-10-27 is firstname.lastname@enterpriselife.ca, but only
+// Jay's is shown until the Microsoft 365 mailboxes exist. Office hours confirmed
+// by the client 2026-10-27.
 
 // Tentative offer — the 20-minute review length isn't confirmed by the client yet.
 export const primaryCta = 'Book a 20-minute review';
