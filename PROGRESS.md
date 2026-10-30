@@ -177,3 +177,22 @@ Re-audited every point in `Website notes.docx` against the live site and closed 
 
 
 **Advisor profile wording (2026-10-20):** rule set by the agency: client-provided copy stays exactly as provided. Only our own wording gets changed or removed. So licensing lines are now verbatim from the client's notes ("Licensed with FSRA for life and accident & sickness." for Jay and Ekta, "Licensed for accident and sickness through his RIBO license." for Glenn), and Ekta's "RIBO Certified" wording is kept as the client wrote it. A plain-language rewrite and a "RIBO Licensed" correction were drafted, then reverted under that rule before going live. Still pending client confirmation on the meeting checklist: whether Glenn's RIBO licence actually covers accident & sickness, whether Ekta's line should also name RIBO, and holding off on printing QR codes until DNS is live. Licence numbers / "verify licence" links: decided against. Verified that the CLU qualifies for the "Financial Planner" title under FSRA's title protection rules.
+## 2026-10-27 — Launch-readiness meeting: decisions (logged 2026-10-30)
+
+Website review with Jay, Glenn and Ekta (notes in Downloads, not in the repo). Launch target: **no later than Nov 1**, iterating after go-live.
+
+- **Hosting stays on Vercel**; only the domain and DNS stay at GoDaddy (confirmed by the agency 2026-10-30 after "hosting with GoDaddy" came up in the meeting). Email is Microsoft 365, bought directly from Microsoft for three users plus a shared inbox.
+- **Email convention**: `firstname.lastname@enterpriselife.ca` (the meeting notes say `.com`; confirmed `.ca`). Jay's address stays on the site; Glenn's and Ekta's go up once their mailboxes exist.
+- **Lead routing**: contact-form submissions go to all three advisors for now (`CONTACT_TO_EMAIL` now accepts a comma-separated list). Swap to the shared inbox once it's created. A branded SendGrid acknowledgment to the enquirer is agreed but not built yet.
+- **Office hours** Mon–Fri 9–5 confirmed. **"Affiliated"** confirmed as the InsureLine wording; the companies are legally unrelated but cross-refer.
+- **Agreed to-dos (agency)**: Trusted Partners section on About below the team (waiting on Jay's partner details/logos, incl. a mortgage broker); advisor contact cards with photos on Contact; business cards updated with emails and photos; letterhead; both added to `/brand`; a Meta + Google Business Profile setup checklist for Jay.
+- **Out of scope for this site**: Ekta's home/auto calculator spreadsheet (property and auto are InsureLine's lines).
+- Payment: partial now, balance at go-live/handoff.
+
+## 2026-10-30 — Letterhead delivered on /brand
+
+Jay asked for a letterhead in the 10-27 meeting. Eight directions were explored on a design canvas; the agency approved two, **Classic** (logo and contact across the top, slim footer) and **Leaf** (the guideline's leaf shapes in the top corner, contact in a three-column footer). Both are company-wide (no per-advisor versions) and carry Facebook/Instagram icons with **`@enterprise.life`, a temporary handle** until the client registers the real usernames.
+
+- **Downloads** in a new "05 — Stationery" section on `/brand`, also added to the kit zip: Word template (.dotx), Word document (.docx) and PDF for each, plus a print-shop PDF with 0.125″ bleed for Leaf (its shapes run off the page edge, which office printers can't print).
+- **Word files**: letterhead artwork sits behind the text on page 1 only, so it looks right without Poppins installed; later pages get a small logo header and "Page N" footer. Checked by rendering a three-page letter through LibreOffice. Not yet opened in Word itself or Google Docs.
+- **Regenerate** with `pnpm build:letterhead` (`scripts/build-letterhead.ts`, reads contact details from `src/data/site.ts`). Rerun it when the social handle is locked or contact details change.
